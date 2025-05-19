@@ -9,6 +9,10 @@ based on RHEL9 CIS 2.0.0
 
 Ability to audit a system using a lightweight binary to check the current state.
 
+### Memory Usage
+ Running the audit sees an Increased RAM usage, improvements seen when dropping swappiness e.g. 5. Already improved by latest kernel update 6.12.0-55.12.1 as of 19-05-25
+
+
 This is:
 
 - very small 11MB
