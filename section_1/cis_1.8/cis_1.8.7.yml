@@ -1,0 +1,25 @@
+---
+
+{{ if not .Vars.rhel10cis_gui }}
+  {{ if .Vars.rhel10cis_level_1 }}
+    {{ if .Vars.rhel10cis_rule_1_8_7 }}
+file:
+  00-media-autorun_override:
+    title: 1.8.7 | Ensure GDM disabling automatic mounting of removable media is not overridden
+    path: /etc/dconf/db/{{ .Vars.rhel10cis_dconf_db_name }}.d/00-media-autorun
+    exists: true
+    contents:
+    - '^/\/org\/gnome\/desktop\/media-handling\/automount/'
+    - '^/\/org\/gnome\/desktop\/media-handling\/automount-open/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.8.7
+      CISv8: 10.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+    {{ end }}
+  {{ end }}
+{{ end }}

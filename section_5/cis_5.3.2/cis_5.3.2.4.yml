@@ -1,0 +1,39 @@
+---
+
+{{ if .Vars.rhel10cis_level_1 }}
+  {{ if .Vars.rhel10cis_rule_5_3_2_4 }}
+file:
+  passwd_auth_pwhistory:
+    title: 5.3.2.4 | Ensure pam_pwhistory module is enabled
+    path: /etc/pam.d/password-auth
+    exists: true
+    contents:
+    - '/password\s+(required|requisite)\s+pam_pwhistory.so use_authtok/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 5.3.2.4
+      CISv8: 5.2
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5: IA-5
+  system_auth_pwhistory:
+    title: 5.3.2.4 | Ensure pam_pwhistory module is enabled
+    path: /etc/pam.d/system-auth
+    exists: true
+    contents:
+    - '/password\s+(required|requisite)\s+pam_pwhistory.so use_authtok/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 5.3.2.4
+      CISv8: 5.2
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5: IA-5
+  {{ end }}
+{{ end }}

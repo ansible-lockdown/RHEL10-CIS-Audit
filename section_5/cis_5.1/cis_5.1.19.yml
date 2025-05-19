@@ -1,0 +1,55 @@
+---
+
+{{ if .Vars.rhel10cis_level_1 }}
+  {{ if .Vars.rhel10cis_rule_5_1_19 }}
+file:
+  sshs_permitempty_passwd:
+    title: 5.1.19 | Ensure SSH PermitEmptyPasswords is disabled | config
+    path: /etc/ssh/sshd_config
+    exists: true
+    contents:
+    - '/^PermitEmptyPasswords no/'
+    - '!/^PermitEmptyPasswords yes/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 5.1.19
+      CISv8: 4.1
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+command:
+  ssh_empty_passwd_live:
+    title: 5.1.19 | Ensure SSH PermitEmptyPasswords is disabled | live
+    exec: sshd -T | grep permitemptypasswords
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^permitemptypasswords no/'
+    - '!/^permitemptypasswords yes/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 5.1.19
+      CISv8: 4.1
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+  {{ end }}
+{{ end }}

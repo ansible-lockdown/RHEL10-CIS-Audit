@@ -1,0 +1,74 @@
+---
+
+{{ if .Vars.rhel10cis_level_1 }}
+  {{ if .Vars.rhel10cis_rule_1_4_2 }}
+    {{ if .Vars.rhel10cis_legacy_boot }}
+file:
+  grub_bootloaders_perms:
+    title: 1.4.2 | Ensure access to bootloader config is configured| file_perms | grub.cfg
+    path: /boot/grub2/grub.cfg
+    exists: true
+    owner: root
+    group: root
+    mode: "0600"
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.4.2
+      CISv8:
+      - 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5: AC-3
+  grubenv_perms:
+    title: 1.4.2 | Ensure permissions on bootloader config are configured | file_perms | grubenv
+    path: /boot/grub2/grubenv
+    exists: true
+    owner: root
+    group: root
+    mode: "0600"
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.4.2
+      CISv8:
+      - 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5: AC-3
+  grub_user_perms:
+    title: 1.4.2 | Ensure permissions on bootloader config are configured | file_perms | user.cfg
+    path: /boot/grub2/user.cfg
+    exists: true
+    owner: root
+    group: root
+    mode: "0600"
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.4.2
+      CISv8:
+      - 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5: AC-3
+    {{ end }}
+    {{ if not .Vars.rhel10cis_legacy_boot }}
+command:
+  efi_boot_opts:
+    exec: grep "^[^#;]" /etc/fstab | grep '/boot/efi' | awk -F" " '{print $4}'
+    exit-status: 0
+    stdout:
+    - 'umask=0077'
+    - 'fmask=0077'
+    - 'uid=0'
+    - 'gid=0'
+    {{ end }}
+  {{ end }}
+{{ end }}

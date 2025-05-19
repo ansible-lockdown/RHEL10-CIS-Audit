@@ -1,0 +1,24 @@
+---
+
+{{ if .Vars.rhel10cis_level_1 }}
+  {{ if .Vars.rhel10cis_rule_1_6_7 }}
+file:
+  crypto_policies_no_ssh_EtM:
+    title: 1.6.7 | Ensure system wide crypto policy disables EtM for ssh
+    path: /etc/crypto-policies/state/CURRENT.pol
+    exists: true
+    contents:
+    - '!/^\s*etm\b'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.6.7
+      CISv8:
+      - 3.10
+      CISv8_IG1: false
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5: SC-8
+  {{ end }}
+{{ end }}

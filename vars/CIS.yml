@@ -1,0 +1,575 @@
+## metadata for benchmark
+
+## metadata for Audit benchmark
+benchmark_version: '2.0.0'
+
+# Set if genuine RHEL (subscription manager check) not for derivatives e.g. CentOS
+# If run via script this is discovered and set
+host_os_distribution: RedHat
+
+
+#  timeout for each command to run where set - default = 10seconds/10000ms
+timeout_ms: 120000
+
+# Taken from LE rhel10-cis
+rhel10cis_section1: true
+rhel10cis_section2: true
+rhel10cis_section3: true
+rhel10cis_section4: true
+rhel10cis_section5: true
+rhel10cis_section6: true
+rhel10cis_section7: true
+
+rhel10cis_level_1: true
+rhel10cis_level_2: true
+
+rhel10cis_selinux_disable: false
+
+#  to enable rules that may have IO impact on a system e.g. full filesystem scans or CPU heavy
+run_heavy_tests: true
+
+#  True is BIOS based system else set to false
+rhel10cis_legacy_boot: true
+
+rhel10cis_set_boot_pass: true
+
+# Section 1 is Initial setup (FileSystem Configuration, Configure Software Updates, Filesystem Integrity Checking, Secure Boot Settings,
+# Additional Process Hardening, Mandatory Access Control, Command Line Warning Banners, and GNOME Display Manager)
+# Filesystem kernel modules
+rhel10cis_rule_1_1_1_1: true
+rhel10cis_rule_1_1_1_2: true
+rhel10cis_rule_1_1_1_3: true
+rhel10cis_rule_1_1_1_4: true
+rhel10cis_rule_1_1_1_5: true
+rhel10cis_rule_1_1_1_6: true
+rhel10cis_rule_1_1_1_7: true
+rhel10cis_rule_1_1_1_8: true
+rhel10cis_rule_1_1_1_9: true
+# Filesystems
+# /tmp
+rhel10cis_rule_1_1_2_1_1: true
+rhel10cis_rule_1_1_2_1_2: true
+rhel10cis_rule_1_1_2_1_3: true
+rhel10cis_rule_1_1_2_1_4: true
+# /dev/shm
+rhel10cis_rule_1_1_2_2_1: true
+rhel10cis_rule_1_1_2_2_2: true
+rhel10cis_rule_1_1_2_2_3: true
+rhel10cis_rule_1_1_2_2_4: true
+# /home
+rhel10cis_rule_1_1_2_3_1: true
+rhel10cis_rule_1_1_2_3_2: true
+rhel10cis_rule_1_1_2_3_3: true
+# /var
+rhel10cis_rule_1_1_2_4_1: true
+rhel10cis_rule_1_1_2_4_2: true
+rhel10cis_rule_1_1_2_4_3: true
+# /var/tmp
+rhel10cis_rule_1_1_2_5_1: true
+rhel10cis_rule_1_1_2_5_2: true
+rhel10cis_rule_1_1_2_5_3: true
+rhel10cis_rule_1_1_2_5_4: true
+# /var/log
+rhel10cis_rule_1_1_2_6_1: true
+rhel10cis_rule_1_1_2_6_2: true
+rhel10cis_rule_1_1_2_6_3: true
+rhel10cis_rule_1_1_2_6_4: true
+# /var/log/audit
+rhel10cis_rule_1_1_2_7_1: true
+rhel10cis_rule_1_1_2_7_2: true
+rhel10cis_rule_1_1_2_7_3: true
+rhel10cis_rule_1_1_2_7_4: true
+
+# Package Mgmt
+# Config Pkg Repos
+rhel10cis_rule_1_2_1_1: true
+rhel10cis_rule_1_2_1_2: true
+rhel10cis_rule_1_2_1_3: true
+rhel10cis_rule_1_2_1_4: true
+# Package updates
+rhel10cis_rule_1_2_2_1: true
+
+# Selinux
+rhel10cis_rule_1_3_1_1: true
+rhel10cis_rule_1_3_1_2: true
+rhel10cis_rule_1_3_1_3: true
+rhel10cis_rule_1_3_1_4: true
+rhel10cis_rule_1_3_1_5: true
+rhel10cis_rule_1_3_1_6: true
+rhel10cis_rule_1_3_1_7: true
+rhel10cis_rule_1_3_1_8: true
+
+# Bootloader
+rhel10cis_rule_1_4_1: true
+rhel10cis_rule_1_4_2: true
+
+# Additional Process Hardening
+rhel10cis_rule_1_5_1: true
+rhel10cis_rule_1_5_2: true
+rhel10cis_rule_1_5_3: true
+rhel10cis_rule_1_5_4: true
+
+# Config system wide Crypto
+rhel10cis_rule_1_6_1: true
+rhel10cis_rule_1_6_2: true
+rhel10cis_rule_1_6_3: true
+rhel10cis_rule_1_6_4: true
+rhel10cis_rule_1_6_5: true
+rhel10cis_rule_1_6_6: true
+rhel10cis_rule_1_6_7: true
+
+# Command line warning banners
+rhel10cis_rule_1_7_1: true
+rhel10cis_rule_1_7_2: true
+rhel10cis_rule_1_7_3: true
+rhel10cis_rule_1_7_4: true
+rhel10cis_rule_1_7_5: true
+rhel10cis_rule_1_7_6: true
+
+# Gnome Display Manager
+rhel10cis_rule_1_8_1: true
+rhel10cis_rule_1_8_2: true
+rhel10cis_rule_1_8_3: true
+rhel10cis_rule_1_8_4: true
+rhel10cis_rule_1_8_5: true
+rhel10cis_rule_1_8_6: true
+rhel10cis_rule_1_8_7: true
+rhel10cis_rule_1_8_8: true
+rhel10cis_rule_1_8_9: true
+rhel10cis_rule_1_8_10: true
+
+# Section 2 rules are controling Services (Special Purpose Services, and service clients)
+## Configure Server Services
+rhel10cis_rule_2_1_1: true
+rhel10cis_rule_2_1_2: true
+rhel10cis_rule_2_1_3: true
+rhel10cis_rule_2_1_4: true
+rhel10cis_rule_2_1_5: true
+rhel10cis_rule_2_1_6: true
+rhel10cis_rule_2_1_7: true
+rhel10cis_rule_2_1_8: true
+rhel10cis_rule_2_1_9: true
+rhel10cis_rule_2_1_10: true
+rhel10cis_rule_2_1_11: true
+rhel10cis_rule_2_1_12: true
+rhel10cis_rule_2_1_13: true
+rhel10cis_rule_2_1_14: true
+rhel10cis_rule_2_1_15: true
+rhel10cis_rule_2_1_16: true
+rhel10cis_rule_2_1_17: true
+rhel10cis_rule_2_1_18: true
+rhel10cis_rule_2_1_19: true
+rhel10cis_rule_2_1_20: true
+rhel10cis_rule_2_1_21: true
+rhel10cis_rule_2_1_22: true
+
+## Configure Client Services
+rhel10cis_rule_2_2_1: true
+rhel10cis_rule_2_2_2: true
+rhel10cis_rule_2_2_3: true
+rhel10cis_rule_2_2_4: true
+rhel10cis_rule_2_2_5: true
+
+## Configure Time Synchronization
+rhel10cis_rule_2_3_1: true
+rhel10cis_rule_2_3_2: true
+rhel10cis_rule_2_3_3: true
+
+## Job Schedulers
+### cron
+rhel10cis_rule_2_4_1_1: true
+rhel10cis_rule_2_4_1_2: true
+rhel10cis_rule_2_4_1_3: true
+rhel10cis_rule_2_4_1_4: true
+rhel10cis_rule_2_4_1_5: true
+rhel10cis_rule_2_4_1_6: true
+rhel10cis_rule_2_4_1_7: true
+rhel10cis_rule_2_4_1_8: true
+### at
+rhel10cis_rule_2_4_2_1: true
+
+# Section 3 Network
+## Network Devices
+rhel10cis_rule_3_1_1: true
+rhel10cis_rule_3_1_2: true
+rhel10cis_rule_3_1_3: true
+## Network Kernel Modules
+rhel10cis_rule_3_2_1: true
+rhel10cis_rule_3_2_2: true
+rhel10cis_rule_3_2_3: true
+rhel10cis_rule_3_2_4: true
+# Network Kernel Parameters
+rhel10cis_rule_3_3_1: true
+rhel10cis_rule_3_3_2: true
+rhel10cis_rule_3_3_3: true
+rhel10cis_rule_3_3_4: true
+rhel10cis_rule_3_3_5: true
+rhel10cis_rule_3_3_6: true
+rhel10cis_rule_3_3_7: true
+rhel10cis_rule_3_3_8: true
+rhel10cis_rule_3_3_9: true
+rhel10cis_rule_3_3_10: true
+rhel10cis_rule_3_3_11: true
+
+# Section 4 Firewalls
+## Firewall utility
+rhel10cis_rule_4_1_1: true
+rhel10cis_rule_4_1_2: true
+## Configure firewalld
+rhel10cis_rule_4_2_1: true
+rhel10cis_rule_4_2_2: true
+# Configure nftables
+rhel10cis_rule_4_3_1: true
+rhel10cis_rule_4_3_2: true
+rhel10cis_rule_4_3_3: true
+rhel10cis_rule_4_3_4: true
+
+## Section 5
+## 5.1. Configure SSH Server
+rhel10cis_rule_5_1_1: true
+rhel10cis_rule_5_1_2: true
+rhel10cis_rule_5_1_3: true
+rhel10cis_rule_5_1_4: true
+rhel10cis_rule_5_1_5: true
+rhel10cis_rule_5_1_6: true
+rhel10cis_rule_5_1_7: true
+rhel10cis_rule_5_1_8: true
+rhel10cis_rule_5_1_9: true
+rhel10cis_rule_5_1_10: true
+rhel10cis_rule_5_1_11: true
+rhel10cis_rule_5_1_12: true
+rhel10cis_rule_5_1_13: true
+rhel10cis_rule_5_1_14: true
+rhel10cis_rule_5_1_15: true
+rhel10cis_rule_5_1_16: true
+rhel10cis_rule_5_1_17: true
+rhel10cis_rule_5_1_18: true
+rhel10cis_rule_5_1_19: true
+rhel10cis_rule_5_1_20: true
+rhel10cis_rule_5_1_21: true
+rhel10cis_rule_5_1_22: true
+## 5.2 Configure Privilege Escalation
+rhel10cis_rule_5_2_1: true
+rhel10cis_rule_5_2_2: true
+rhel10cis_rule_5_2_3: true
+rhel10cis_rule_5_2_4: true
+rhel10cis_rule_5_2_5: true
+rhel10cis_rule_5_2_6: true
+rhel10cis_rule_5_2_7: true
+# 5.3.1.x Configure PAM software packages
+rhel10cis_rule_5_3_1_1: true
+rhel10cis_rule_5_3_1_2: true
+rhel10cis_rule_5_3_1_3: true
+# 5.3.2 Configure authselect
+rhel10cis_rule_5_3_2_1: true
+rhel10cis_rule_5_3_2_2: true
+rhel10cis_rule_5_3_2_3: true
+rhel10cis_rule_5_3_2_4: true
+rhel10cis_rule_5_3_2_5: true
+# 5.3.3.1 Configure pam_faillock module
+rhel10cis_rule_5_3_3_1_1: true
+rhel10cis_rule_5_3_3_1_2: true
+rhel10cis_rule_5_3_3_1_3: true
+# 5.3.3.2 Configure pam_pwquality module
+rhel10cis_rule_5_3_3_2_1: true
+rhel10cis_rule_5_3_3_2_2: true
+rhel10cis_rule_5_3_3_2_3: true
+rhel10cis_rule_5_3_3_2_4: true
+rhel10cis_rule_5_3_3_2_5: true
+rhel10cis_rule_5_3_3_2_6: true
+rhel10cis_rule_5_3_3_2_7: true
+rhel10cis_rule_5_3_3_2_8: true
+# 5.3.3.3 Configure pam_pwhistory module
+# This are added as part of 5.3.2.4 using jinja2 template
+rhel10cis_rule_5_3_3_3_1: true
+rhel10cis_rule_5_3_3_3_2: true
+rhel10cis_rule_5_3_3_3_3: true
+# 5.3.3.4 Configure pam_unix module
+rhel10cis_rule_5_3_3_4_1: true
+rhel10cis_rule_5_3_3_4_2: true
+rhel10cis_rule_5_3_3_4_3: true
+rhel10cis_rule_5_3_3_4_4: true
+# 5.4 User Accounts and Environment
+# 5.4.1 Configure shadow password suite parameters
+rhel10cis_rule_5_4_1_1: true
+rhel10cis_rule_5_4_1_2: true
+rhel10cis_rule_5_4_1_3: true
+rhel10cis_rule_5_4_1_4: true
+rhel10cis_rule_5_4_1_5: true
+rhel10cis_rule_5_4_1_6: true
+# 5.4.2 Configure root and system accounts and environment
+rhel10cis_rule_5_4_2_1: true
+rhel10cis_rule_5_4_2_2: true
+rhel10cis_rule_5_4_2_3: true
+rhel10cis_rule_5_4_2_4: true
+rhel10cis_rule_5_4_2_5: true
+rhel10cis_rule_5_4_2_6: true
+rhel10cis_rule_5_4_2_7: true
+rhel10cis_rule_5_4_2_8: true
+# 5.4.2 Configure user default environment
+rhel10cis_rule_5_4_3_1: true
+rhel10cis_rule_5_4_3_2: true
+rhel10cis_rule_5_4_3_3: true
+
+# Section 6 Logging and Auditing
+## 6.1 Configure Integrity Checking
+rhel10cis_rule_6_1_1: true
+rhel10cis_rule_6_1_2: true
+rhel10cis_rule_6_1_3: true
+## 6.2.1 Configure systemd-journald service
+rhel10cis_rule_6_2_1_1: true
+rhel10cis_rule_6_2_1_2: true
+rhel10cis_rule_6_2_1_3: true
+rhel10cis_rule_6_2_1_4: true
+## 6.2.2.x Configure journald
+rhel10cis_rule_6_2_2_1_1: true
+rhel10cis_rule_6_2_2_1_2: true
+rhel10cis_rule_6_2_2_1_3: true
+rhel10cis_rule_6_2_2_1_4: true
+rhel10cis_rule_6_2_2_2: true
+rhel10cis_rule_6_2_2_3: true
+rhel10cis_rule_6_2_2_4: true
+## 6.2.3 Configure rsyslog
+rhel10cis_rule_6_2_3_1: true
+rhel10cis_rule_6_2_3_2: true
+rhel10cis_rule_6_2_3_3: true
+rhel10cis_rule_6_2_3_4: true
+rhel10cis_rule_6_2_3_5: true
+rhel10cis_rule_6_2_3_6: true
+rhel10cis_rule_6_2_3_7: true
+rhel10cis_rule_6_2_3_8: true
+## 6.2.4 Configure Logfiles
+rhel10cis_rule_6_2_4_1: true
+## 6.3 Configure Auditing
+## 6.3.1 Configure auditd Service
+rhel10cis_rule_6_3_1_1: true
+rhel10cis_rule_6_3_1_2: true
+rhel10cis_rule_6_3_1_3: true
+rhel10cis_rule_6_3_1_4: true
+## 6.3.2 Configure Data Retention
+rhel10cis_rule_6_3_2_1: true
+rhel10cis_rule_6_3_2_2: true
+rhel10cis_rule_6_3_2_3: true
+rhel10cis_rule_6_3_2_4: true
+## 6.3.3 Configure auditd Rules
+rhel10cis_rule_6_3_3_1: true
+rhel10cis_rule_6_3_3_2: true
+rhel10cis_rule_6_3_3_3: true
+rhel10cis_rule_6_3_3_4: true
+rhel10cis_rule_6_3_3_5: true
+rhel10cis_rule_6_3_3_6: true
+rhel10cis_rule_6_3_3_7: true
+rhel10cis_rule_6_3_3_8: true
+rhel10cis_rule_6_3_3_9: true
+rhel10cis_rule_6_3_3_10: true
+rhel10cis_rule_6_3_3_11: true
+rhel10cis_rule_6_3_3_12: true
+rhel10cis_rule_6_3_3_13: true
+rhel10cis_rule_6_3_3_14: true
+rhel10cis_rule_6_3_3_15: true
+rhel10cis_rule_6_3_3_16: true
+rhel10cis_rule_6_3_3_17: true
+rhel10cis_rule_6_3_3_18: true
+rhel10cis_rule_6_3_3_19: true
+rhel10cis_rule_6_3_3_20: true
+rhel10cis_rule_6_3_3_21: true
+## 6.3.4 Configure auditd File Access
+rhel10cis_rule_6_3_4_1: true
+rhel10cis_rule_6_3_4_2: true
+rhel10cis_rule_6_3_4_3: true
+rhel10cis_rule_6_3_4_4: true
+rhel10cis_rule_6_3_4_5: true
+rhel10cis_rule_6_3_4_6: true
+rhel10cis_rule_6_3_4_7: true
+rhel10cis_rule_6_3_4_8: true
+rhel10cis_rule_6_3_4_9: true
+rhel10cis_rule_6_3_4_10: true
+
+# Section 7 System Maintenance
+## 7.1 System File Permissions
+rhel10cis_rule_7_1_1: true
+rhel10cis_rule_7_1_2: true
+rhel10cis_rule_7_1_3: true
+rhel10cis_rule_7_1_4: true
+rhel10cis_rule_7_1_5: true
+rhel10cis_rule_7_1_6: true
+rhel10cis_rule_7_1_7: true
+rhel10cis_rule_7_1_8: true
+rhel10cis_rule_7_1_9: true
+rhel10cis_rule_7_1_10: true
+rhel10cis_rule_7_1_11: true
+rhel10cis_rule_7_1_12: true
+rhel10cis_rule_7_1_13: true
+## 7.2 Local User and Group Settings
+rhel10cis_rule_7_2_1: true
+rhel10cis_rule_7_2_2: true
+rhel10cis_rule_7_2_3: true
+rhel10cis_rule_7_2_4: true
+rhel10cis_rule_7_2_5: true
+rhel10cis_rule_7_2_6: true
+rhel10cis_rule_7_2_7: true
+rhel10cis_rule_7_2_8: true
+rhel10cis_rule_7_2_9: true
+
+############
+
+# Section 1
+
+# Whether or not to run tasks related to auditing/patching the desktop environment
+rhel10cis_gui: false
+
+# Warning Banner Content (issue, issue.net, motd)
+rhel10cis_warning_banner: Authorized uses only. All activity may be monitored and reported.
+# End Banner
+
+# 1.8 Gnome Desktop
+rhel10cis_dconf_db_name: local
+
+# Section 2
+# Service configuration
+# Options are
+# Service
+# - false - removes package
+# - true - leaves package installed
+# Mask
+# - false - leaves service in current status
+# - true - sets service name to masked
+rhel10cis_autofs_services: false
+rhel10cis_autofs_mask: true
+rhel10cis_avahi_server: false
+rhel10cis_avahi_mask: false
+rhel10cis_dhcp_server: false
+rhel10cis_dhcp_mask: false
+rhel10cis_dns_server: false
+rhel10cis_dns_mask: false
+rhel10cis_dnsmasq_server: false
+rhel10cis_dnsmasq_mask: false
+rhel10cis_samba_server: false
+rhel10cis_samba_mask: false
+rhel10cis_ftp_server: false
+rhel10cis_ftp_mask: false
+rhel10cis_message_server: false  # This is for messaging dovecot and cyrus-imap
+rhel10cis_message_mask: false
+rhel10cis_nfs_server: true
+rhel10cis_nfs_mask: true
+rhel10cis_nis_server: true  # set to mask if nis client required
+rhel10cis_nis_mask: false
+rhel10cis_print_server: false  # replaces cups
+rhel10cis_print_mask: false
+rhel10cis_rpc_server: true
+rhel10cis_rpc_mask: true
+rhel10cis_rsync_server: false
+rhel10cis_rsync_mask: false
+rhel10cis_snmp_server: false
+rhel10cis_snmp_mask: false
+rhel10cis_telnet_server: false
+rhel10cis_telnet_mask: false
+rhel10cis_tftp_server: false
+rhel10cis_tftp_mask: false
+rhel10cis_squid_server: false
+rhel10cis_squid_mask: false
+rhel10cis_httpd_server: false
+rhel10cis_httpd_mask: false
+rhel10cis_nginx_server: false
+rhel10cis_nginx_mask: false
+rhel10cis_xinetd_server: false
+rhel10cis_xinetd_mask: false
+rhel10cis_xwindow_server: false  # will remove mask not an option
+rhel10cis_is_mail_server: false
+
+## Section 2.3 Service clients
+
+rhel10cis_ftp_client: false
+rhel10cis_openldap_clients_required: false
+rhel10cis_ypbind_required: false  # Same package as NIS server
+rhel10cis_telnet_required: false
+rhel10cis_tftp_client: false
+
+# Section 3
+## Section 3 vars
+## Sysctl
+# Service configuration
+# Options are
+# Service
+# - false - removes package
+# - true - leaves package installed
+# Mask
+# - false - leaves service in current status
+# - true - sets service name to masked
+#
+# Setting both Service and Mask to false will remove the package if exists
+#
+rhel10cis_bluetooth_service: false
+rhel10cis_bluetooth_mask: false
+
+## IPv6 required
+rhel10cis_ipv6_required: true
+
+## 3.2 System network parameters (host only OR host and router)
+rhel10cis_is_router: false
+
+## Section 3.4
+### Firewall
+rhel10cis_firewall: firewalld
+
+# Section 4
+
+
+# Section 5
+
+rhel10_cis_sshd_config_file: /etc/ssh/sshd_config
+
+## 5.1.7 Note the following to understand precedence and layout , comma seperated
+rhel10cis_sshd_allowusers: vagrant
+rhel10cis_sshd_allowgroups:
+rhel10cis_sshd_denyusers: nobody
+rhel10cis_sshd_denygroups:
+
+## 5.2.7 set sugroup if differs from wheel
+rhel10cis_sugroup: sugroup
+
+## 5.3.2.1 Enable automation to create custom profile settings, using the setings above
+rhel10cis_authselect_custom_profile_create: false
+
+## 5.3.2.1 Enable automation to select custom profile options, using the settings above
+rhel10cis_authselect_custom_profile_select: false
+
+## 5.3.2.1 Authselect select false if using AD or RHEL ID mgmt
+rhel10cis_authselect_custom_profile_name: mpg_cis
+
+## 5.3.3.2.3 Set option used for password complexity
+# either mincall or credits - enabling to check for one option in settings
+rhel10cis_passwd_complex_option: minclass
+
+## 5.4.1.x login.defs password settings
+rhel10cis_pass_max_days: "365"
+rhel10cis_pass_min_days: "1"
+rhel10cis_pass_warn_age: "7"
+rhel10cis_inactive_lock_days: 40
+
+# Section 6
+
+# Control 6.1.x
+
+# aide setup via - cron, timer
+rhel10cis_aide_scan: cron
+
+## Logging 6.2.x.x
+
+## syslog
+## change to rsyslog/ journald or other
+rhel10cis_syslog: journald
+
+# Control 6.2.3. x
+## Set if host is a logserver
+rhel10cis_remote_log_server: false
+
+# Log server settings
+rhel10cis_remote_log_host: logagg.example.com
+rhel10cis_remote_log_port: 514
+rhel10cis_remote_log_protocol: tcp
+rhel10cis_remote_log_retrycount: 100
+rhel10cis_remote_log_queuesize: 1000
+
+# Control 7.1.12
+rhel10cis_exclude_unowned_search_path: \(! -path "/run/user/*" -a ! -path "/proc/*" -a ! -path "*/containerd/*" -a ! -path "*/kubelet/pods/*" -a ! -path "*/kubelet/plugins/*" -a ! -path "/sys/fs/cgroup/memory/*" -a ! -path "/var/*/private/*" \)

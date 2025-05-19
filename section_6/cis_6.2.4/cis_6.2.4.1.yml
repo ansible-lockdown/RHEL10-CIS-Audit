@@ -1,0 +1,64 @@
+---
+
+{{ if .Vars.rhel10cis_level_1 }}
+  {{ if .Vars.rhel10cis_rule_6_2_4_1 }}
+command:
+  logfile_configured_login_files:
+    title: 6.2.4.1 | Ensure access to all logfiles has been configured
+    exec: find /var/log/ -type f -perm /g+x,o+wx -exec ls -l "{}" + | grep -E "[b,u,w]tmp.*|lastllog"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout: ['!/.*/']
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 6.2.4.1
+      CISv8: 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5:
+      - AU-8
+  logfile_configured_syslog_logs:
+    title: 6.2.4.1 | Ensure access to all logfiles has been configured
+    exec: find /var/log/ -type f -perm /g+wx,o+wx -exec ls -l "{}" + | grep -E "auth|secure|syslog|messages|journal|auth"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout: ['!/.*/']
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 6.2.4.1
+      CISv8: 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5:
+      - AU-8
+  logfile_configured_sssd:
+    title: 6.2.4.1 | Ensure access to all logfiles has been configured
+    exec: find /var/log/ -type f -perm /g+x,o+rwx -exec ls -l "{}" + | grep -Ei "ssd|gdm"
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout: ['!/.*/']
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 6.2.4.1
+      CISv8: 3.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5:
+      - AU-8
+  {{ end }}
+{{ end }}

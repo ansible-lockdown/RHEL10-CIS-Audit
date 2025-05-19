@@ -1,0 +1,41 @@
+---
+
+{{ if .Vars.rhel10cis_level_1 }}
+  {{ if .Vars.run_heavy_tests }}
+    {{ if .Vars.rhel10cis_rule_1_2_1_2 }}
+command:
+  gpg_check_global:
+    title: 1.2.1.2 | Ensure gpgcheck is globally active
+    exit-status: 0
+    exec: "if [ `grep -c -E '^\\s*gpgcheck.*0' /etc/dnf/dnf.conf` -ge 1 ]; then echo FAIL; elif [ `grep -c -E '^\\s*gpgcheck.*1' /etc/dnf/dnf.conf` -ge 1 ]; then echo Passed_Check;fi"
+    timeout: {{ .Vars.timeout_ms }}
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.2.1.2
+      CISv8:
+      - 7.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5: SI-2
+  gpg_check_repo:
+    title: 1.2.2 | Ensure gpgcheck is globally active
+    exit-status: 0
+    exec: "if [ `grep -c -E '^\\s*gpgcheck.*0' /etc/yum.repos.d/*.repo` -ge 1 ]; then echo FAIL; elif [ `grep -c -E '^\\s*gpgcheck.*1' /etc/yum.repos.d/*.repo` -ge 1 ]; then echo Passed_Check;fi"
+    timeout: {{ .Vars.timeout_ms }}
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.2.2
+      CISv8:
+      - 7.3
+      CISv8_IG1: true
+      CISv8_IG2: true
+      CISv8_IG3: true
+      NIST800-53R5: SI-2
+      {{ end }}
+  {{ end }}
+{{ end }}
