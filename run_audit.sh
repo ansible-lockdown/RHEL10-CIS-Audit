@@ -34,6 +34,9 @@ AUDIT_BIN_MIN_VER="0.4.8"
 AUDIT_FILE="${AUDIT_FILE:-goss.yml}"  # the default goss file used by the audit provided by the audit configuration
 AUDIT_CONTENT_LOCATION="${AUDIT_CONTENT_LOCATION:-/opt}"  # Location of the audit configuration file as available to the OS
 
+# Added for RHEL10 due to some RAM issues
+export GOSS_MAX_CONCURRENT=10
+
 # help output
 Help()
 {
