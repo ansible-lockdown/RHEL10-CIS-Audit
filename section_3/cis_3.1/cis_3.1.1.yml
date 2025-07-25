@@ -4,34 +4,17 @@
   {{ if .Vars.rhel10cis_rule_3_1_1 }}
 command:
   {{ if not .Vars.rhel10cis_ipv6_required }}
-  default_grub_ipv6:
+  ipv6_disabled:
     title: 3.1.1 | Ensure IPv6 status is identified
-    exec: cat /sys/module/ipv6/parameters/disable
+    exec: |
+      if [ `grep 1 /proc/sys/net/ipv6/conf/all/disable_ipv6` ] || [ `grep 1 /proc/sys/net/ipv6/conf/default/disable_ipv6` ] || [ `cat /sys/module/ipv6/parameters/disable` == 1 ]; \
+      then \
+      echo 'ipv6_disabled'; \
+      else echo 'fail'; \
+      fi
     exit-status: 0
     stdout:
-    - '/^1/'
-    - '!/^0/'
-    meta:
-      server: 1
-      workstation: 1
-      CIS_ID:
-      - 3.1.1
-      CISv8: 4.8
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
-      NIST800-53R5:
-      - CM-7
-  sysctl_ipv6_disable:
-    title: 3.1.1 | Ensure IPv6 status is identified
-    exec: grep disable_ipv6 /etc/sysctl.conf /etc/sysctl.d/*
-    exit-status:
-      or:
-      - 0
-      - 1
-    stdout:
-    - '/.*:net.ipv6.conf.all.disable_ipv6\s*=\s*1/'
-    - '/.*:net.ipv6.conf.default.disable_ipv6\s*=\s*1/'
+    - 'ipv6_disabled'
     meta:
       server: 1
       workstation: 1
@@ -45,34 +28,17 @@ command:
       - CM-7
   {{ end }}
   {{ if .Vars.rhel10cis_ipv6_required }}
-  default_grub_ipv6:
+  ipv6_required:
     title: 3.1.1 | Ensure IPv6 status is identified
-    exec: cat /sys/module/ipv6/parameters/disable
+    exec: |
+      if [ `grep 0 /proc/sys/net/ipv6/conf/all/disable_ipv6` ] || [ `grep 0 /proc/sys/net/ipv6/conf/default/disable_ipv6` ] || [ `cat /sys/module/ipv6/parameters/disable` == 0 ]; \
+      then \
+      echo 'ipv6_enabled'; \
+      else echo 'fail'; \
+      fi
     exit-status: 0
     stdout:
-    - '/^0/'
-    - '!/^1/'
-    meta:
-      server: 1
-      workstation: 1
-      CIS_ID:
-      - 3.1.1
-      CISv8: 4.8
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
-      NIST800-53R5:
-      - CM-7
-  sysctl_ipv6_disable:
-    title: 3.1.1 | Ensure IPv6 status is identified
-    exec: grep disable_ipv6 /etc/sysctl.conf /etc/sysctl.d/*
-    exit-status:
-      or:
-      - 0
-      - 1
-    stdout:
-    - '!/.*:net.ipv6.conf.all.disable_ipv6\s*=\s*1/'
-    - '!/.*:net.ipv6.conf.default.disable_ipv6\s*=\s*1/'
+    - 'ipv6_enabled'
     meta:
       server: 1
       workstation: 1
