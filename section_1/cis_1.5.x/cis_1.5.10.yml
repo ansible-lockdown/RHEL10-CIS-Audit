@@ -1,0 +1,21 @@
+---
+
+{{ if .Vars.rhel10cis_level_1 }}
+  {{ if .Vars.rhel10cis_rule_1_5_10 }}
+command:
+  storage_coredump_conf:
+    title: 1.5.10 | Ensure core dump storage is disabled
+    exec: grep -i storage /etc/systemd/coredump.conf /etc/systemd/coredump.conf.d/
+    exit-status:
+      or:
+      - 0
+      - 2
+    stdout:
+    - '/^*.conf:Storage=none/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.5.10
+  {{ end }}
+{{ end }}

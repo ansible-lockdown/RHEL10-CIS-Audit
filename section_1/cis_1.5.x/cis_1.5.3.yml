@@ -3,26 +3,46 @@
 {{ if .Vars.rhel10cis_level_1 }}
   {{ if .Vars.rhel10cis_rule_1_5_3 }}
 command:
-  procmaxsize_coredump_conf:
-    title: 1.5.3 | Ensure core dump backtraces are disabled
-    exec: grep -i ProcessSizeMax /etc/systemd/coredump.conf /etc/systemd/coredump.conf.d
+  sysctl_symlinks_live:
+    title: 1.5.3 | Ensure fs.protected_symlinks is configured | running
+    exec: sysctl fs.protected_symlinks
     exit-status:
       or:
       - 0
-      - 2
+      - 1
     stdout:
-    - '/^*.conf:ProcessSizeMax=0/'
-    - '!/^*.conf:ProcessSizeMax=[1-9].*/'
+    - '/fs.protected_symlinks = 1/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 1.5.3
-      CISv8:
-      - N/A
-      CISv8_IG1: N/A
-      CISv8_IG2: N/A
-      CISv8_IG3: N/A
-      NIST800-53R5: CM-6
+      NIST800-53R5:
+      - AC-3
+      - AC-6
+      CCI:
+      - 002165
+      - 002235
+  sysctl_symlinks_conf:
+    title: 1.5.3 | Ensure fs.protected_symlinks is configured | running
+    exec: grep -R fs.protected_symlinks /etc/sysctl.conf /etc/sysctl.d/
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/.*conf: fs.protected_symlinks\s*=\s*1/'
+    - '!/.*conf: fs.protected_symlinks\s*=\s*0/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.5.3
+      NIST800-53R5:
+      - AC-3
+      - AC-6
+      CCI:
+      - 002165
+      - 002235
   {{ end }}
 {{ end }}

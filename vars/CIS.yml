@@ -1,7 +1,7 @@
 ## metadata for benchmark
 
 ## metadata for Audit benchmark
-benchmark_version: '2.0.0'
+benchmark_version: '1.0.0'
 
 # Set if genuine RHEL (subscription manager check) not for derivatives e.g. CentOS
 # If run via script this is discovered and set
@@ -45,6 +45,8 @@ rhel10cis_rule_1_1_1_6: true
 rhel10cis_rule_1_1_1_7: true
 rhel10cis_rule_1_1_1_8: true
 rhel10cis_rule_1_1_1_9: true
+rhel10cis_rule_1_1_1_10: true
+rhel10cis_rule_1_1_1_11: true
 # Filesystems
 # /tmp
 rhel10cis_rule_1_1_2_1_1: true
@@ -86,6 +88,7 @@ rhel10cis_rule_1_2_1_1: true
 rhel10cis_rule_1_2_1_2: true
 rhel10cis_rule_1_2_1_3: true
 rhel10cis_rule_1_2_1_4: true
+rhel10cis_rule_1_2_1_5: true
 # Package updates
 rhel10cis_rule_1_2_2_1: true
 
@@ -108,15 +111,18 @@ rhel10cis_rule_1_5_1: true
 rhel10cis_rule_1_5_2: true
 rhel10cis_rule_1_5_3: true
 rhel10cis_rule_1_5_4: true
+rhel10cis_rule_1_5_5: true
+rhel10cis_rule_1_5_6: true
+rhel10cis_rule_1_5_7: true
+rhel10cis_rule_1_5_8: true
+rhel10cis_rule_1_5_9: true
+rhel10cis_rule_1_5_10: true
 
 # Config system wide Crypto
 rhel10cis_rule_1_6_1: true
 rhel10cis_rule_1_6_2: true
 rhel10cis_rule_1_6_3: true
 rhel10cis_rule_1_6_4: true
-rhel10cis_rule_1_6_5: true
-rhel10cis_rule_1_6_6: true
-rhel10cis_rule_1_6_7: true
 
 # Command line warning banners
 rhel10cis_rule_1_7_1: true
@@ -133,10 +139,6 @@ rhel10cis_rule_1_8_3: true
 rhel10cis_rule_1_8_4: true
 rhel10cis_rule_1_8_5: true
 rhel10cis_rule_1_8_6: true
-rhel10cis_rule_1_8_7: true
-rhel10cis_rule_1_8_8: true
-rhel10cis_rule_1_8_9: true
-rhel10cis_rule_1_8_10: true
 
 # Section 2 rules are controling Services (Special Purpose Services, and service clients)
 ## Configure Server Services

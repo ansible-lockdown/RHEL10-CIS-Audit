@@ -3,15 +3,12 @@
 
 ## Overview
 
-## NOTE this is a Beta release - There is currently no official RHEL10 CIS benchmark
-
-based on RHEL9 CIS 2.0.0
+based on CIS 1.0.0 - 27-Aug-2025
 
 Ability to audit a system using a lightweight binary to check the current state.
 
 ### Memory Usage
  Running the audit sees an Increased RAM usage, improvements seen when dropping swappiness e.g. 5. Already improved by latest kernel update 6.12.0-55.12.1 as of 19-05-25
-
 
 This is:
 
@@ -19,11 +16,13 @@ This is:
 - lightweight
 - self contained
 
-It works using a set of configuration files and directories to audit STIG of RHEL/CentOS 7 servers. These files/directories correlate to the STIG Level and STIG_ID
+It works using a set of configuration files and directories to audit CIS of RHEL family 10 servers. These files/directories correlate to the CIS Level and STIG_ID
 
 Tested on
 
-- RHEL10 - Beta and GA
+- RHEL10
+- almalinux10
+- rocky10
 
 ## Requirements
 

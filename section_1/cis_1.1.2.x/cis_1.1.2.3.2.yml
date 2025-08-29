@@ -15,13 +15,9 @@ mount:
       CIS_ID:
       - 1.1.2.3.2
       CISv8: 3.3
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-7
-      - AC-3
-      - MP-2
+      CCI: 001764
 file:
   home_nodev_fstab_options:
     title: 1.1.2.3.2 | Ensure nodev option set on /home partition
@@ -34,13 +30,9 @@ file:
       workstation: 1
       CIS_ID:
       - 1.1.2.3.2
-      CISv8: 3.3
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
-      - CM-7
       - AC-3
       - MP-2
+      CCI: NA
   {{ end }}
 {{ end }}
