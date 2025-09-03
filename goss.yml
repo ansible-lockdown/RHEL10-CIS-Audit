@@ -18,16 +18,13 @@ gossfile:
   {{ if .Vars.rhel10cis_section3 }}
   section_3/cis_3.1/*.yml: {}
   section_3/cis_3.2/*.yml: {}
-  section_3/cis_3.3/*.yml: {}
+  section_3/cis_3.3.1/*.yml: {}
+  section_3/cis_3.3.2/*.yml: {}
 ## firewall configurations
   {{ end }}
   {{ if .Vars.rhel10cis_section4 }}
-  section_4/cis_4.1/*.yml: {}
     {{ if eq .Vars.rhel10cis_firewall "firewalld" }}
-  section_4/cis_4.2/*.yml: {}
-    {{ end }}
-    {{ if eq .Vars.rhel10cis_firewall "nftables" }}
-  section_4/cis_4.3/*.yml: {}
+  section_4/cis_4.1/*.yml: {}
     {{ end }}
   {{ end }}
   {{ if .Vars.rhel10cis_section5 }}

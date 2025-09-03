@@ -1,30 +1,25 @@
 ---
 
 {{ if .Vars.rhel10cis_level_1 }}
-  {{ if .Vars.rhel10cis_rule_3_3_10 }}
+  {{ if .Vars.rhel10cis_rule_3_3_1_18 }}
 kernel-param:
   net.ipv4.tcp_syncookies:
-    title: 3.3.10 | Ensure TCP SYN Cookies is enabled
+    title: 3.3.1.18 | Ensure net.ipv4.tcp_syncookies is configured
     value: '1'
     name: net.ipv4.tcp_syncookies
     meta:
       server: 1
       workstation: 1
       CIS_ID:
-      - 3.3.10
-      CISv8: 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
+      - 3.3.1.18
       NIST800-53R5:
-      - CM-1
-      - CM-2
-      - CM-6
-      - CM-7
-      - IA-5
+      - SC-5
+      CCI:
+      - 001095
+      - 002385
 command:
   ipv4_tcp_syn_cookies:
-    title: 3.3.10 | Ensure TCP SYN Cookies is enabled | live ipv4
+    title: 3.3.1.18 | Ensure TCP SYN Cookies is enabled | live ipv4
     exec: grep net.ipv4.tcp_syncookies /etc/sysctl.conf /etc/sysctl.d/*.conf /run/sysctl.d/*.conf /usr/local/lib/sysctl.d/*.conf /usr/lib/sysctl.d/*.conf /lib/sysctl.d/*.conf
     exit-status:
       or:
@@ -37,16 +32,11 @@ command:
       server: 1
       workstation: 1
       CIS_ID:
-      - 3.3.10
-      CISv8: 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
+      - 3.3.1.18
       NIST800-53R5:
-      - CM-1
-      - CM-2
-      - CM-6
-      - CM-7
-      - IA-5
+      - SC-5
+      CCI:
+      - 001095
+      - 002385
   {{ end }}
 {{ end }}

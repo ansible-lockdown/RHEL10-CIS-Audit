@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10cis_level_1 }}
+  {{ if .Vars.rhel10cis_rule_4_1_5 }}
+    {{ if eq .Vars.rhel10cis_firewall "firewalld" }}
+command:
+  loopback_traffic_firewalld:
+    title: 4.1.5 | Ensure firewalld loopback traffic is configured
+    exec: firewall-cmd --list-all --zone="$(firewall-cmd --get-zone-of-interface=lo | xargs)" | grep -Psi -- '^\h*target:\h+\H+'
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+      or:
+      - '/trusted (active)\n\s*target: ACCEPT/'
+      - '/{{ .Vars.rhel10cis_active_firewall_zone }}\n\s*ACCEPT'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 4.1.5
+      NIST800-53R5:
+      - NA
+    {{ end }}
+  {{ end }}
+{{ end }}
