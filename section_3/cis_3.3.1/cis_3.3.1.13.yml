@@ -24,8 +24,6 @@ command:
       or:
       - 0
       - 2
-      CCI:
-      - 000366
     stdout:
     - '/.*:net.ipv4.conf.default.rp_filter\s*=\s*1/'
     - '!/.*:net.ipv4.conf.default.rp_filter\s*=\s*0/'

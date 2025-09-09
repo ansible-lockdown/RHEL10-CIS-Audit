@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10cis_rule_7_1_8 }}
 file:
   etc_gshadow-_perms:
-    title: 7.1.8 | Ensure permissions on /etc/gshadow- are configured
+    title: 7.1.8 | Ensure access to /etc/gshadow- is configured
     path: /etc/gshadow-
     exists: true
     mode: "0000"
@@ -15,10 +15,6 @@ file:
       workstation: 1
       CIS_ID:
       - 7.1.8
-      CISv8: 3.3
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - AC-3
       - MP-2

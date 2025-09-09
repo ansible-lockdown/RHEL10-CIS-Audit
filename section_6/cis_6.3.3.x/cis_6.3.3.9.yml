@@ -3,49 +3,31 @@
 {{ if .Vars.rhel10cis_level_2 }}
   {{ if .Vars.rhel10cis_rule_6_3_3_9 }}
 command:
-  auditd_perms_cnf:
-    title: 6.3.3.9 | Ensure discretionary access control permission modification events are collected | conf check
-    exec: grep perm_mod /etc/audit/rules.d/*.rules
+  auditd_networkmgr_cnf:
+    title: 6.3.3.9 | Ensure events that modify /etc/NetworkManager directory are collected | conf check
+    exec: grep Network /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
-    - '/[^#]-a always,exit -F arch=b64 -S chmod,fchmod,fchmodat -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -k perm_mod/'
-    - '/[^#]-a always,exit -F arch=b32 -S chmod,fchmod,fchmodat -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -k perm_mod/'
-    - '/[^#]-a always,exit -F arch=b64 -S chown,fchown,lchown,fchownat -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -k perm_mod/'
-    - '/[^#]-a always,exit -F arch=b32 -S chown,fchown,lchown,fchownat -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -k perm_mod/'
-    - '/[^#]-a always,exit -F arch=b64 -S setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -k perm_mod/'
-    - '/[^#]-a always,exit -F arch=b32 -S setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -k perm_mod/'
+    - '-a always,exit -F arch=b64 -S all -F dir=/etc/NetworkManager/ -F perm=wa -F key=system-locale'
     meta:
       server: 2
       workstation: 2
       CIS_ID:
       - 6.3.3.9
-      CISv8: 8.5
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - AU-3
       - CM-6
-  auditd_perms_live:
-    title: 6.3.3.9 | Ensure discretionary access control permission modification events are collected | running
-    exec: auditctl -l | grep perm_mod
+  auditd_networkmgr_live:
+    title: 6.3.3.9 | Ensure events that modify /etc/NetworkManager directory are collected | running
+    exec: auditctl -l | grep Network
     exit-status: 0
     stdout:
-    - '/-a always,exit -F arch=b64 -S chmod,fchmod,fchmodat -F auid>=1000 -F auid!=-1 -F key=perm_mod/'
-    - '/-a always,exit -F arch=b32 -S chmod,fchmod,fchmodat -F auid>=1000 -F auid!=-1 -F key=perm_mod/'
-    - '/-a always,exit -F arch=b64 -S chown,fchown,lchown,fchownat -F auid>=1000 -F auid!=-1 -F key=perm_mod/'
-    - '/-a always,exit -F arch=b32 -S lchown,fchown,chown,fchownat -F auid>=1000 -F auid!=-1 -F key=perm_mod/'
-    - '/-a always,exit -F arch=b64 -S setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -F key=perm_mod/'
-    - '/-a always,exit -F arch=b32 -S setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -F key=perm_mod/'
+    - '-a always,exit -F pat-a always,exit -F dir=/etc/NetworkManager/ -F perm=wa'
     meta:
       server: 2
       workstation: 2
       CIS_ID:
       - 6.3.3.9
-      CISv8: 8.5
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - AU-3
       - CM-6

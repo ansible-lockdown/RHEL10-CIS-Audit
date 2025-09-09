@@ -4,14 +4,14 @@
   {{ if .Vars.rhel10cis_rule_1_5_6 }}
 command:
   sysctl_ktpr_restrict_live:
-    title: 1.5.6 | Ensure kernel.ktpr_restrict is configured | running
-    exec: sysctl kernel.ktpr_restrict
+    title: 1.5.6 | Ensure kernel.kptr_restrict is configured | running
+    exec: sysctl kernel.kptr_restrict
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '/kernel.ktpr_restrict = (1|2)/'
+    - '/kernel.kptr_restrict\s*=\s*(1|2)/'
     meta:
       server: 1
       workstation: 1
@@ -22,15 +22,15 @@ command:
       CCI:
       - 000366
   sysctl_ktpr_restrict_conf:
-    title: 1.5.6 | Ensure kernel.ktpr_restrict is configured | running
-    exec: grep -R kernel.ktpr_restrict /etc/sysctl.conf /etc/sysctl.d/
+    title: 1.5.6 | Ensure kernel.kptr_restrict is configured | conf
+    exec: grep -R kernel.kptr_restrict /etc/sysctl.conf /etc/sysctl.d/
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '/.*conf: kernel.ktpr_restrict\s*=\s*(1|2)/'
-    - '!/.*conf: kernel.ktpr_restrict\s*=\s*0/'
+    - '/.*conf:kernel.kptr_restrict\s*=\s*(1|2)/'
+    - '!/.*conf:kernel.kptr_restrict\s*=\s*0/'
     meta:
       server: 1
       workstation: 1

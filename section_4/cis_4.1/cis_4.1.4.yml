@@ -13,9 +13,7 @@ command:
       - 1
     stdout:
     - '!/(?i)ACCEPT/'
-    - 'default'
-    - 'DROP'
-    - 'REJECT'
+    - '/(?i)(default|drop|reject)/'
     meta:
       server: 1
       workstation: 1

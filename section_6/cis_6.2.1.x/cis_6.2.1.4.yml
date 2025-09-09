@@ -1,0 +1,55 @@
+---
+
+{{ if .Vars.rhel10cis_level_1 }}
+  {{ if .Vars.rhel10cis_rule_6_2_1_4 }}
+    {{ if eq .Vars.rhel10cis_syslog "journald" }}
+service:
+  journald_system:
+    title: 6.2.1.4 | Ensure systemd-journal-remote service is not in use | journald system
+    name: journald
+    running: true
+    enabled: true
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 6.2.1.4
+      NIST800-53R5: NA
+  not ryslog_system:
+    title: 6.2.1.4 | Ensure systemd-journal-remote service is not in use | journald system
+    name: rsyslog
+    running: false
+    enabled: false
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 6.2.1.4
+      NIST800-53R5: NA
+  {{ end }}
+  {{ if eq .Vars.rhel10cis_syslog "rsyslog" }}
+  rsyslog_system:
+    title: 6.2.1.4 | Ensure systemd-journal-remote service is not in use | rsyslog system
+    name: rsyslog
+    running: true
+    enabled: true
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 6.2.1.4
+      NIST800-53R5: NA
+  not ryslog_system:
+    title: 6.2.1.4 | Ensure systemd-journal-remote service is not in use | rsyslog system
+    name: journald
+    running: false
+    enabled: false
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 6.2.1.4
+      NIST800-53R5: NA
+    {{ end }}
+  {{ end }}
+{{ end }}

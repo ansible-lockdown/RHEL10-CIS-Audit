@@ -8,7 +8,7 @@ command:
     exec: cat /etc/crypto-policies/config
     exit-status: 0
     stdout:
-    - '/^(\s*(DEFAULT|FUTURE|FIPS)/'
+    - '/^\s*(DEFAULT|FUTURE|FIPS)/'
     - '!/^\s*LEGACY/'
     meta:
       server: 1

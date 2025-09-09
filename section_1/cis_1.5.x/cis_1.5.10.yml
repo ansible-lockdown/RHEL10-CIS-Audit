@@ -5,13 +5,13 @@
 command:
   storage_coredump_conf:
     title: 1.5.10 | Ensure core dump storage is disabled
-    exec: grep -i storage /etc/systemd/coredump.conf /etc/systemd/coredump.conf.d/
+    exec: grep -iR storage /etc/systemd/coredump.conf /etc/systemd/coredump.conf.d/
     exit-status:
       or:
       - 0
       - 2
     stdout:
-    - '/^*.conf:Storage=none/'
+    - '/^*.conf:Storage\s*=\s*none/'
     meta:
       server: 1
       workstation: 1

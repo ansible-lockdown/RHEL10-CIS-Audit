@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10cis_level_1 }}
-  {{ if .Vars.rhel10cis_rule_2_4_1_89 }}
+  {{ if .Vars.rhel10cis_rule_2_4_1_9 }}
 file:
   cron_deny_users:
     title: 2.4.1.9 | Ensure access to crontab is configured

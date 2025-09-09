@@ -11,7 +11,7 @@ command:
       - 0
       - 1
     stdout:
-    - '/kernel.dmesg_restrict = 1/'
+    - '/kernel.dmesg_restrict\s*=\s*1/'
     meta:
       server: 1
       workstation: 1
@@ -24,15 +24,15 @@ command:
       - 001082
       - 001090
   sysctl_dmesg_restrict_conf:
-    title: 1.5.5 | Ensure kernel.dmesg_restrict is configured | running
+    title: 1.5.5 | Ensure kernel.dmesg_restrict is configured | conf
     exec: grep -R kernel.dmesg_restrict /etc/sysctl.conf /etc/sysctl.d/
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '/.*conf: kernel.dmesg_restrict\s*=\s*1/'
-    - '!/.*conf: kernel.dmesg_restrict\s*=\s*0/'
+    - '/.*conf:kernel.dmesg_restrict\s*=\s*1/'
+    - '!/.*conf:kernel.dmesg_restrict\s*=\s*0/'
     meta:
       server: 1
       workstation: 1

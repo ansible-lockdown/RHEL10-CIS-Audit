@@ -1,24 +1,20 @@
 ---
 
-{{ if .Vars.rhel10cis_level_2 }}
+{{ if .Vars.rhel10cis_level_1 }}
   {{ if .Vars.rhel10cis_rule_5_1_11 }}
 file:
-  sshd_gssapi:
-    title: 5.1.11 | Ensure sshd GSSAPIAuthentication is disabled | config
+  ssh_rhosts:
+    title: 5.1.11 | Ensure SSH IgnoreRhosts is enabled | config
     path: /etc/ssh/sshd_config
     exists: true
     contents:
-    - '/^(?i)gssapiauthentication no/'
-    - '!/^(?i)gssapiauthentication yes/'
+    - '/^IgnoreRhosts yes/'
+    - '!/^IgnoreRhosts no/'
     meta:
-      server: 2
+      server: 1
       workstation: 1
       CIS_ID:
       - 5.1.11
-      CISv8: 4.8
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-1
       - CM-2
@@ -26,25 +22,21 @@ file:
       - CM-7
       - IA-5
 command:
-  ssh_gssapi_live:
-    title: 5.1.11 | Ensure sshd GSSAPIAuthentication is disabled | live
-    exec: sshd -T | grep -i gssapiauthentication
+  ssh_rhosts_live:
+    title: 5.1.11 | Ensure SSH IgnoreRhosts is enabled | live
+    exec: sshd -T | grep ignorerhosts
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '/^gssapiauthentication no/'
-    - '!/^gssapiauthentication yes/'
+    - '/^ignorerhosts yes/'
+    - '!/^ignorerhosts no/'
     meta:
-      server: 2
+      server: 1
       workstation: 1
       CIS_ID:
       - 5.1.11
-      CISv8: 4.8
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-1
       - CM-2

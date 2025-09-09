@@ -1,12 +1,12 @@
 ---
 
 {{ if .Vars.rhel10cis_level_1 }}
-  {{ if .Vars.rhel10cis_rule_3_2_3 }}
+  {{ if .Vars.rhel10cis_rule_3_2_2 }}
 command:
-  modprobe_cat:
-    title: 3.2.2 | Ensure cat kernel module is not available | cat config
+  modprobe_can:
+    title: 3.2.2 | Ensure can kernel module is not available | cat config
     exit-status: 0
-    exec: 'modprobe -n -v cat'
+    exec: 'modprobe -n -v can'
     stdout:
       - '/install /bin/(true|false)/'
     meta:
@@ -19,9 +19,9 @@ command:
       CCI:
       - 000381
   lsmod_cat:
-    title: 3.2.2 | Ensure cat kernel module is not available | running cat
+    title: 3.2.2 | Ensure can kernel module is not available | running cat
     exit-status: 1
-    exec: lsmod | grep -i cat
+    exec: lsmod | grep -i can
     stdout:
     - '!/^.*/'
     meta:

@@ -17,7 +17,7 @@ command:
   aslr_enabled_2:
     title: 1.5.8 | Ensure kernel.randomize_va_space is configured | conf
     exit-status: 0
-    exec: 'grep "kernel\.randomize_va_space" /etc/sysctl.conf /etc/sysctl.d/*'
+    exec: grep "kernel\.randomize_va_space" /etc/sysctl.conf /etc/sysctl.d/*
     stdout:
     - '/^*.conf:kernel.randomize_va_space\s*=\s*2/'
     meta:

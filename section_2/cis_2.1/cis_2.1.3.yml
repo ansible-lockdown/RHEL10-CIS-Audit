@@ -2,7 +2,7 @@
 
 {{ if .Vars.rhel10cis_level_1 }}
   {{ if .Vars.rhel10cis_rule_2_1_3 }}
-    {{ if not .Vars.rhel10cis_cockpit }}
+    {{ if not .Vars.rhel10cis_cockpit_server }}
       {{ if not .Vars.rhel10cis_cockpit_mask }}
 package:
   cockpit_pkg:

@@ -32,8 +32,6 @@ command:
       workstation: 1
       CIS_ID:
       - 3.3.1.1
-      CCI:
-      - 000366
       NIST800-53R5:
       - CM-6
       CCI:

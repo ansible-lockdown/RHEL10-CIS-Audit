@@ -1,0 +1,33 @@
+---
+
+{{ if .Vars.rhel10cis_level_2 }}
+  {{ if .Vars.rhel10cis_rule_6_3_3_25 }}
+command:
+  auditd_rename_cnf:
+    title: 6.3.3.25 | Ensure rename file deletion events by users are collected | conf check
+    exec: grep rename /etc/audit/rules.d/*.rules
+    exit-status: 0
+    stdout:
+    - '/[^#]-a always,exit -F arch=b64 -S rename,renameat,renameat2 -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -F key=delete/'
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 6.3.3.25
+      NIST800-53R5:
+      - AU-12
+  auditd_rename_live:
+    title: 6.3.3.25 | Ensure file deletion events by users are collected | running
+    exec: auditctl -l | grep rename
+    exit-status: 0
+    stdout:
+    - '/-a always,exit -S rename,renameat,,renameat2 -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295)/'
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 6.3.3.25
+      NIST800-53R5:
+      - AU-12
+  {{ end }}
+{{ end }}

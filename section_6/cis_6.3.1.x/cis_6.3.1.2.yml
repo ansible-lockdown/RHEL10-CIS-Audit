@@ -13,11 +13,7 @@ command:
       server: 2
       CIS_ID:
       - 6.3.1.2
-      CISv8: 8.2
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
-      NIST800-53R5: NA
+      NIST800-53R5: AU-12
   grubby_audit_1:
     title: 6.3.1.2 | Ensure auditing for processes that start prior to auditd is enabled | live
     exec: grubby --info=ALL | grep -Po 'audit=1'
@@ -29,10 +25,6 @@ command:
       workstation: 2
       CIS_ID:
       - 6.3.1.2
-      CISv8: 8.2
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
-      NIST800-53R5: NA
+      NIST800-53R5: AU-12
   {{ end }}
 {{ end }}

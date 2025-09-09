@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10cis_rule_6_3_4_3 }}
 command:
   audit_logfile_owner:
-    title: 6.3.4.3 | Ensure only authorized users own audit log files
+    title: 6.3.4.3 | Ensure audit log files owner is configured
     exec: for file in `grep ^log_file /etc/audit/auditd.conf | awk '{ print $NF }'`; do stat -Lc "%n_%U" $file; done
     exit-status: 0
     stdout:
@@ -14,12 +14,7 @@ command:
       workstation: 2
       CIS_ID:
       - 6.3.4.3
-      CISv8:
-      - 3.3
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
-      - AU-3
+      - CM-7
   {{ end }}
 {{ end }}

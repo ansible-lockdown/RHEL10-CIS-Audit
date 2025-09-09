@@ -3,43 +3,31 @@
 {{ if .Vars.rhel10cis_level_2 }}
   {{ if .Vars.rhel10cis_rule_6_3_3_16 }}
 command:
-  auditd_setfacl_cnf:
-    title: 6.3.3.16 | Ensure successful and unsuccessful attempts to use the setfacl command are recorded | config
-    exec: grep setfacl /etc/audit/rules.d/*.rules
+  auditd_nsswitch_cnf:
+    title: 6.3.3.16 | Ensure events that modify /etc/nsswitch.conf file are collected | conf check
+    exec: grep nsswitch /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
-    - '/[^#]-a always,exit -F path=/usr/bin/setfacl -F perm=x -F auid>=1000 -F auid!=(unset|-1|4294967295) -k perm_chng/'
+    - '-a always,exit -F arch=b64 -S all -F path=/etc/nsswitch.conf -F perm=wa -F key=identity'
     meta:
       server: 2
       workstation: 2
       CIS_ID:
       - 6.3.3.16
-      CISv8: 8.2
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
-      - AU-2
       - AU-12
-      - SI-5
-  auditd_setfacl_live:
-    title: 6.3.3.16 |Ensure successful and unsuccessful attempts to use the setfacl command are recorded | running
-    exec: auditctl -l | grep setfacl
+  auditd_nsswitch_live:
+    title: 6.3.3.16 | Ensure events that modify /etc/nsswitch.conf file are collected | running
+    exec: auditctl -l | grep nsswitch
     exit-status: 0
     stdout:
-    - '/-a always,exit -S all -F path=/usr/bin/setfacl -F perm=x -F auid>=1000 -F auid!=(unset|-1|4294967295) -F key=perm_chng/'
+    - '-a always,exit -F arch=b64 -S all -F path=/etc/nsswitch.conf -F perm=wa -F key=identity'
     meta:
       server: 2
       workstation: 2
       CIS_ID:
       - 6.3.3.16
-      CISv8: 8.2
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
-      - AU-2
       - AU-12
-      - SI-5
   {{ end }}
 {{ end }}

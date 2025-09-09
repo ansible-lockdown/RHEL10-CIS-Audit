@@ -31,7 +31,7 @@ command:
       server: 1
       workstation: 1
       CIS_ID:
-      - 3.2.2
+      - 3.2.4
       NIST800-53R5:
       - CM-7
       CCI:

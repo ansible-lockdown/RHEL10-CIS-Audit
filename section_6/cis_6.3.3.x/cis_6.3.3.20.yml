@@ -3,24 +3,31 @@
 {{ if .Vars.rhel10cis_level_2 }}
   {{ if .Vars.rhel10cis_rule_6_3_3_20 }}
 command:
-  auditd_immutable:
-    title: 6.3.3.20 | Ensure the audit configuration is immutable
-    exec: 'grep "-e 2" /etc/audit/rules.d/*.rules | tail -1'
+  auditd_xattr_cnf:
+    title: 6.3.3.20 | Ensure discretionary access control permission modification events setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr collected | conf check
+    exec: grep xattr /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
-    - '-e 2'
+    - '/[^#]-a always,exit -F arch=b64 -S setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -k perm_mod/'
     meta:
       server: 2
       workstation: 2
       CIS_ID:
       - 6.3.3.20
-      CISv8: 3.3
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
-      - AC-3
-      - AU-3
-      - MP-2
+      - AU-12
+  auditd_xattr_live:
+    title: 6.3.3.20 | Ensure discretionary access control permission modification events setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr collected | running
+    exec: auditctl -l | grep xattr
+    exit-status: 0
+    stdout:
+    - '/-a always,exit -F arch=b64 -S setxattr,lsetxattr,fsetxattr,removexattr,lremovexattr,fremovexattr -F auid>=1000 -F auid!=-1 -F key=perm_mod/'
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 6.3.3.20
+      NIST800-53R5:
+      - AU-12
   {{ end }}
 {{ end }}

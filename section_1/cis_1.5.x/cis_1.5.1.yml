@@ -5,14 +5,14 @@
 command:
   core_size:
     title: 1.5.1 | Ensure core file size is configured | running
-    exec: grep -Psi -- '^\h*\*\h+hard\h+core\b' /etc/security/limits.conf /etc/security/limits.d/*
+    exec: grep -Psi -- '^\s*hard\s+core\b' /etc/security/limits.conf /etc/security/limits.d/*
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '/.*conf:* hard core 0/'
-    - '!/.*conf:* hard core [1-9]/'
+    - '/.*conf:hard core 0/'
+    - '!/.*conf:hard core [1-9]/'
     meta:
       server: 1
       workstation: 1

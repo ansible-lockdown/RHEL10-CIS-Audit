@@ -1,3 +1,5 @@
+---
+
 {{ if .Vars.rhel10cis_level_1 }}
   {{ if .Vars.rhel10cis_rule_1_5_2 }}
 command:
@@ -9,7 +11,7 @@ command:
       - 0
       - 1
     stdout:
-    - '/fs.protected_hardlinks = 1/'
+    - '/fs.protected_hardlinks\s*=\s*1/'
     meta:
       server: 1
       workstation: 1
@@ -22,15 +24,15 @@ command:
       - 002165
       - 002235
   sysctl_hardlinks_conf:
-    title: 1.5.2 | Ensure fs.protected_hardlinks is configured | running
+    title: 1.5.2 | Ensure fs.protected_hardlinks is configured | conf
     exec: grep -R fs.protected_hardlinks /etc/sysctl.conf /etc/sysctl.d/
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '/.*conf: fs.protected_hardlinks\s*=\s*1/'
-    - '!/.*conf: fs.protected_hardlinks\s*=\s*0/'
+    - '/.*conf:fs.protected_hardlinks\s*=\s*1/'
+    - '!/.*conf:fs.protected_hardlinks\s*=\s*0/'
     meta:
       server: 1
       workstation: 1

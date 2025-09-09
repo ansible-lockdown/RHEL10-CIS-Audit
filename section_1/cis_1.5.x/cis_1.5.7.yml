@@ -20,10 +20,10 @@ kernel-param:
 command:
   ptrace_restricted_2:
     title: 1.5.7 | Ensure address space layout randomization (ASLR) is enabled | conf
-    exec: 'grep "kernel\.yama\.ptrace_scope" /etc/sysctl.conf /etc/sysctl.d/*'
+    exec: grep "kernel\.yama\.ptrace_scope" /etc/sysctl.conf /etc/sysctl.d/*
     exit-status: 0
     stdout:
-    - '/^*.conf:kernel.yama.ptrace_scope\s*=\s*(1|2|3)'
+    - '/^*.conf:kernel.yama.ptrace_scope\s*=\s*(1|2|3)/'
     meta:
       server: 1
       workstation: 1

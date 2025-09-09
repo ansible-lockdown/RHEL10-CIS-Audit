@@ -232,20 +232,19 @@ rhel10cis_rule_3_3_2_7: true
 rhel10cis_rule_3_3_2_8: true
 
 # Section 4 Firewalls
-## Firewall utility
+## Firewalld
 rhel10cis_rule_4_1_1: true
 rhel10cis_rule_4_1_2: true
-## Configure firewalld
-rhel10cis_rule_4_2_1: true
-rhel10cis_rule_4_2_2: true
-# Configure nftables
-rhel10cis_rule_4_3_1: true
-rhel10cis_rule_4_3_2: true
-rhel10cis_rule_4_3_3: true
-rhel10cis_rule_4_3_4: true
+rhel10cis_rule_4_1_3: true
+rhel10cis_rule_4_1_4: true
+rhel10cis_rule_4_1_5: true
+rhel10cis_rule_4_1_6: true
+rhel10cis_rule_4_1_7: true
 
-## Section 5
-## 5.1. Configure SSH Server
+## Section 5 Fixes
+# Section 5 rules control Access, Authentication, and Authorization (Configure time-based job schedulers,
+# Configure sudo, Configure SSH Server, Configure PAM and User Accounts and Environment)
+# Configure SSH Server
 rhel10cis_rule_5_1_1: true
 rhel10cis_rule_5_1_2: true
 rhel10cis_rule_5_1_3: true
@@ -268,7 +267,7 @@ rhel10cis_rule_5_1_19: true
 rhel10cis_rule_5_1_20: true
 rhel10cis_rule_5_1_21: true
 rhel10cis_rule_5_1_22: true
-## 5.2 Configure Privilege Escalation
+# 5.2 Configure Privilege Escalation
 rhel10cis_rule_5_2_1: true
 rhel10cis_rule_5_2_2: true
 rhel10cis_rule_5_2_3: true
@@ -280,35 +279,37 @@ rhel10cis_rule_5_2_7: true
 rhel10cis_rule_5_3_1_1: true
 rhel10cis_rule_5_3_1_2: true
 rhel10cis_rule_5_3_1_3: true
+rhel10cis_rule_5_3_1_4: true
+rhel10cis_rule_5_3_1_5: true
 # 5.3.2 Configure authselect
 rhel10cis_rule_5_3_2_1: true
 rhel10cis_rule_5_3_2_2: true
 rhel10cis_rule_5_3_2_3: true
 rhel10cis_rule_5_3_2_4: true
 rhel10cis_rule_5_3_2_5: true
-# 5.3.3.1 Configure pam_faillock module
-rhel10cis_rule_5_3_3_1_1: true
-rhel10cis_rule_5_3_3_1_2: true
-rhel10cis_rule_5_3_3_1_3: true
-# 5.3.3.2 Configure pam_pwquality module
-rhel10cis_rule_5_3_3_2_1: true
-rhel10cis_rule_5_3_3_2_2: true
-rhel10cis_rule_5_3_3_2_3: true
-rhel10cis_rule_5_3_3_2_4: true
-rhel10cis_rule_5_3_3_2_5: true
-rhel10cis_rule_5_3_3_2_6: true
-rhel10cis_rule_5_3_3_2_7: true
-rhel10cis_rule_5_3_3_2_8: true
-# 5.3.3.3 Configure pam_pwhistory module
-# This are added as part of 5.3.2.4 using jinja2 template
-rhel10cis_rule_5_3_3_3_1: true
-rhel10cis_rule_5_3_3_3_2: true
-rhel10cis_rule_5_3_3_3_3: true
-# 5.3.3.4 Configure pam_unix module
-rhel10cis_rule_5_3_3_4_1: true
-rhel10cis_rule_5_3_3_4_2: true
-rhel10cis_rule_5_3_3_4_3: true
-rhel10cis_rule_5_3_3_4_4: true
+# 5.3.2.1 Configure pam_faillock module
+rhel10cis_rule_5_3_2_1_1: true
+rhel10cis_rule_5_3_2_1_2: true
+rhel10cis_rule_5_3_2_1_3: true
+# 5.3.2.2 Configure pam_pwquality module
+rhel10cis_rule_5_3_2_2_1: true
+rhel10cis_rule_5_3_2_2_2: true
+rhel10cis_rule_5_3_2_2_3: true
+rhel10cis_rule_5_3_2_2_4: true
+rhel10cis_rule_5_3_2_2_5: true
+rhel10cis_rule_5_3_2_2_6: true
+rhel10cis_rule_5_3_2_2_7: true
+rhel10cis_rule_5_3_2_2_8: true
+# 5.3.2.3 Configure pam_pwhistory module
+# These are added as part of 5.3.2.4 using jinja2 template
+rhel10cis_rule_5_3_2_3_1: true
+rhel10cis_rule_5_3_2_3_2: true
+rhel10cis_rule_5_3_2_3_3: true
+# 5.3.2.4 Configure pam_unix module
+rhel10cis_rule_5_3_2_4_1: true
+rhel10cis_rule_5_3_2_4_2: true
+rhel10cis_rule_5_3_2_4_3: true
+rhel10cis_rule_5_3_2_4_4: true
 # 5.4 User Accounts and Environment
 # 5.4.1 Configure shadow password suite parameters
 rhel10cis_rule_5_4_1_1: true
@@ -326,22 +327,23 @@ rhel10cis_rule_5_4_2_5: true
 rhel10cis_rule_5_4_2_6: true
 rhel10cis_rule_5_4_2_7: true
 rhel10cis_rule_5_4_2_8: true
-# 5.4.2 Configure user default environment
+# 5.4.3 Configure user default environment
 rhel10cis_rule_5_4_3_1: true
 rhel10cis_rule_5_4_3_2: true
 rhel10cis_rule_5_4_3_3: true
 
-# Section 6 Logging and Auditing
-## 6.1 Configure Integrity Checking
+## Section 6 Fixes
+# Section 6 rules control Logging and Auditing
+# Configure Integrity Checking
 rhel10cis_rule_6_1_1: true
 rhel10cis_rule_6_1_2: true
 rhel10cis_rule_6_1_3: true
-## 6.2.1 Configure systemd-journald service
+# 6.2.1 Configure systemd-journald service
 rhel10cis_rule_6_2_1_1: true
 rhel10cis_rule_6_2_1_2: true
 rhel10cis_rule_6_2_1_3: true
 rhel10cis_rule_6_2_1_4: true
-## 6.2.2.x Configure journald
+# 6.2.2.x Configure journald
 rhel10cis_rule_6_2_2_1_1: true
 rhel10cis_rule_6_2_2_1_2: true
 rhel10cis_rule_6_2_2_1_3: true
@@ -349,7 +351,7 @@ rhel10cis_rule_6_2_2_1_4: true
 rhel10cis_rule_6_2_2_2: true
 rhel10cis_rule_6_2_2_3: true
 rhel10cis_rule_6_2_2_4: true
-## 6.2.3 Configure rsyslog
+# 6.2.3 Configure rsyslog
 rhel10cis_rule_6_2_3_1: true
 rhel10cis_rule_6_2_3_2: true
 rhel10cis_rule_6_2_3_3: true
@@ -358,20 +360,20 @@ rhel10cis_rule_6_2_3_5: true
 rhel10cis_rule_6_2_3_6: true
 rhel10cis_rule_6_2_3_7: true
 rhel10cis_rule_6_2_3_8: true
-## 6.2.4 Configure Logfiles
+# 6.2.4 Configure Logfiles
 rhel10cis_rule_6_2_4_1: true
-## 6.3 Configure Auditing
-## 6.3.1 Configure auditd Service
+# 6.3 Configure Auditing
+# 6.3.1 Configure auditd Service
 rhel10cis_rule_6_3_1_1: true
 rhel10cis_rule_6_3_1_2: true
 rhel10cis_rule_6_3_1_3: true
 rhel10cis_rule_6_3_1_4: true
-## 6.3.2 Configure Data Retention
+# 6.3.2 Configure Data Retention
 rhel10cis_rule_6_3_2_1: true
 rhel10cis_rule_6_3_2_2: true
 rhel10cis_rule_6_3_2_3: true
 rhel10cis_rule_6_3_2_4: true
-## 6.3.3 Configure auditd Rules
+# 6.3.3 Configure auditd Rules
 rhel10cis_rule_6_3_3_1: true
 rhel10cis_rule_6_3_3_2: true
 rhel10cis_rule_6_3_3_3: true
@@ -393,7 +395,23 @@ rhel10cis_rule_6_3_3_18: true
 rhel10cis_rule_6_3_3_19: true
 rhel10cis_rule_6_3_3_20: true
 rhel10cis_rule_6_3_3_21: true
-## 6.3.4 Configure auditd File Access
+rhel10cis_rule_6_3_3_22: true
+rhel10cis_rule_6_3_3_23: true
+rhel10cis_rule_6_3_3_24: true
+rhel10cis_rule_6_3_3_25: true
+rhel10cis_rule_6_3_3_26: true
+rhel10cis_rule_6_3_3_27: true
+rhel10cis_rule_6_3_3_28: true
+rhel10cis_rule_6_3_3_29: true
+rhel10cis_rule_6_3_3_30: true
+rhel10cis_rule_6_3_3_31: true
+rhel10cis_rule_6_3_3_32: true
+rhel10cis_rule_6_3_3_33: true
+rhel10cis_rule_6_3_3_34: true
+rhel10cis_rule_6_3_3_35: true
+rhel10cis_rule_6_3_3_36: true
+rhel10cis_rule_6_3_3_37: true
+# 6.3.4 Configure auditd File Access
 rhel10cis_rule_6_3_4_1: true
 rhel10cis_rule_6_3_4_2: true
 rhel10cis_rule_6_3_4_3: true
@@ -435,12 +453,13 @@ rhel10cis_rule_7_2_9: true
 
 # Section 1
 
-# Whether or not to run tasks related to auditing/patching the desktop environment
-rhel10cis_gui: false
-
 # Warning Banner Content (issue, issue.net, motd)
-rhel10cis_warning_banner: Authorized uses only. All activity may be monitored and reported.
+rhel10cis_warning_banner: Authorized users only. All activity may be monitored and reported.
 # End Banner
+
+## Control 1.8.x - Settings for GDM
+## 1.8 GDM graphical interface
+desktop_required: False
 
 # 1.8 Gnome Desktop
 rhel10cis_dconf_db_name: local
@@ -583,6 +602,35 @@ rhel10cis_aide_scan: cron
 ## syslog
 ## change to rsyslog/ journald or other
 rhel10cis_syslog: journald
+
+## Control 6.2.1.3 - Ensure journald log rotation is configured per site policy
+# Current variable configures the max amount of disk space the logs will use(thus, journal files
+# will not grow without bounds)
+# The variables below related to journald, please set these to your site specific values
+# These variable specifies how much disk space the journal may use up at most
+# Specify values in bytes or use K, M, G, T, P, E as units for the specified sizes.
+# See https://www.freedesktop.org/software/systemd/man/journald.conf.html for more information.
+rhel10cis_journald_systemmaxuse: 10M
+## Control 6.2.1.3 - Ensure journald log rotation is configured per site policy
+# Current variable configures the amount of disk space to keep free for other uses.
+rhel10cis_journald_systemkeepfree: 100G
+## Control 6.2.1.3 - Ensure journald log rotation is configured per site policy
+# This variable configures how much disk space the journal may use up at most.
+# Similar with 'rhel10cis_journald_systemmaxuse', but related to runtime space.
+rhel10cis_journald_runtimemaxuse: 10M
+## Control 6.2.1.3 - Ensure journald log rotation is configured per site policy
+# This variable configures the actual amount of disk space to keep free
+# Similar with 'rhel10cis_journald_systemkeepfree', but related to runtime space.
+rhel10cis_journald_runtimekeepfree: 100G
+## Control 6.2.1.3 - Ensure journald log rotation is configured per site policy
+# Current variable governs the settings for log retention(how long the log files will be kept).
+# Thus, it specifies the maximum time to store entries in a single journal
+# file before rotating to the next one. Set to 0 to turn off this feature.
+# The given values is interpreted as seconds, unless suffixed with the units
+# `year`, `month`, `week`, `day`, `h` or `m` to override the default time unit of seconds.
+# Values are Xm, Xh, Xday, Xweek, Xmonth, Xyear, for example 2week is two weeks
+# ATTENTION: Uncomment the keyword below when values are set!
+rhel10cis_journald_maxfilesec: 1month
 
 # Control 6.2.3. x
 ## Set if host is a logserver

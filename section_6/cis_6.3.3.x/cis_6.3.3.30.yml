@@ -1,0 +1,33 @@
+---
+
+{{ if .Vars.rhel10cis_level_2 }}
+  {{ if .Vars.rhel10cis_rule_6_3_3_30 }}
+command:
+  auditd_usermod_cnf:
+    title: 6.3.3.30 | Ensure successful and unsuccessful attempts to use the usermod command are collected | config
+    exec: grep usermod /etc/audit/rules.d/*.rules
+    exit-status: 0
+    stdout:
+    - '/[^#]-a always,exit -F path=/usr/sbin/usermod -F perm=x -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -k usermod/'
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 6.3.3.30
+      NIST800-53R5:
+      - AU-12
+  auditd_usermod_live:
+    title: 6.3.3.30 | Ensure successful and unsuccessful attempts to use the usermod command are collected | running
+    exec: auditctl -l | grep usermod
+    exit-status: 0
+    stdout:
+    - '/-a always,exit -S all -F path=/usr/sbin/usermod -F perm=x -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -F key=usermod/'
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 6.3.3.30
+      NIST800-53R5:
+      - AU-12
+  {{ end }}
+{{ end }}

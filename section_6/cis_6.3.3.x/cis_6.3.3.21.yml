@@ -3,22 +3,31 @@
 {{ if .Vars.rhel10cis_level_2 }}
   {{ if .Vars.rhel10cis_rule_6_3_3_21 }}
 command:
-  auditd_conf_vs_live:
-    title: 6.3.3.21 | Ensure the running and on disk configuration is the same
-    exec: /usr/sbin/augenrules --check
+  auditd_mounts_cnf:
+    title: 6.3.3.21 | Ensure successful file system mounts are collected | conf check
+    exec: grep mounts /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
-    - '/^\/usr\/sbin\/augenrules: No change/'
+    - '/-a always,exit -F arch=b64 -S mount -F auid>=1000 -F auid!=(unset|-1|auid=4294967295) -k mounts/'
     meta:
       server: 2
       workstation: 2
       CIS_ID:
       - 6.3.3.21
-      CISv8: 8.5
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
-      - AU-3
+      - AU-12
+  auditd_mounts_live:
+    title: 6.3.3.21 | Ensure successful file system mounts are collected | running
+    exec: auditctl -l | grep mounts
+    exit-status: 0
+    stdout:
+    - '/-a always,exit -F arch=b64 -S mount -F auid>=1000 -F auid!=(unset|-1|auid=4294967295) -F key=mounts/'
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 6.3.3.21
+      NIST800-53R5:
+      - AU-12
   {{ end }}
 {{ end }}

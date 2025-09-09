@@ -4,14 +4,14 @@
   {{ if .Vars.rhel10cis_rule_1_5_4 }}
 command:
   sysctl_suid_dumpable_live:
-    title: 1.5.4 | Ensure fs.suid_dumpable is configured | running
+    title: 1.5.4 | Ensure fs.suid_dumpable is configured | conf
     exec: sysctl fs.suid_dumpable
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '/fs.suid_dumpable = 1/'
+    - '/fs.suid_dumpable\s*=\s*0/'
     meta:
       server: 1
       workstation: 1
@@ -31,8 +31,8 @@ command:
       - 0
       - 1
     stdout:
-    - '/.*conf: fs.suid_dumpable\s*=\s*1/'
-    - '!/.*conf: fs.suid_dumpable\s*=\s*0/'
+    - '/.*conf:fs.suid_dumpable\s*=\s*0/'
+    - '!/.*conf:fs.suid_dumpable\s*=\s*1/'
     meta:
       server: 1
       workstation: 1

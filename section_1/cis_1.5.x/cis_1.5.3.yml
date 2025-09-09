@@ -11,7 +11,7 @@ command:
       - 0
       - 1
     stdout:
-    - '/fs.protected_symlinks = 1/'
+    - '/fs.protected_symlinks\s*=\s*1/'
     meta:
       server: 1
       workstation: 1
@@ -24,15 +24,15 @@ command:
       - 002165
       - 002235
   sysctl_symlinks_conf:
-    title: 1.5.3 | Ensure fs.protected_symlinks is configured | running
+    title: 1.5.3 | Ensure fs.protected_symlinks is configured | conf
     exec: grep -R fs.protected_symlinks /etc/sysctl.conf /etc/sysctl.d/
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '/.*conf: fs.protected_symlinks\s*=\s*1/'
-    - '!/.*conf: fs.protected_symlinks\s*=\s*0/'
+    - '/.*conf:fs.protected_symlinks\s*=\s*1/'
+    - '!/.*conf:fs.protected_symlinks\s*=\s*0/'
     meta:
       server: 1
       workstation: 1

@@ -1,0 +1,20 @@
+---
+
+{{ if .Vars.rhel10cis_level_2 }}
+  {{ if .Vars.rhel10cis_rule_6_3_3_37 }}
+command:
+  auditd_conf_vs_live:
+    title: 6.3.3.37 | Ensure the running and on disk configuration is the same
+    exec: /usr/sbin/augenrules --check
+    exit-status: 0
+    stdout:
+    - '/^\/usr\/sbin\/augenrules: No change/'
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 6.3.3.37
+      NIST800-53R5:
+      - AU-3
+  {{ end }}
+{{ end }}
