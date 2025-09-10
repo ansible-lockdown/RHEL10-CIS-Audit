@@ -11,7 +11,7 @@ command:
       - 0
       - 1
     stdout:
-    - "/(allowusers: {{ .Vars.rhel10cis_sshd_allowusers }}|allowgroups: {{ .Vars.rhel10cis_sshd_allowgroups }}|denyusers: {{ .Vars.rhel10cis_sshd_denyusers }}|denygroups: {{ .Vars.rhel10cis_sshd_denygroups }} /"
+    - "/(?i)(allowusers {{ .Vars.rhel10cis_sshd_allowusers }}|allowgroups {{ .Vars.rhel10cis_sshd_allowgroups }}|denyusers {{ .Vars.rhel10cis_sshd_denyusers }}|denygroups {{ .Vars.rhel10cis_sshd_denygroups }} )/"
     meta:
       server: 1
       workstation: 1

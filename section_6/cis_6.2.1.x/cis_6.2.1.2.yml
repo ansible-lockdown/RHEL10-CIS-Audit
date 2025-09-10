@@ -26,13 +26,13 @@ command:
       if [ "${#warn[@]}" -eq 0 ]; then
         echo "No files with permissions more permissive than 0640."
       else
-        echo -e " *** REVIEW ***"
+        echo -e "REVIEW needed"
         printf "%s\n" "${warn[@]}"
       fi
     exit-status: 0
     stdout:
     - '/^No files with permissions more permissive than 0640./'
-    - '!/\s**** REVIEW ***/'
+    - '!/\sREVIEW needed/'
     meta:
       server: 1
       workstation: 1

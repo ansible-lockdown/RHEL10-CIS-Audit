@@ -5,10 +5,10 @@
 command:
   auditd_loaded:
     title: 6.3.3.35 | Ensure the audit configuration is loaded regardless of errors
-    exec: 'grep "-c" /etc/audit/rules.d/*.rules | tail -1'
+    exec: grep -w '\-c' /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
-    - '-c'
+    - '/.*:-c/'
     meta:
       server: 2
       workstation: 2

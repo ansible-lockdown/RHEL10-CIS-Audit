@@ -8,7 +8,7 @@ command:
     exec: grep kmod /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
-    - '/[^#]-a always,exit -F arch=b64 -S all -F path=/usr/bin/kmod -F perm=x -F -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -k kernel_modules/'
+    - '/[^#]-a always,exit -F arch=b64 -S all -F path=/usr/bin/kmod -F perm=x -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -k kernel_modules/'
     meta:
       server: 2
       workstation: 2
@@ -21,7 +21,7 @@ command:
     exec: auditctl -l | grep kmod
     exit-status: 0
     stdout:
-    - '/-a always,exit -S all -F path=/usr/bin/kmod -F perm=x -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -F key=kernel_modules/'
+    - '/-a always,exit -F arch=b64 -S all -F path=/usr/bin/kmod -F perm=x -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -F key=kernel_modules/'
     meta:
       server: 2
       workstation: 2

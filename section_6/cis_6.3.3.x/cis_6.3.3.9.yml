@@ -22,7 +22,7 @@ command:
     exec: auditctl -l | grep Network
     exit-status: 0
     stdout:
-    - '-a always,exit -F pat-a always,exit -F dir=/etc/NetworkManager/ -F perm=wa'
+    - '-a always,exit -F arch=b64 -S all -F dir=/etc/NetworkManager/ -F perm=wa -F key=system-locale'
     meta:
       server: 2
       workstation: 2

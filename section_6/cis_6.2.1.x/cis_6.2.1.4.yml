@@ -5,8 +5,8 @@
     {{ if eq .Vars.rhel10cis_syslog "journald" }}
 service:
   journald_system:
-    title: 6.2.1.4 | Ensure systemd-journal-remote service is not in use | journald system
-    name: journald
+    title: 6.2.1.4 | Ensure only one logging system is in use | journald system
+    name: systemd-journald
     running: true
     enabled: true
     meta:
@@ -16,7 +16,7 @@ service:
       - 6.2.1.4
       NIST800-53R5: NA
   not ryslog_system:
-    title: 6.2.1.4 | Ensure systemd-journal-remote service is not in use | journald system
+    title: 6.2.1.4 | Ensure only one logging system is in use | journald system
     name: rsyslog
     running: false
     enabled: false
@@ -29,7 +29,7 @@ service:
   {{ end }}
   {{ if eq .Vars.rhel10cis_syslog "rsyslog" }}
   rsyslog_system:
-    title: 6.2.1.4 | Ensure systemd-journal-remote service is not in use | rsyslog system
+    title: 6.2.1.4 | Ensure only one logging system is in use | rsyslog system
     name: rsyslog
     running: true
     enabled: true
@@ -40,8 +40,8 @@ service:
       - 6.2.1.4
       NIST800-53R5: NA
   not ryslog_system:
-    title: 6.2.1.4 | Ensure systemd-journal-remote service is not in use | rsyslog system
-    name: journald
+    title: 6.2.1.4 | Ensure only one logging system is in use | rsyslog system
+    name: systemd-journald
     running: false
     enabled: false
     meta:

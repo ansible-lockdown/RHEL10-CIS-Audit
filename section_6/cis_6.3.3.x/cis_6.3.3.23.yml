@@ -8,7 +8,7 @@ command:
     exec: grep logins /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
-    - '-a always,exit -F arch=bs4 -S all -F path=/var/run/faillock -F perm=wa -F key=logins'
+    - '-a always,exit -F arch=b64 -S all -F path=/var/run/faillock -F perm=wa -F key=logins'
     - '-a always,exit -F arch=b64 -S all -F path=/var/log/lastlog -F perm=wa -F key=logins'
     meta:
       server: 2
@@ -22,8 +22,8 @@ command:
     exec: auditctl -l | grep logins
     exit-status: 0
     stdout:
-    - '-a always,exit -F path=/var/log/lastlog -F perm=wa'
-    - '-a always,exit -F path=/var/run/faillock -F perm=wa'
+    - '-a always,exit -F arch=b64 -S all -F path=/var/log/lastlog -F perm=wa -F key=logins'
+    - '-a always,exit -F arch=b64 -S all -F path=/var/run/faillock -F perm=wa -F key=logins'
     meta:
       server: 2
       workstation: 2

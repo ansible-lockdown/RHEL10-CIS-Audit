@@ -23,8 +23,8 @@ command:
     exec: auditctl -l | grep host
     exit-status: 0
     stdout:
-    - '-w /etc/hosts -p wa -k system-locale'
-    - '-w /etc/hostname -p wa -k system-locale'
+    - '-a always,exit -F arch=b64 -S all -F path=/etc/hosts -F perm=wa -F key=system-locale'
+    - '-a always,exit -F arch=b64 -S all -F path=/etc/hostname -F perm=wa -F key=system-locale'
     meta:
       server: 2
       workstation: 2
