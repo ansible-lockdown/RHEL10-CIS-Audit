@@ -4,12 +4,12 @@
   {{ if .Vars.rhel10cis_rule_6_3_3_8 }}
 command:
   auditd_network_cnf:
-    title: 6.3.3.8 | Ensure events that modify /etc/sysconfig/network and /etc/sysconfig/network-scripts/ are collected | conf check
+    title: 6.3.3.8 | Ensure events that modify /etc/sysconfig/network and /etc/NetworkManager/system-connections/ are collected | conf check
     exec: grep -i network /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
     - '-a always,exit -F arch=b64 -S all -F path=/etc/sysconfig/network -F perm=wa -F key=system-locale'
-    - '-a always,exit -F arch=b64 -S all -F dir=/etc/sysconfig/network-scripts/ -F perm=wa -F key=system-locale'
+    - '-a always,exit -F arch=b64 -S all -F dir=/etc/NetworkManager/system-connections/ -F perm=wa -F key=system-locale'
     meta:
       server: 2
       workstation: 2
@@ -19,12 +19,12 @@ command:
       - AU-3
       - CM-6
   auditd_network_live:
-    title: 6.3.3.8 | Ensure events that modify /etc/sysconfig/network and /etc/sysconfig/network-scripts/ are collected | running
+    title: 6.3.3.8 | Ensure events that modify /etc/sysconfig/network and /etc/NetworkManager/system-connections/ are collected | running
     exec: auditctl -l | grep -i network
     exit-status: 0
     stdout:
     - '-a always,exit -F arch=b64 -S all -F path=/etc/sysconfig/network -F perm=wa -F key=system-locale'
-    - '-a always,exit -F arch=b64 -S all -F path=/etc/sysconfig/network -F perm=wa -F key=system-locale'
+    - '-a always,exit -F arch=b64 -S all -F path=/etc/NetworkManager/system-connections/ -F perm=wa -F key=system-locale'
     meta:
       server: 2
       workstation: 2
