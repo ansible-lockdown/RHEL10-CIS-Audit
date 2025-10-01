@@ -1,4 +1,12 @@
-# Changes to RHEL9-CIS-Audit
+# Changes to RHEL10-CIS-Audit
+
+## CIS 1.0.1
+
+- updated version
+- 1.4.2 removed efi steps
+- 2.1.4 udpated for kea services
+- 6.3.3.8 updated
+- 6.3.3.34 updated
 
 ## 1.0.5 updated to use goss > 0.4. - based on CIS v1.0.0
 
@@ -11,7 +19,7 @@
 - linting on spaces
 - update of the run_audit script include version check of goss binary
 
-## 1.0.3 sept23_updates - based on CIS v1.0.0
+## 1.0.3 sept25_updates - based on CIS v1.0.0
 
 - [#22](https://github.com/ansible-lockdown/RHEL9-CIS-Audit/issues/22)
 - [#23](https://github.com/ansible-lockdown/RHEL9-CIS-Audit/issues/23)
