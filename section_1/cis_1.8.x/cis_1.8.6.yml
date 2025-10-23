@@ -5,7 +5,7 @@
     {{ if .Vars.rhel10cis_rule_1_8_6 }}
 file:
   /etc/gdm/custom.conf:
-    title: 1.8.10 | Ensure Xwayland is configured
+    title: 1.8.6 | Ensure Xwayland is configured
     path: /etc/gdm/custom.conf
     exists: true
     contents:

@@ -9,8 +9,8 @@ file:
     path: /etc/firewalld/firewalld.conf
     exists: true
     contents:
-    - '/^FirewallBackend=nftables/'
-    - '!/^FirewallBackend=iptables/'
+    - '/^FirewallBackend\s*=\s*nftables/'
+    - '!/^FirewallBackend\s*=\s*iptables/'
     meta:
       server: 1
       workstation: 1
