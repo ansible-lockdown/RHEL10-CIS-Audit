@@ -38,7 +38,7 @@ gossfile:
     {{ if eq .Vars.rhel10cis_syslog "rsyslog" }}
   section_6/cis_6.2.3.x/*.yml: {}
     {{ end }}
-  section_6/cis_6.2.4/*.yml: {}
+  section_6/cis_6.2.4.x/*.yml: {}
     # Auditd and level 2
     {{ if .Vars.rhel10cis_level_2 }}
   section_6/cis_6.3.*/*.yml: {}
