@@ -2,6 +2,8 @@
 
 ## CIS 1.0.1
 
+- 3.1.1
+  - Added option to audit disable IPv6 via sysctl (original method) or via the kernel
 - updated version
 - 1.4.2 removed efi steps
 - 2.1.4 udpated for kea services
