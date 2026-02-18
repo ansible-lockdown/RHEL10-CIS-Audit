@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10cis_rule_1_5_4 }}
 command:
   sysctl_suid_dumpable_live:
-    title: 1.5.4 | Ensure fs.suid_dumpable is configured | conf
+    title: 1.5.4 | Ensure fs.suid_dumpable is configured | running
     exec: sysctl fs.suid_dumpable
     exit-status:
       or:
@@ -24,7 +24,7 @@ command:
       - 002165
       - 002235
   sysctl_suid_dumpable_conf:
-    title: 1.5.4 | Ensure fs.suid_dumpable is configured | running
+    title: 1.5.4 | Ensure fs.suid_dumpable is configured | conf
     exec: grep -R fs.suid_dumpable /etc/sysctl.conf /etc/sysctl.d/
     exit-status:
       or:

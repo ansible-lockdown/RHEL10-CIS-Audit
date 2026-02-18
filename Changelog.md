@@ -2,11 +2,31 @@
 
 ## CIS 1.0.1
 
+2026 FEB QA UPDATES
+
+- removed 5.3.2.x from vars/main
+- updated BENCHMARK_VER to 1.0.1 in run_audit.sh
+- updated LICENSE copyright year to 2026
+- standalone.yml: fixed section_1/cis_1.8 path to cis_1.8.x
+- standalone.yml: fixed section_3/cis_3.3 path to cis_3.3.1 and cis_3.3.2
+- standalone.yml: added missing section_6 paths (6.2.1.x, 6.2.2.1.x)
+- standalone.yml: fixed section_6/cis_6.2.4 path to cis_6.2.4.x
+- README.md: fixed "clone" to "cloned", "RHEL 9" to "RHEL 10", heading capitalization
+- vars/CIS.yml: fixed typos (",a llow" and "seperated")
+- Changelog.md: fixed typos (udpated, npt, seperate)
+- 1.1.2.5.1: fixed NIST800-53R4 to NIST800-53R5
+- 1.4.2: fixed missing space in title pipe separator
+- 1.5.4: fixed swapped live/conf test descriptions
+- 3.3.1.4: fixed missing space in title pipe separator
+- 5.1.2: fixed malformed _group/_user title suffixes to pipe-separated format
+- 5.1.3: fixed malformed _group/_user title suffixes and variable typo (keysperm to keyperms)
+- 5.2.1: fixed template variable spacing and indentation
+
 - 3.1.1
   - Added option to audit disable IPv6 via sysctl (original method) or via the kernel
 - updated version
 - 1.4.2 removed efi steps
-- 2.1.4 udpated for kea services
+- 2.1.4 updated for kea services
 - 6.3.3.8 updated
 - 6.3.3.34 updated
 
@@ -58,8 +78,8 @@ aligned with remediate
   - logrotate - 4.3.x
 
 - aligned with rh8 v2.0
-- removed iptables (npt valid on rhel9)
-- logrotate extended as seperate package
+- removed iptables (not valid on rhel9)
+- logrotate extended as separate package
 - 1.6.1.4 - selinux disabled via config file no longer valid checked via boot in 1.6.1.2
 
 ## Initial

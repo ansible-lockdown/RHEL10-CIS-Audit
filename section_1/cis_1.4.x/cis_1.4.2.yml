@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10cis_rule_1_4_2 }}
 file:
   grub_bootloaders_perms:
-    title: 1.4.2 | Ensure access to bootloader config is configured| file_perms | grub.cfg
+    title: 1.4.2 | Ensure access to bootloader config is configured | file_perms | grub.cfg
     path: /boot/grub2/grub.cfg
     exists: true
     owner: root

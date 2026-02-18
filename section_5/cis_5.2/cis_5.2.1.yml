@@ -1,9 +1,9 @@
 ---
 
 {{ if .Vars.rhel10cis_level_1 }}
-  {{ if .Vars.rhel10cis_rule_5_2_1}}
+  {{ if .Vars.rhel10cis_rule_5_2_1 }}
 package:
- sudo:
+  sudo:
     title: 5.2.1 | Ensure sudo is installed
     installed: true
     meta:
