@@ -8,7 +8,7 @@ gossfile:
   section_1/cis_1.5.x/*.yml: {}
   section_1/cis_1.6.x/*.yml: {}
   section_1/cis_1.7.x/*.yml: {}
-  section_1/cis_1.8/*.yml: {}
+  section_1/cis_1.8.x/*.yml: {}
   {{ end }}
   {{ if .Vars.rhel10cis_section2 }}
   section_2/*/*.yml: {}
@@ -16,7 +16,8 @@ gossfile:
   {{ if .Vars.rhel10cis_section3 }}
   section_3/cis_3.1/*.yml: {}
   section_3/cis_3.2/*.yml: {}
-  section_3/cis_3.3/*.yml: {}
+  section_3/cis_3.3.1/*.yml: {}
+  section_3/cis_3.3.2/*.yml: {}
 ## firewall configurations
   {{ end }}
   {{ if .Vars.rhel10cis_section4 }}
@@ -29,13 +30,15 @@ gossfile:
   {{ end }}
   {{ if .Vars.rhel10cis_section6 }}
   section_6/cis_6.1/*.yml: {}
+  section_6/cis_6.2.1.x/*.yml: {}
+  section_6/cis_6.2.2.1.x/*.yml: {}
     {{ if eq .Vars.rhel10cis_syslog "journald" }}
   section_6/cis_6.2.2.x/*.yml: {}
     {{ end }}
     {{ if eq .Vars.rhel10cis_syslog "rsyslog" }}
   section_6/cis_6.2.3.x/*.yml: {}
     {{ end }}
-  section_6/cis_6.2.4/*.yml: {}
+  section_6/cis_6.2.4.x/*.yml: {}
     # Auditd and level 2
     {{ if .Vars.rhel10cis_level_2 }}
   section_6/cis_6.3.*/*.yml: {}
