@@ -1,5 +1,11 @@
 # Changes to RHEL10-CIS-Audit
 
+## March 2026 — audit alignment
+
+- title alignment for CIS documentation
+- yml file start added
+- meta data fixes
+
 ## CIS 1.0.1
 
 2026 FEB QA UPDATES
