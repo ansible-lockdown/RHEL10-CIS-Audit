@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10cis_rule_6_2_3_5 }}
 file:
   /etc/rsyslog.conf:
-    title: 6.2.3.5 | Ensure logging is configured
+    title: 6.2.3.5 | Ensure rsyslog logging is configured
     exists: true
     contents:
     - '/^\*.emerg\s+:omusrmsg:\*/'

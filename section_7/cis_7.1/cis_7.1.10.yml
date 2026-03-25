@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10cis_rule_7_1_10 }}
 file:
   etc_security_opasswd_perms:
-    title: 7.1.10 | Ensure permissions on /etc/security/opasswd are configured
+    title: 7.1.10 | Ensure access to /etc/security/opasswd is configured
     path: /etc/security/opasswd
     exists:
       or:
@@ -22,7 +22,7 @@ file:
       - AC-3
       - MP-2
   etc_security_opasswd__old_perms:
-    title: 7.1.10 | Ensure permissions on /etc/security/opasswd are configured | old passwd
+    title: 7.1.10 | Ensure access to /etc/security/opasswd is configured | old passwd
     path: /etc/security/opasswd.old
     exists:
       or:

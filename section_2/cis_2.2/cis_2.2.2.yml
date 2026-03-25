@@ -4,7 +4,7 @@
     {{ if .Vars.rhel10cis_rule_2_2_2 }}
 package:
   openldap-clients:
-    title: 2.2.2 | Ensure LDAP client is not installed
+    title: 2.2.2 | Ensure ldap client is not installed
     installed: false
     name: openldap-clients
     meta:

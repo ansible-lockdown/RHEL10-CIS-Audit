@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10cis_rule_6_3_3_6 }}
 command:
   auditd_issue_cnf:
-    title: 6.3.3.6 | Ensure events that modify sethostname and setdomainname are collected | conf check
+    title: 6.3.3.6 | Ensure events that modify /etc/issue and /etc/issue.net are collected | conf check
     exec: grep issue /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
@@ -19,7 +19,7 @@ command:
       - AU-3
       - CM-6
   auditd_issue_live:
-    title: 6.3.3.6 | Ensure events that modify sethostname and setdomainname are collected | running
+    title: 6.3.3.6 | Ensure events that modify /etc/issue and /etc/issue.net are collected | running
     exec: auditctl -l | grep issue
     exit-status: 0
     stdout:
