@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10cis_rule_5_1_11 }}
 file:
   ssh_rhosts:
-    title: 5.1.11 | Ensure SSH IgnoreRhosts is enabled | config
+    title: 5.1.11 | Ensure sshd IgnoreRhosts is enabled | config
     path: /etc/ssh/sshd_config
     exists: true
     contents:
@@ -23,7 +23,7 @@ file:
       - IA-5
 command:
   ssh_rhosts_live:
-    title: 5.1.11 | Ensure SSH IgnoreRhosts is enabled | live
+    title: 5.1.11 | Ensure sshd IgnoreRhosts is enabled | live
     exec: sshd -T | grep ignorerhosts
     exit-status:
       or:

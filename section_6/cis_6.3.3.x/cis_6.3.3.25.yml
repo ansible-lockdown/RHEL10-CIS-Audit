@@ -17,7 +17,7 @@ command:
       NIST800-53R5:
       - AU-12
   auditd_rename_live:
-    title: 6.3.3.25 | Ensure renaame file deletion events by users are collected | running
+    title: 6.3.3.25 | Ensure rename file deletion events by users are collected | running
     exec: auditctl -l | grep rename
     exit-status: 0
     stdout:

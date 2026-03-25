@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10cis_rule_1_5_10 }}
 command:
   storage_coredump_conf:
-    title: 1.5.10 | Ensure core dump storage is disabled
+    title: 1.5.10 | Ensure systemd-coredump Storage is configured
     exec: grep -iR storage /etc/systemd/coredump.conf /etc/systemd/coredump.conf.d/
     exit-status:
       or:

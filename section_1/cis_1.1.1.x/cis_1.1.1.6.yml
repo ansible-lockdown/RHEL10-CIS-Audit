@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10cis_rule_1_1_1_6 }}
 command:
   overlayfs:
-    title: 1.1.1.6 | Ensure overlayfs kernel module is not available | disabled
+    title: 1.1.1.6 | Ensure overlay kernel module is not available | disabled
     exit-status: 0
     exec: "modprobe -n -v overlayfs | grep -E '(overlayfs|install)'"
     stdout:
@@ -15,7 +15,7 @@ command:
       CIS_ID: 1.1.1.6
       CCI: 000381
   blacklist_overlayfs:
-    title: 1.1.1.6 | Ensure overlayfs kernel module is not available | blacklist
+    title: 1.1.1.6 | Ensure overlay kernel module is not available | blacklist
     exit-status: 0
     exec: grep overlayfs /etc/modprobe.d/*.conf
     stdout:
