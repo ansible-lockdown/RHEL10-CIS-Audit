@@ -21,6 +21,7 @@ command:
       CIS_ID:
       - 1.2.1.3
       NIST800-53R5: SI-2
+      CCI: NA
   repo_gpgcheck_repo:
     title: 1.2.1.3 | Ensure repo_gpgcheck is globally activated
     exit-status: 0

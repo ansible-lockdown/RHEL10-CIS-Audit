@@ -15,5 +15,6 @@ mount:
       NIST800-53R5:
       - CM-6
       - CM-7
+      CCI: NA
   {{ end }}
 {{ end }}

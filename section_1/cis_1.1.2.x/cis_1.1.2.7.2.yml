@@ -16,6 +16,7 @@ mount:
       - 1.1.2.7.2
       NIST800-53R5:
       - CM-7
+      CCI: NA
 file:
   var_log_audit_nodev_fstab_options:
     title: 1.1.2.7.2 | Ensure nodev option set on /var/log/audit partition
@@ -30,5 +31,6 @@ file:
       - 1.1.2.7.2
       NIST800-53R5:
       - CM-7
+      CCI: NA
   {{ end }}
 {{ end }}

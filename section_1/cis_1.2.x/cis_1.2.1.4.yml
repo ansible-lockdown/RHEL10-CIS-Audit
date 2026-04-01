@@ -14,6 +14,7 @@ command:
       CIS_ID:
       - 1.2.1.4
       NIST800-53R5: SI-2
+      CCI: NA
     {{ end }}
   {{ end }}
 {{ end }}

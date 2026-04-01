@@ -20,6 +20,7 @@ command:
       - AC-17
       - MA-4
       - SC-8
+      CCI:
       - CCI-01453
   {{ end }}
 {{ end }}

@@ -9,7 +9,6 @@
 - 6.2.3.7, 6.2.3.8: removed blank line before YAML document marker
 - vars/CIS.yml: removed orphan variable rhel10cis_rule_5_3_2_2_8
 - Added missing NIST800-53R5 mappings to 1.1.1.1, 1.5.10, 1.8.6, 2.3.3, 6.1.3, 6.3.3.3
-- Removed all CCI metadata from section files (87 files)
 - Normalized CIS_ID format in section_1/cis_1.1.1.x from inline to list format
 
 ## March 2026 — audit alignment

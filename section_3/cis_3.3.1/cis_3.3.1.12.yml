@@ -14,6 +14,7 @@ kernel-param:
       - 3.3.1.12
       NIST800-53R5:
       - CM-6
+      CCI:
       - 000366
 command:
   ipv4_all_rp_filter:
@@ -33,6 +34,7 @@ command:
       - 3.3.1.12
       NIST800-53R5:
       - CM-6
+      CCI:
       - 000366
   {{ end }}
 {{ end }}

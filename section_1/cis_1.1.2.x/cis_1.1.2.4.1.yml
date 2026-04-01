@@ -13,5 +13,6 @@ mount:
       CIS_ID:
       - 1.1.2.4.1
       NIST800-53R5: CM-7
+      CCI: NA
   {{ end }}
 {{ end }}

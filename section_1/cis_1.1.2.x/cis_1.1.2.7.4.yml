@@ -18,6 +18,7 @@ mount:
       - AC-3
       - MP-2
       - CM-7
+      CCI: NA
 file:
   var_log_audit_noexec_fstab_options:
     title: 1.1.2.7.4 | Ensure noexec option set on /var/log/audit partition
@@ -34,5 +35,6 @@ file:
       - AC-3
       - MP-2
       - CM-7
+      CCI: NA
   {{ end }}
 {{ end }}

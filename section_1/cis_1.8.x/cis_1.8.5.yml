@@ -16,6 +16,7 @@ file:
       CIS_ID:
       - 1.8.5
       NIST800-53R5: CM-7
+      CCI:
       - 001764
   60-automount-locks:
     title: 1.8.5 | Ensure GDM autorun-never is configured | locks
@@ -30,6 +31,7 @@ file:
       CIS_ID:
       - 1.8.5
       NIST800-53R5: CM-7
+      CCI:
       - 001764
     {{ end }}
   {{ end }}

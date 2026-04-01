@@ -16,6 +16,7 @@ mount:
       - 1.1.2.1.4
       NIST800-53R5:
       - CM-7
+      CCI: 001764
 file:
   tmp_noexec_fstab_options:
     title: 1.1.2.1.4 | Ensure noexec option set on /tmp partition
@@ -30,5 +31,6 @@ file:
       - 1.1.2.1.4
       NIST800-53R5:
       - CM-7
+      CCI: 001764
   {{ end }}
 {{ end }}

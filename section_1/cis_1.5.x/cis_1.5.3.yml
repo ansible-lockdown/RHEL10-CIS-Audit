@@ -20,6 +20,7 @@ command:
       NIST800-53R5:
       - AC-3
       - AC-6
+      CCI:
       - 002165
       - 002235
   sysctl_symlinks_conf:
@@ -40,6 +41,7 @@ command:
       NIST800-53R5:
       - AC-3
       - AC-6
+      CCI:
       - 002165
       - 002235
   {{ end }}

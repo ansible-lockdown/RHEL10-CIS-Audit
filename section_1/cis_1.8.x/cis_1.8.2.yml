@@ -17,6 +17,7 @@ command:
       CIS_ID:
       - 1.8.2
       NIST800-53R5: CM-6
+      CCI:
       - 000366
   gdm_disable_user:
     title: 1.8.2 | Ensure GDM disable-user-list is configured | config
@@ -34,6 +35,7 @@ command:
       CIS_ID:
       - 1.8.2
       NIST800-53R5: CM-6
+      CCI:
       - 000366
   gdm_disable_user_locks:
     title: 1.8.2 | Ensure GDM disable-user-list is configured | locks
@@ -50,6 +52,7 @@ command:
       CIS_ID:
       - 1.8.2
       NIST800-53R5: CM-6
+      CCI:
       - 000366
     {{ end }}
   {{ end }}

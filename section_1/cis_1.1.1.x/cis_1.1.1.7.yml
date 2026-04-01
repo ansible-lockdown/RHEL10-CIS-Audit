@@ -15,6 +15,7 @@ command:
       CIS_ID:
       - 1.1.1.7
       NIST800-53R5: CM-7
+      CCI: 000381
   blacklist_squashfs:
     title: 1.1.1.7 | Ensure squashfs kernel module is not available | blacklist
     exit-status: 0
@@ -27,5 +28,6 @@ command:
       CIS_ID:
       - 1.1.1.7
       NIST800-53R5: CM-7
+      CCI: 000381
   {{ end }}
 {{ end }}

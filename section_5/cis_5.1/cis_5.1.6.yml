@@ -20,6 +20,7 @@ command:
       NIST800-53R5:
       - AC-17
       - MA-4
+      CCI:
       - CCI-001453
   {{ end }}
 {{ end }}

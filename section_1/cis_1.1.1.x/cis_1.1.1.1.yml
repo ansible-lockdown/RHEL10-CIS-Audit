@@ -14,6 +14,7 @@ command:
       workstation: 1
       CIS_ID:
       - 1.1.1.1
+      CCI: 000381
       NIST800-53R5:
       - CM-7
   blacklist_cramfs:
@@ -27,6 +28,7 @@ command:
       workstation: 1
       CIS_ID:
       - 1.1.1.1
+      CCI: 000381
       NIST800-53R5:
       - CM-7
   {{ end }}
