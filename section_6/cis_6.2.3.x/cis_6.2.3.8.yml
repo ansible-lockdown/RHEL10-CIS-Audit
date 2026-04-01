@@ -1,4 +1,3 @@
-
 ---
 
 {{ if .Vars.rhel10cis_level_1 }}

@@ -1,5 +1,16 @@
 # Changes to RHEL10-CIS-Audit
 
+## April 2026 — QA Updates
+
+- goss.yml: added missing journald conditional guard for section_6/cis_6.2.2.x
+- 6.2.1.4: fixed duplicate/typo key names (not ryslog_system -> not_rsyslog_system / not_journald_system)
+- 2.1.21: fixed missing pipe separator in title and inconsistent wording (agent -> agents)
+- 2.4.2.1: fixed missing space before pipe separator in title
+- 6.2.3.7, 6.2.3.8: removed blank line before YAML document marker
+- vars/CIS.yml: removed orphan variable rhel10cis_rule_5_3_2_2_8
+- Added missing NIST800-53R5 mappings to 1.1.1.1, 1.5.10, 1.8.6, 2.3.3, 6.1.3, 6.3.3.3
+- Normalized CIS_ID format in section_1/cis_1.1.1.x from inline to list format
+
 ## March 2026 — audit alignment
 
 - title alignment for CIS documentation

@@ -14,6 +14,8 @@ command:
       workstation: 2
       CIS_ID:
       - 6.3.3.3
+      NIST800-53R5:
+      - AC-6
   auditd_sudolog_live:
     title: 6.3.3.3 | Ensure events that modify the sudo log file are collected | running
     exec: auditctl -l | grep -Ps -- 'sudo.log'
@@ -25,5 +27,7 @@ command:
       workstation: 2
       CIS_ID:
       - 6.3.3.3
+      NIST800-53R5:
+      - AC-6
   {{ end }}
 {{ end }}

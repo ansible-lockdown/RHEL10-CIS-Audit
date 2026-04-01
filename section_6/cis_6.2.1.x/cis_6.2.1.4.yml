@@ -15,7 +15,7 @@ service:
       CIS_ID:
       - 6.2.1.4
       NIST800-53R5: NA
-  not ryslog_system:
+  not_rsyslog_system:
     title: 6.2.1.4 | Ensure only one logging system is in use | journald system
     name: rsyslog
     running: false
@@ -39,7 +39,7 @@ service:
       CIS_ID:
       - 6.2.1.4
       NIST800-53R5: NA
-  not ryslog_system:
+  not_journald_system:
     title: 6.2.1.4 | Ensure only one logging system is in use | rsyslog system
     name: systemd-journald
     running: false

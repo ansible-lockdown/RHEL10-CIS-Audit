@@ -12,8 +12,11 @@ command:
     meta:
       server: 1
       workstation: 1
-      CIS_ID: 1.1.1.1
+      CIS_ID:
+      - 1.1.1.1
       CCI: 000381
+      NIST800-53R5:
+      - CM-7
   blacklist_cramfs:
     title: 1.1.1.1 | Ensure cramfs kernel module is not available | blacklist
     exit-status: 0
@@ -23,7 +26,10 @@ command:
     meta:
       server: 1
       workstation: 1
-      CIS_ID: 1.1.1.1
+      CIS_ID:
+      - 1.1.1.1
       CCI: 000381
+      NIST800-53R5:
+      - CM-7
   {{ end }}
 {{ end }}

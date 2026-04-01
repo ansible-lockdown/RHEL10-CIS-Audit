@@ -12,7 +12,8 @@ command:
     meta:
       server: 2
       workstation: 2
-      CIS_ID: 1.1.1.8
+      CIS_ID:
+      - 1.1.1.8
       NIST800-53R5: CM-7
       CCI: 000381
   blacklist_udf:
@@ -24,7 +25,8 @@ command:
     meta:
       server: 2
       workstation: 2
-      CIS_ID: 1.1.1.8
+      CIS_ID:
+      - 1.1.1.8
       NIST800-53R5: CM-7
       CCI: 000381
   {{ end }}
