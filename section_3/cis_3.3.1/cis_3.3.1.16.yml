@@ -14,7 +14,6 @@ kernel-param:
       - 3.3.1.16
       NIST800-53R5:
       - AU-3
-      CCI:
       - 000366
 command:
   ipv4_all_log_martians:
@@ -34,7 +33,6 @@ command:
       - 3.3.1.16
       NIST800-53R5:
       - AU-3
-      CCI:
       - 000366
   {{ end }}
 {{ end }}

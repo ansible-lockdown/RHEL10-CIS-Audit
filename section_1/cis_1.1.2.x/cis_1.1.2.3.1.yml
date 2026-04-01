@@ -14,6 +14,5 @@ mount:
       - 1.1.2.3.1
       NIST800-53R5:
       - CM-7
-      CCI: NA
   {{ end }}
 {{ end }}

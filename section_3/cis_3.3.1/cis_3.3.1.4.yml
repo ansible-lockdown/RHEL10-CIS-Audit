@@ -14,7 +14,6 @@ kernel-param:
       - 3.3.1.4
       NIST800-53R5:
       - CM-6
-      CCI:
       - 000366
 command:
   ip4_all_send_redirects:
@@ -34,7 +33,6 @@ command:
       - 3.3.1.4
       NIST800-53R5:
       - CM-6
-      CCI:
       - 000366
   {{ end }}
 {{ end }}

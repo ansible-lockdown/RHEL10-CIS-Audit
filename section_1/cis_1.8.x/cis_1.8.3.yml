@@ -20,7 +20,6 @@ file:
       CIS_ID:
       - 1.8.3
       NIST800-53R5: AC-11
-      CCI:
       - 000057
   60-screensaver-lock:
     title: 1.8.3 | Ensure GDM screen lock is configured | lock
@@ -35,7 +34,6 @@ file:
       CIS_ID:
       - 1.8.3
       NIST800-53R5: AC-11
-      CCI:
       - 000057
     {{ end }}
   {{ end }}

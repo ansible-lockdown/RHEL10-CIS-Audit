@@ -16,7 +16,6 @@ command:
       - 3.2.6
       NIST800-53R5:
       - CM-7
-      CCI:
       - CCI-000381
   lsmod_sctp:
     title: 3.2.6 | Ensure sctp kernel module is not available | running sctp
@@ -31,7 +30,6 @@ command:
       - 3.2.6
       NIST800-53R5:
       - CM-7
-      CCI:
       - 000381
   {{ end }}
 {{ end }}

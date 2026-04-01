@@ -32,6 +32,5 @@ file:
       NIST800-53R5:
       - AC-3
       - MP-2
-      CCI: NA
   {{ end }}
 {{ end }}

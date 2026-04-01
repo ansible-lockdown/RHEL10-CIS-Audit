@@ -14,7 +14,6 @@ kernel-param:
       - 3.3.1.18
       NIST800-53R5:
       - SC-5
-      CCI:
       - 001095
       - 002385
 command:
@@ -35,7 +34,6 @@ command:
       - 3.3.1.18
       NIST800-53R5:
       - SC-5
-      CCI:
       - 001095
       - 002385
   {{ end }}

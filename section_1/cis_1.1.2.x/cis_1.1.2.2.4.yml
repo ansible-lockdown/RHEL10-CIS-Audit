@@ -16,7 +16,6 @@ mount:
       - 1.1.2.2.4
       NIST800-53R5:
       - CM-7
-      CCI: 001764
 file:
   dev_shm_noexec_fstab_options:
     title: 1.1.2.2.4 | Ensure noexec option set on /dev/shm partition
@@ -31,6 +30,5 @@ file:
       - 1.1.2.2.4
       NIST800-53R5:
       - CM-7
-      CCI: 001764
   {{ end }}
 {{ end }}

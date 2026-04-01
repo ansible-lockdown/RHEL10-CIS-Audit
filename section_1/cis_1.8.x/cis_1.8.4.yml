@@ -20,7 +20,6 @@ file:
       CIS_ID:
       - 1.8.4
       NIST800-53R5: IA-3
-      CCI:
       - 000078
       - 001958
   60-automount-locks:
@@ -36,7 +35,6 @@ file:
       CIS_ID:
       - 1.8.4
       NIST800-53R5: IA-3
-      CCI:
       - 000078
       - 001958
     {{ end }}

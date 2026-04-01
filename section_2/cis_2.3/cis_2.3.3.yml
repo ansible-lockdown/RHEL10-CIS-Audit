@@ -16,5 +16,8 @@ file:
       workstation: 1
       CIS_ID:
       - 2.3.3
+      NIST800-53R5:
+      - AU-3
+      - AU-12
   {{ end }}
 {{ end }}

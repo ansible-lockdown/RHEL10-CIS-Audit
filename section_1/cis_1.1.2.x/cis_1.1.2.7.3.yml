@@ -17,7 +17,6 @@ mount:
       NIST800-53R5:
       - AC-3
       - MP-2
-      CCI: NA
 file:
   var_log_audit_nosuid_fstab_options:
     title: 1.1.2.7.3 | Ensure nosuid option set on /var/log/audit partition
@@ -33,6 +32,5 @@ file:
       NIST800-53R5:
       - AC-3
       - MP-2
-      CCI: NA
   {{ end }}
 {{ end }}

@@ -15,7 +15,6 @@ command:
       CIS_ID:
       - 1.2.1.2
       NIST800-53R5: CM-14
-      CCI: NA
   gpg_check_repo:
     title: 1.2.1.2 | Ensure gpgcheck is configured
     exit-status: 0
@@ -27,7 +26,6 @@ command:
       CIS_ID:
       - 1.2.1.2
       NIST800-53R5: CM-14
-      CCI: NA
       {{ end }}
   {{ end }}
 {{ end }}

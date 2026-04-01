@@ -12,11 +12,11 @@ command:
     meta:
       server: 1
       workstation: 2
-      CIS_ID: 1.1.1.10
+      CIS_ID:
+      - 1.1.1.10
       NIST800-53R5:
       - CM-7
       - IA-3
-      CCI:
       - 000778
       - 001958
       - 003959
@@ -29,11 +29,11 @@ command:
     meta:
       server: 1
       workstation: 2
-      CIS_ID: 1.1.1.10
+      CIS_ID:
+      - 1.1.1.10
       NIST800-53R5:
       - CM-7
       - IA-3
-      CCI:
       - 000778
       - 001958
       - 003959

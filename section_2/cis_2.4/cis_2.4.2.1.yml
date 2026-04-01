@@ -16,7 +16,7 @@ file:
       - AC-3
       - MP-2
   at_allow_users:
-    title: 2.4.2.1| Ensure access to at is configured
+    title: 2.4.2.1 | Ensure access to at is configured
     path: /etc/at.allow
     exists: true
     owner: root

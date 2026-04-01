@@ -18,7 +18,6 @@ command:
       - 5.1.12
       NIST800-53R5:
       - AC-17
-      CCI:
       - CCI-01453
   {{ end }}
 {{ end }}

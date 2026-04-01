@@ -19,7 +19,6 @@ command:
       - 1.5.6
       NIST800-53R5:
       - CM-6
-      CCI:
       - 000366
   sysctl_ktpr_restrict_conf:
     title: 1.5.6 | Ensure kernel.kptr_restrict is configured | conf
@@ -38,7 +37,6 @@ command:
       - 1.5.6
       NIST800-53R5:
       - CM-6
-      CCI:
       - 000366
   {{ end }}
 {{ end }}
