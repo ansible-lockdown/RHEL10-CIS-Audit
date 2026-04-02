@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10cis_rule_6_3_2_4 }}
 command:
   logs_low_space_auditd_conf:
-    title: 6.3.2.4 | Ensure system is disabled when audit logs are full
+    title: 6.3.2.4 | Ensure system warns when audit logs are low on space
     exec: grep space_left_action /etc/audit/auditd.conf
     exit-status: 0
     stdout:
@@ -15,12 +15,6 @@ command:
       workstation: 2
       CIS_ID:
       - 6.3.2.4
-      CISv8:
-      - 8.2
-      - 8.3
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - AU-2
       - AU-8

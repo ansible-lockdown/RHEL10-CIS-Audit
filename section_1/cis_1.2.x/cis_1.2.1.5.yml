@@ -1,0 +1,27 @@
+---
+
+{{ if .Vars.rhel10cis_level_1 }}
+  {{ if .Vars.run_heavy_tests }}
+    {{ if .Vars.rhel10cis_rule_1_2_1_5 }}
+command:
+  dnf_weak_dependencies:
+    title: 1.2.1.5 | Ensure weak dependencies are configured
+    exec: grep -E "^install_weak_deps" /etc/dnf/dnf.conf
+    timeout: {{ .Vars.timeout_ms }}
+    exit-status:
+      or:
+      - 0
+      - 1
+    stdout:
+    - '/^install_weak_deps\s*=\s*0/'
+    - '!/^install_weak_deps\s*=\s*1/'
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 1.2.1.5
+      NIST800-53R5: NA
+      CCI: NA
+    {{ end }}
+  {{ end }}
+{{ end }}

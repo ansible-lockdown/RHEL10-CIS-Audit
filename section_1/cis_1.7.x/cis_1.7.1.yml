@@ -1,0 +1,32 @@
+---
+
+{{ if .Vars.rhel10cis_level_1 }}
+file:
+  {{ if .Vars.rhel10cis_rule_1_7_1 }}
+  motd_config:
+    title: 1.7.1 | Ensure /etc/motd is configured
+    path: /etc/motd
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    contents:
+    - '!/[Cc]ent[Oo][Ss].*/'
+    - '!/[Rr]hel.*/'
+    - '!/[Rr]ed[Hh]at.*/'
+    - '!/[Rr]ocky.*/'
+    - '!/[Aa]lma.*/'
+    - '!/x86_64/'
+    - '!/[Ll]inux'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.7.1
+      NIST800-53R5:
+      - CM-1
+      - CM-3
+      - CM-6
+  {{ end }}
+{{ end }}
+

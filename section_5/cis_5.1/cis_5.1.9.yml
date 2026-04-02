@@ -1,24 +1,20 @@
 ---
 
-{{ if .Vars.rhel10cis_level_1 }}
+{{ if .Vars.rhel10cis_level_2 }}
   {{ if .Vars.rhel10cis_rule_5_1_9 }}
 file:
-  sshd_clientalive:
-    title: 5.1.9 | Ensure sshd ClientAliveInterval and ClientAliveCountMax are configured
+  sshd_gssapi:
+    title: 5.1.9 | Ensure sshd GSSAPIAuthentication is disabled | config
     path: /etc/ssh/sshd_config
     exists: true
     contents:
-    - '/^ClientAliveInterval ([1-9]|[1-9][0-9]|[1-8][0-9][0-9]|900)/'
-    - '/^ClientAliveCountMax [1-4]/'
+    - '/^(?i)gssapiauthentication no/'
+    - '!/^(?i)gssapiauthentication yes/'
     meta:
-      server: 1
+      server: 2
       workstation: 1
       CIS_ID:
       - 5.1.9
-      CISv8: 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-1
       - CM-2
@@ -26,25 +22,21 @@ file:
       - CM-7
       - IA-5
 command:
-  sshd_clientalive_live:
-    title: 5.1.9 | Ensure sshd ClientAliveInterval and ClientAliveCountMax are configured | live
-    exec: sshd -T | grep clientalive
+  ssh_gssapi_live:
+    title: 5.1.9 | Ensure sshd GSSAPIAuthentication is disabled | live
+    exec: sshd -T | grep -i gssapiauthentication
     exit-status:
       or:
       - 0
       - 1
     stdout:
-    - '/^(?i)clientaliveinterval ([1-9]|[1-9][0-9]|[1-8][0-9][0-9]|900)/'
-    - '/^(?i)ClientAliveCountMax [1-4]/'
+    - '/^gssapiauthentication no/'
+    - '!/^gssapiauthentication yes/'
     meta:
-      server: 1
+      server: 2
       workstation: 1
       CIS_ID:
       - 5.1.9
-      CISv8: 4.1
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - CM-1
       - CM-2

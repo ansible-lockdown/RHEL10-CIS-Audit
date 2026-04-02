@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10cis_rule_5_4_2_5 }}
 command:
   root_path_check:
-    title: 5.4.2.5 | Ensure root PATH Integrity
+    title: 5.4.2.5 | Ensure root path integrity
     exec: "/bin/bash --login -c 'env | grep ^PATH=' | sed -e 's/PATH=//' -e 's/::/:/' -e 's/:$//' -e 's/:/\\n/g'"
     exit-status: 0
     stdout:
@@ -14,10 +14,6 @@ command:
       workstation: 1
       CIS_ID:
       - 5.4.2.5
-      CISv8: NA
-      CISv8_IG1: NA
-      CISv8_IG2: NA
-      CISv8_IG3: NA
       NIST800-53R5:
       - CM-1
       - CM-2

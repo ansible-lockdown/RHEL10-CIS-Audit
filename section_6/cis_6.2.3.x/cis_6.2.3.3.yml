@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10cis_rule_6_2_3_3 }}
 command:
   forward_journald_conf:
-    title: 6.2.3.3 | Ensure journald is not configured to send logs to rsyslog
+    title: 6.2.3.3 | Ensure journald is configured to send logs to rsyslog
     exec: grep -i forward /etc/systemd/journald.conf /etc/systemd/journald.conf.d/
     exit-status: 0
     stdout:
@@ -14,12 +14,6 @@ command:
       workstation: 1
       CIS_ID:
       - 6.2.3.3
-      CISv8:
-      - 8.2
-      - 8.9
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - AC-3
       - AU-2

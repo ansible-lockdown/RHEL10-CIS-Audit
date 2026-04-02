@@ -3,22 +3,35 @@
 {{ if .Vars.rhel10cis_level_2 }}
   {{ if .Vars.rhel10cis_rule_6_3_3_6 }}
 command:
-  auditd_priv_cmds_cnf:
-    title: 6.3.3.6 | Ensure use of privileged commands is collected | Manual Check Required
-    exec: echo "Manual - Please investigate privilege commands are collected as per documentation"
+  auditd_issue_cnf:
+    title: 6.3.3.6 | Ensure events that modify /etc/issue and /etc/issue.net are collected | conf check
+    exec: grep issue /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
-    - '!/Manual/'
+    - '-a always,exit -F arch=b64 -S all -F path=/etc/issue -F perm=wa -F key=system-locale'
+    - '-a always,exit -F arch=b64 -S all -F path=/etc/issue.net -F perm=wa -F key=system-locale'
     meta:
       server: 2
       workstation: 2
       CIS_ID:
       - 6.3.3.6
-      CISv8: 8.5
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - AU-3
+      - CM-6
+  auditd_issue_live:
+    title: 6.3.3.6 | Ensure events that modify /etc/issue and /etc/issue.net are collected | running
+    exec: auditctl -l | grep issue
+    exit-status: 0
+    stdout:
+    - '-a always,exit -F arch=b64 -S all -F path=/etc/issue -F perm=wa -F key=system-locale'
+    - '-a always,exit -F arch=b64 -S all -F path=/etc/issue.net -F perm=wa -F key=system-locale'
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 6.3.3.6
+      NIST800-53R5:
+      - AU-3
+      - CM-6
   {{ end }}
 {{ end }}

@@ -1,0 +1,22 @@
+---
+
+{{ if .Vars.desktop_required }}
+  {{ if .Vars.rhel10cis_level_1 }}
+    {{ if .Vars.rhel10cis_rule_1_8_6 }}
+file:
+  /etc/gdm/custom.conf:
+    title: 1.8.6 | Ensure Xwayland is configured
+    path: /etc/gdm/custom.conf
+    exists: true
+    contents:
+    - '!/^WaylandEnable\s*=\s*true/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 1.8.6
+      NIST800-53R5:
+      - CM-7
+    {{ end }}
+  {{ end }}
+{{ end }}

@@ -1,0 +1,33 @@
+---
+
+{{ if .Vars.rhel10cis_level_2 }}
+  {{ if .Vars.rhel10cis_rule_6_3_3_24 }}
+command:
+  auditd_unlink_cnf:
+    title: 6.3.3.24 | Ensure unlink file deletion events by users are collected | conf check
+    exec: grep unlink /etc/audit/rules.d/*.rules
+    exit-status: 0
+    stdout:
+    - '/[^#]-a always,exit -F arch=b64 -S unlink,unlinkat -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -F key=delete/'
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 6.3.3.24
+      NIST800-53R5:
+      - AU-12
+  auditd_unlink_live:
+    title: 6.3.3.24 | Ensure unlink file deletion events by users are collected | running
+    exec: auditctl -l | grep unlink
+    exit-status: 0
+    stdout:
+    - '/-a always,exit -F arch=b64 -S unlink,unlinkat -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -F key=delete/'
+    meta:
+      server: 2
+      workstation: 2
+      CIS_ID:
+      - 6.3.3.24
+      NIST800-53R5:
+      - AU-12
+  {{ end }}
+{{ end }}

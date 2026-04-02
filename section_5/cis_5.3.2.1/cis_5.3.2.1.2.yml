@@ -1,0 +1,35 @@
+---
+
+{{ if .Vars.rhel10cis_level_1 }}
+  {{ if .Vars.rhel10cis_level_1 }}
+    {{ if .Vars.rhel10cis_rule_5_3_2_1_2 }}
+file:
+  faillock_unlock_time:
+    title: 5.3.2.1.2 | Ensure password unlock time is configured
+    path: /etc/security/faillock.conf
+    exists: true
+    contents:
+    - '/^unlock_time\s*=\s*([1-9]|[1-9][0-9]|[1-8][0-9]{1,2}|900)$/'
+    - '!/^unlock_time\s*=\s*(90[1-9]|9[1-9][0-9]|[1-9][0-9][0-9]{2,})/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 5.3.2.1.2
+      NIST800-53R5: NA
+command:
+  faillock_unlock_time_removed:
+    title: 5.3.2.1.2 | Ensure password unlock time is configured
+    exec: grep -Pl -- '\bpam_faillock\.so\s+([^#\n\r]+\s+)?unlock_time\b' /etc/pam.d/system-auth /etc/pam.d/password-auth
+    exit-status: 1
+    stdout:
+    - '!/.*/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 5.3.2.1.2
+      NIST800-53R5: NA
+    {{ end }}
+  {{ end }}
+{{ end }}

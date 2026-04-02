@@ -3,24 +3,22 @@
 {{ if .Vars.rhel10cis_level_1 }}
   {{ if .Vars.rhel10cis_rule_5_1_4 }}
 command:
-  no_weak_ssh_ciphers:
-    title: 5.1.4 | Ensure sshd Ciphers are configured | weak cipher check
-    exec: sshd -T | grep -Pi --'^ciphers\h+\"?([^#\n\r]+,)?((3des|blowfish|cast128|aes(128|192|256))-cbc|arcfour(128|256)?|rijndael-cbc@lysator\.liu\.se|chacha20-poly1305@openssh\.com)\b'
+  sshd_access_limited:
+    title: 5.1.4 | Ensure sshd access is configured | config
+    exec: grep -Ei "^(Allow|Deny)(Users|Groups)" /etc/ssh/sshd_config /etc/ssh/sshd_config.d/*.conf
     exit-status:
       or:
       - 0
-      - 2
-    stdout: ['!/./']
+      - 1
+    stdout:
+    - "/(?i)(allowusers {{ .Vars.rhel10cis_sshd_allowusers }}|allowgroups {{ .Vars.rhel10cis_sshd_allowgroups }}|denyusers {{ .Vars.rhel10cis_sshd_denyusers }}|denygroups {{ .Vars.rhel10cis_sshd_denygroups }} )/"
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 5.1.4
-      CISv8: 3.3
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
-      - SC-8
+      - AC-3
+      - MP-2
   {{ end }}
 {{ end }}

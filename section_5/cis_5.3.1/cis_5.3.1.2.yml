@@ -2,23 +2,36 @@
 
 {{ if .Vars.rhel10cis_level_1 }}
   {{ if .Vars.rhel10cis_rule_5_3_1_2 }}
-package:
-  authselect_version:
-    title: 5.3.1.2 | Ensure latest version of authselect is installed
-    installed: true
-    name: authselect
-    versions:
-      semver-constraint: ">1.2.6-1"
+file:
+  passwd_auth_faillock:
+    title: 5.3.1.2 | Ensure pam_faillock module is enabled
+    path: /etc/pam.d/password-auth
+    exists: true
+    contents:
+    - '/auth\s+required\s+pam_faillock.so preauth silent/'
+    - '/auth\s+required\s+pam_faillock.so authfail/'
+    - '/account\s+required\s+pam_faillock.so/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 5.3.1.2
-      CISv8:
-      - 5.4
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
-      NIST800-53R5: NA
+      NIST800-53R5:
+      - AC-7
+  system_auth_faillock:
+    title: 5.3.1.2 | Ensure pam_faillock module is enabled
+    path: /etc/pam.d/system-auth
+    exists: true
+    contents:
+    - '/auth\s+required\s+pam_faillock.so preauth silent/'
+    - '/auth\s+required\s+pam_faillock.so authfail/'
+    - '/account\s+required\s+pam_faillock.so/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 5.3.1.2
+      NIST800-53R5:
+      - AC-7
   {{ end }}
 {{ end }}

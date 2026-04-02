@@ -3,41 +3,31 @@
 {{ if .Vars.rhel10cis_level_2 }}
   {{ if .Vars.rhel10cis_rule_6_3_3_12 }}
 command:
-  auditd_logins_cnf:
-    title: 6.3.3.12 | Ensure login and logout events are collected | conf check
-    exec: grep logins /etc/audit/rules.d/*.rules
+  auditd_group_cnf:
+    title: 6.3.3.12 | Ensure events that modify /etc/group information are collected | conf check
+    exec: grep group /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
-    - '-w /var/run/faillock -p wa -k logins'
-    - '-w /var/log/lastlog -p wa -k logins'
+    - '-a always,exit -F arch=b64 -S all -F path=/etc/group -F perm=wa -F key=identity'
     meta:
       server: 2
       workstation: 2
       CIS_ID:
       - 6.3.3.12
-      CISv8: 8.5
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
-      - AU-3
-  auditd_logins_live:
-    title: 6.3.3.12 | Ensure login and logout events are collected | running
-    exec: auditctl -l | grep logins
+      - AU-12
+  auditd_group_live:
+    title: 6.3.3.12 | Ensure events that modify /etc/group information are collected | running
+    exec: auditctl -l | grep group
     exit-status: 0
     stdout:
-    - '-w /var/run/faillock -p wa -k logins'
-    - '-w /var/log/lastlog -p wa -k logins'
+    - '-a always,exit -F arch=b64 -S all -F path=/etc/group -F perm=wa -F key=identity'
     meta:
       server: 2
       workstation: 2
       CIS_ID:
       - 6.3.3.12
-      CISv8: 8.5
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
-      - AU-3
+      - AU-12
   {{ end }}
 {{ end }}

@@ -1,0 +1,43 @@
+---
+
+{{ if .Vars.rhel10cis_level_1 }}
+  {{ if .Vars.rhel10cis_rule_1_1_1_10 }}
+command:
+  usb-storage:
+    title: 1.1.1.10 | Ensure usb-storage kernel module is not available
+    exit-status: 0
+    exec: "modprobe -n -v usb-storage | grep -E '(usb-storage|install)'"
+    stdout:
+    - install /bin/true
+    meta:
+      server: 1
+      workstation: 2
+      CIS_ID:
+      - 1.1.1.10
+      NIST800-53R5:
+      - CM-7
+      - IA-3
+      CCI:
+      - 000778
+      - 001958
+      - 003959
+  blacklist_usb-storage:
+    title: 1.1.1.10 | Ensure usb-storage kernel module is not available | blacklist
+    exit-status: 0
+    exec: grep usb-storage /etc/modprobe.d/*.conf
+    stdout:
+      - '/blacklist usb-storage/'
+    meta:
+      server: 1
+      workstation: 2
+      CIS_ID:
+      - 1.1.1.10
+      NIST800-53R5:
+      - CM-7
+      - IA-3
+      CCI:
+      - 000778
+      - 001958
+      - 003959
+  {{ end }}
+{{ end }}

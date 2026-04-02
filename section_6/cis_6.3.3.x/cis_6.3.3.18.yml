@@ -3,43 +3,31 @@
 {{ if .Vars.rhel10cis_level_2 }}
   {{ if .Vars.rhel10cis_rule_6_3_3_18 }}
 command:
-  auditd_usermod_cnf:
-    title: 6.3.3.18 | Ensure successful and unsuccessful attempts to use the usermod command are recorded | config
-    exec: grep usermod /etc/audit/rules.d/*.rules
+  auditd_perms_cnf:
+    title: 6.3.3.18 | Ensure discretionary access control permission modification events chmod,fchmod,fchmodat,fchmodat2 are collected | conf check
+    exec: grep chmod /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
-    - '/[^#]-a always,exit -F path=/usr/sbin/usermod -F perm=x -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -k usermod/'
+    - '/[^#]-a always,exit -F arch=b64 -S chmod,fchmod,fchmodat,fchmodat2 -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -k perm_mod/'
     meta:
       server: 2
       workstation: 2
       CIS_ID:
       - 6.3.3.18
-      CISv8: 8.2
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
-      - AU-2
       - AU-12
-      - SI-5
-  auditd_usermod_live:
-    title: 6.3.3.18 | Ensure successful and unsuccessful attempts to use the usermod command are recorded | running
-    exec: auditctl -l | grep usermod
+  auditd_perms_live:
+    title: 6.3.3.18 | Ensure discretionary access control permission modification events chmod,fchmod,fchmodat,fchmodat2 are collected | running
+    exec: auditctl -l | grep chmod
     exit-status: 0
     stdout:
-    - '/-a always,exit -S all -F path=/usr/sbin/usermod -F perm=x -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -F key=usermod/'
+    - '/-a always,exit -F arch=b64 -S chmod,fchmod,fchmodat,fchmodat2 -F auid>=1000 -F auid!=(unset|-1|auid!=4294967295) -F key=perm_mod/'
     meta:
       server: 2
       workstation: 2
       CIS_ID:
       - 6.3.3.18
-      CISv8: 8.2
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
-      - AU-2
       - AU-12
-      - SI-5
   {{ end }}
 {{ end }}

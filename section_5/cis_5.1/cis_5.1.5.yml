@@ -2,25 +2,46 @@
 
 {{ if .Vars.rhel10cis_level_1 }}
   {{ if .Vars.rhel10cis_rule_5_1_5 }}
-command:
-  no_weak_ssh_kex:
-    title: 5.1.5 | Ensure sshd KexAlgorithms is configured| weak kex check
-    exec: sshd -T | grep -Pi -- 'kexalgorithms\h+([^#\n\r]+,)?(diffie-hellman-group1-sha1|diffie-hellman-group14-sha1|diffie-hellman-group-exchange-sha1)\b'
-    exit-status:
-      or:
-      - 0
-      - 1
-    stdout: ['!/./']
+file:
+  sshd_banner:
+    title: 5.1.5 | Ensure sshd Banner is configured | sshd_default
+    path: /etc/ssh/sshd_config
+    exists: true
+    contents:
+    - '/^Banner /etc/issue.net/'
+    - '!/^Banner none/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 5.1.5
-      CISv8: 3.3
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
-      - SC-8
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
+command:
+  ssh_configd_banner:
+    title: 5.1.5 | Ensure sshd Banner is configured | conf.d banner settings
+    exec: grep -Eis '^\s*Banner\s+"?none\b'/etc/ssh/sshd_config.d/*.conf
+    exit-status:
+      or:
+      - 0
+      - 1
+      - 2
+    stdout:
+    - '!/.*/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 5.1.5
+      NIST800-53R5:
+      - CM-1
+      - CM-2
+      - CM-6
+      - CM-7
+      - IA-5
   {{ end }}
 {{ end }}

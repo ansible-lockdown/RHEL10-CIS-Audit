@@ -2,29 +2,19 @@
 
 {{ if .Vars.rhel10cis_level_1 }}
   {{ if .Vars.rhel10cis_rule_1_6_2 }}
-command:
-  crypto_policies_not_in_sshd:
-    title: 1.6.2 | Ensure system wide crypto policy is not set in sshd configuration
-    exec: grep -Pi '^\s*CRYPTO_POLICY\s*=' /etc/sysconfig/sshd
-    exit-status:
-      or:
-      - 0
-      - 1
-    stdout:
-    - '!/^.*/'
+file:
+  crypto_policies_no_sha1_current:
+    title: 1.6.2 | Ensure system wide crypto policy disables sha1 hash and signature support
+    path: /etc/crypto-policies/state/CURRENT.pol
+    exists: true
+    contents:
+    - '/^sha1_in_certs\s*=\s*0/'
+    - '!/^(hash|sign)\s*=\s*SHA1/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 1.6.2
-      CISv8:
-      - 3.10
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
-      NIST800-53R5:
-      - SC-8
-      - IA-5
-      - AC-17
+      NIST800-53R5: SC-8
   {{ end }}
 {{ end }}

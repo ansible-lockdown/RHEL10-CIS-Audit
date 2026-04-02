@@ -2,23 +2,30 @@
 
 {{ if .Vars.rhel10cis_level_1 }}
   {{ if .Vars.rhel10cis_rule_5_3_1_3 }}
-package:
-  libpwquality:
-    title: 5.3.1.3 | Ensure latest version of libpwquality is installed
-    installed: true
-    name: libpwquality
-    versions:
-      semver-constraint: ">1.4.4-7"
+file:
+  passwd_auth_pwquality:
+    title: 5.3.1.3 | Ensure pam_pwquality module is enabled
+    path: /etc/pam.d/password-auth
+    exists: true
+    contents:
+    - '/password\s+requisite\s+pam_pwquality.so local_users_only/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 5.3.1.3
-      CISv8:
-      - 5.4
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
-      NIST800-53R5: NA
+      NIST800-53R5: CM-6
+  system_auth_pwquality:
+    title: 5.3.1.3 | Ensure pam_pwquality module is enabled
+    path: /etc/pam.d/system-auth
+    exists: true
+    contents:
+    - '/password\s+requisite\s+pam_pwquality.so local_users_only/'
+    meta:
+      server: 1
+      workstation: 1
+      CIS_ID:
+      - 5.3.1.3
+      NIST800-53R5: CM-6
   {{ end }}
 {{ end }}

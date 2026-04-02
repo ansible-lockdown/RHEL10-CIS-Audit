@@ -3,53 +3,35 @@
 {{ if .Vars.rhel10cis_level_2 }}
   {{ if .Vars.rhel10cis_rule_6_3_3_8 }}
 command:
-  auditd_identity_cnf:
-    title: 6.3.3.8 | Ensure events that modify user/group information are collected | conf check
-    exec: grep identity /etc/audit/rules.d/*.rules
+  auditd_network_cnf:
+    title: 6.3.3.8 | Ensure events that modify /etc/sysconfig/network and /etc/NetworkManager/system-connections/ are collected | conf check
+    exec: grep -i network /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
-    - '-w /etc/group -p wa -k identity'
-    - '-w /etc/passwd -p wa -k identity'
-    - '-w /etc/gshadow -p wa -k identity'
-    - '-w /etc/shadow -p wa -k identity'
-    - '-w /etc/security/opasswd -p wa -k identity'
-    - '-w /etc/nsswitch.conf -p wa -k identity'
-    - '-w /etc/pam.conf -p wa -k identity'
-    - '-w /etc/pam.d -p wa -k identity'
+    - '-a always,exit -F arch=b64 -S all -F path=/etc/sysconfig/network -F perm=wa -F key=system-locale'
+    - '-a always,exit -F arch=b64 -S all -F dir=/etc/NetworkManager/system-connections/ -F perm=wa -F key=system-locale'
     meta:
       server: 2
       workstation: 2
       CIS_ID:
       - 6.3.3.8
-      CISv8: 8.5
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - AU-3
-  auditd_identity_live:
-    title: 6.3.3.8 | Ensure events that modify user/group information are collected | running
-    exec: auditctl -l | grep identity
+      - CM-6
+  auditd_network_live:
+    title: 6.3.3.8 | Ensure events that modify /etc/sysconfig/network and /etc/NetworkManager/system-connections/ are collected | running
+    exec: auditctl -l | grep -i network
     exit-status: 0
     stdout:
-    - '-w /etc/group -p wa -k identity'
-    - '-w /etc/passwd -p wa -k identity'
-    - '-w /etc/gshadow -p wa -k identity'
-    - '-w /etc/shadow -p wa -k identity'
-    - '-w /etc/security/opasswd -p wa -k identity'
-    - '-w /etc/nsswitch.conf -p wa -k identity'
-    - '-w /etc/pam.conf -p wa -k identity'
-    - '-w /etc/pam.d -p wa -k identity'
+    - '-a always,exit -F arch=b64 -S all -F path=/etc/sysconfig/network -F perm=wa -F key=system-locale'
+    - '-a always,exit -F arch=b64 -S all -F path=/etc/NetworkManager/system-connections/ -F perm=wa -F key=system-locale'
     meta:
       server: 2
       workstation: 2
       CIS_ID:
       - 6.3.3.8
-      CISv8: 8.5
-      CISv8_IG1: false
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - AU-3
+      - CM-6
   {{ end }}
 {{ end }}

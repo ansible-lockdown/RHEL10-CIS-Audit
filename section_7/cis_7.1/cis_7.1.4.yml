@@ -4,7 +4,7 @@
   {{ if .Vars.rhel10cis_rule_7_1_4 }}
 file:
   etcgroup-_perms:
-    title: 7.1.4 | Ensure permissions on /etc/group- are configured
+    title: 7.1.4 | Ensure access to /etc/group- is configured
     path: /etc/group-
     exists: true
     mode:
@@ -20,10 +20,6 @@ file:
       workstation: 1
       CIS_ID:
       - 7.1.4
-      CISv8: 3.3
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - AC-3
       - MP-2

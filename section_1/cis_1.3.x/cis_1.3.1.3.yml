@@ -9,18 +9,12 @@ command:
     exit-status: 0
     exec: 'grep SELINUXTYPE= /etc/selinux/config'
     stdout:
-    - '/^SELINUXTYPE( |)=( |)targeted/'
-    - '!/^SELINUXTYPE( |)=( |)(permissive|disabled)/'
+    - '/^SELINUXTYPE\s*=\s*(targeted|mls)/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 1.3.1.3
-      CISv8:
-      - 3.3
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - AC-3
       - MP-2
@@ -29,17 +23,12 @@ command:
     exit-status: 0
     exec: "sestatus | grep 'Loaded policy'"
     stdout:
-    - '/Loaded policy name:\s+targeted/'
+    - '/Loaded policy name:\s+(targeted|mls)/'
     meta:
       server: 1
       workstation: 1
       CIS_ID:
       - 1.3.1.3
-      CISv8:
-      - 3.3
-      CISv8_IG1: true
-      CISv8_IG2: true
-      CISv8_IG3: true
       NIST800-53R5:
       - AC-3
       - MP-2
