@@ -1,5 +1,10 @@
 # Changes to RHEL10-CIS-Audit
 
+## June 2026 — QA pass: orphaned toggle cleanup
+
+- Removed `rhel10cis_rule_5_3_2_2_8` from `vars/CIS.yml`
+- 6.2.2.2 updated for journald
+
 ## April 2026 — QA Updates
 
 - goss.yml: added missing journald conditional guard for section_6/cis_6.2.2.x

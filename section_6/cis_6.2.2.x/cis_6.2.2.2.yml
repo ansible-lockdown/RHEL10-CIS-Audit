@@ -2,6 +2,7 @@
 
 {{ if .Vars.rhel10cis_level_1 }}
   {{ if .Vars.rhel10cis_rule_6_2_2_2 }}
+    {{ if eq .Vars.rhel10cis_syslog "journald" }}
 command:
   journald_syslog:
     title: 6.2.2.2 | Ensure journald ForwardToSyslog is disabled
@@ -23,5 +24,6 @@ command:
       - AU-6
       - AU-7
       - AU-12
+    {{ end }}
   {{ end }}
 {{ end }}
