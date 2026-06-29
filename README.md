@@ -3,7 +3,7 @@
 
 ## Overview
 
-based on CIS 1.0.0 - 27-Aug-2025
+Based on RHEL 10 CIS 1.0.1 - 22-Sep-2025
 
 Ability to audit a system using a lightweight binary to check the current state.
 

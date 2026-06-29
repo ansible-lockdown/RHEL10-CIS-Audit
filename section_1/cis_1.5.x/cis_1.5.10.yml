@@ -17,5 +17,7 @@ command:
       workstation: 1
       CIS_ID:
       - 1.5.10
+      NIST800-53R5:
+      - CM-6
   {{ end }}
 {{ end }}
