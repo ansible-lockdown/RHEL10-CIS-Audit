@@ -36,7 +36,7 @@ run_heavy_tests: true
 rhel10cis_legacy_boot: false
 
 # If you are setting the boot password
-rhel10cis_set_boot_pass: true
+rhel10cis_set_boot_pass: false
 
 # Section 1 is Initial setup (FileSystem Configuration, Configure Software Updates, Filesystem Integrity Checking, Secure Boot Settings,
 # Additional Process Hardening, Mandatory Access Control, Command Line Warning Banners, and GNOME Display Manager)
