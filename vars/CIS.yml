@@ -1,6 +1,8 @@
 ---
 
 ## metadata for benchmark
+## These files are user changeable
+## For best results use the remediation option so it we utilize the same variable to run the audit for you
 
 ## metadata for Audit benchmark
 benchmark_version: '1.0.1'
@@ -31,9 +33,10 @@ rhel10cis_selinux_disable: false
 run_heavy_tests: true
 
 #  True is BIOS based system else set to false
-rhel10cis_legacy_boot: true
+rhel10cis_legacy_boot: false
 
-rhel10cis_set_boot_pass: true
+# If you are setting the boot password
+rhel10cis_set_boot_pass: false
 
 # Section 1 is Initial setup (FileSystem Configuration, Configure Software Updates, Filesystem Integrity Checking, Secure Boot Settings,
 # Additional Process Hardening, Mandatory Access Control, Command Line Warning Banners, and GNOME Display Manager)
