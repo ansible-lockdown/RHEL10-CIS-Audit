@@ -1,5 +1,8 @@
 # Changes to RHEL10-CIS-Audit
 
+## July 2026
+- Updated links that the audit comes from goss-org moved to krameff
+
 ## June 2026 — QA pass: orphaned toggle cleanup
 
 - Removed `rhel10cis_rule_5_3_2_2_8` from `vars/CIS.yml`
