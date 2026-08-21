@@ -24,7 +24,7 @@
 # June 2026     Changed OS discovery to use BENCHMARK_OS variable to allow for future OS discovery and audit alignment
 # July 2026     Updated goss version discovery
 # Variables in upper case tend to be able to be adjusted
-# lower case variables are discovered or built from other variables
+# lower case variables are discovered or built from other variables
 
 # Goss benchmark variables (these should not need changing unless new release)
 BENCHMARK=CIS # Benchmark Name aligns to the audit
@@ -115,7 +115,7 @@ fi
 if [ -z "$VARS_PATH" ]; then
   export varfile_path=$audit_content_dir/$audit_vars
 else
-  # Check -v exists fail if not
+  # Check -v exists fail if not
   if [ -f "$VARS_PATH" ]; then
     export varfile_path=$VARS_PATH
   else
