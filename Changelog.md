@@ -10,6 +10,10 @@
 - Fixed neighbour-toggle gates in 3.3.1.6, 3.3.2.4 and 7.1.6
 - Corrected 1.8.4/1.8.5 paths and bodies, 6.2.3.6 gate polarity and several broken regexes
 - Aligned vars/CIS.yml values with the remediation defaults and removed a site-specific profile name
+- Fixed 1.5.1 exec and stdout that never matched a valid `* hard core 0` entry thanks to @rajsshah86 public issue #15
+- Allowed a locked root account (L) as well as a set password (P) in 5.4.2.4 thanks to @rajsshah86 public issue #16
+- Accepted 3-digit and more restrictive root umask values in 5.4.2.6 thanks to @rajsshah86 public issue #17
+- Corrected the 6.3.3.8 live check to expect dir= for the NetworkManager directory thanks to @rajsshah86 public issue #18
 
 ## July 2026
 - Updated links that the audit comes from goss-org moved to krameff
