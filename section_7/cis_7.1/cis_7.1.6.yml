@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10cis_level_1 }}
-  {{ if .Vars.rhel10cis_rule_7_1_7 }}
+  {{ if .Vars.rhel10cis_rule_7_1_6 }}
 file:
   etc_shadow-_perms:
     title: 7.1.6 | Ensure access to /etc/shadow- is configured
