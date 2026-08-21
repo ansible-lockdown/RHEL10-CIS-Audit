@@ -14,6 +14,7 @@
 - Allowed a locked root account (L) as well as a set password (P) in 5.4.2.4 thanks to @rajsshah86 public issue #16
 - Accepted 3-digit and more restrictive root umask values in 5.4.2.6 thanks to @rajsshah86 public issue #17
 - Corrected the 6.3.3.8 live check to expect dir= for the NetworkManager directory thanks to @rajsshah86 public issue #18
+- README updates and updated contributing and contributors
 
 ## July 2026
 - Updated links that the audit comes from goss-org moved to krameff
