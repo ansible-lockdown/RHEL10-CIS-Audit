@@ -21,7 +21,7 @@ command:
     exec: auditctl -l | grep opasswd
     exit-status: 0
     stdout:
-    - '-a always,exit -F arch=b64 -S all -F path=/-a always,exit -F arch=b64 -S all -F path=/etc/security/opasswd -F perm=wa -F key=identity'
+    - '/-a always,exit -F arch=b64 -S all -F path=\/etc\/security\/opasswd -F perm=wa -F key=identity/'
     meta:
       server: 2
       workstation: 2
