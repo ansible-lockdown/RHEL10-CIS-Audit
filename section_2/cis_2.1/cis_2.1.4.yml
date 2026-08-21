@@ -7,7 +7,7 @@
 package:
   dhcp_pkg:
     title: 2.1.4 | Ensure dhcp server services are not in use | pkg removed
-    name: dhcp-server
+    name: kea
     installed: false
     meta:
       server: 1
