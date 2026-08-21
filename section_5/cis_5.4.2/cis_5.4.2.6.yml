@@ -9,7 +9,7 @@ command:
     exec: grep -hi umask /root/.bash_profile /root/.bashrc 2>/dev/null
     exit-status: 0
     stdout:
-    - '/umask 0?0?(2|7)7/'
+    - '/umask\s+0?0?[2-7]7\b/'
     meta:
       server: 1
       workstation: 1
