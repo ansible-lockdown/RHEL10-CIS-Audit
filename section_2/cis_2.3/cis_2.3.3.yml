@@ -9,7 +9,7 @@ file:
     exists: true
     contents:
     - '/^OPTIONS=".*-u chrony.*"/'
-    - '!/^OPTIONS="".*-u root.*"/'
+    - '!/^OPTIONS=".*-u root.*"/'
     skip: false
     meta:
       server: 1

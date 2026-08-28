@@ -16,9 +16,9 @@ package:
       - 2.1.8
       NIST800-53R5:
       - CM-7
-  cyrus_impad_pkg:
+  cyrus_imapd_pkg:
     title: 2.1.8 | Ensure message access server services are not in use | pkg removed
-    name: cyrus-impad
+    name: cyrus-imapd
     installed: false
     meta:
       server: 1

@@ -145,7 +145,7 @@ rhel10cis_rule_1_8_4: true
 rhel10cis_rule_1_8_5: true
 rhel10cis_rule_1_8_6: true
 
-# Section 2 rules are controling Services (Special Purpose Services, and service clients)
+# Section 2 rules are controlling Services (Special Purpose Services, and service clients)
 ## Configure Server Services
 rhel10cis_rule_2_1_1: true
 rhel10cis_rule_2_1_2: true
@@ -457,7 +457,7 @@ rhel10cis_warning_banner: Authorized users only. All activity may be monitored a
 
 ## Control 1.8.x - Settings for GDM
 ## 1.8 GDM graphical interface
-desktop_required: False
+desktop_required: false
 
 # 1.8 Gnome Desktop
 rhel10cis_dconf_db_name: local
@@ -472,7 +472,7 @@ rhel10cis_dconf_db_name: local
 # - false - leaves service in current status
 # - true - sets service name to masked
 rhel10cis_autofs_services: false
-rhel10cis_autofs_mask: true
+rhel10cis_autofs_mask: false
 rhel10cis_avahi_server: false
 rhel10cis_avahi_mask: false
 rhel10cis_cockpit_server: false
@@ -579,17 +579,17 @@ rhel10cis_authselect_custom_profile_create: false
 rhel10cis_authselect_custom_profile_select: false
 
 ## 5.3.2.1 Authselect select false if using AD or RHEL ID mgmt
-rhel10cis_authselect_custom_profile_name: mpg_cis
+rhel10cis_authselect_custom_profile_name: cis_example_profile
 
 ## 5.3.3.2.3 Set option used for password complexity
-# either mincall or credits - enabling to check for one option in settings
+# either minclass or credits - enabling to check for one option in settings
 rhel10cis_passwd_complex_option: minclass
 
 ## 5.4.1.x login.defs password settings
 rhel10cis_pass_max_days: "365"
-rhel10cis_pass_min_days: "1"
+rhel10cis_pass_min_days: 7
 rhel10cis_pass_warn_age: "7"
-rhel10cis_inactive_lock_days: 40
+rhel10cis_inactive_lock_days: 30
 
 # Section 6
 
@@ -636,6 +636,7 @@ rhel10cis_journald_maxfilesec: 1month
 # Control 6.2.3. x
 ## Set if host is a logserver
 rhel10cis_remote_log_server: false
+rhel10cis_system_is_log_server: false
 
 # Log server settings
 rhel10cis_remote_log_host: logagg.example.com
@@ -644,5 +645,5 @@ rhel10cis_remote_log_protocol: tcp
 rhel10cis_remote_log_retrycount: 100
 rhel10cis_remote_log_queuesize: 1000
 
-# Control 7.1.12
-rhel10cis_exclude_unowned_search_path: \(! -path "/run/user/*" -a ! -path "/proc/*" -a ! -path "*/containerd/*" -a ! -path "*/kubelet/pods/*" -a ! -path "*/kubelet/plugins/*" -a ! -path "/sys/fs/cgroup/memory/*" -a ! -path "/var/*/private/*" \)
+# Control 7.1.12
+rhel10cis_exclude_unowned_search_path: \( ! -path "/run/user/*" -a ! -path "/proc/*" -a ! -path "*/containerd/*" -a ! -path "*/kubelet/pods/*" -a ! -path "*/kubelet/plugins/*" -a ! -path "/sys/fs/cgroup/memory/*" -a ! -path "/var/*/private/*" \)

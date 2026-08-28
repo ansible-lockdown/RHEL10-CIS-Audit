@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.rhel10cis_level_1 }}
-  {{ if .Vars.rhel10cis_rule_3_3_2_3 }}
+  {{ if .Vars.rhel10cis_rule_3_3_2_4 }}
 kernel-param:
   net.ipv6.conf.default.accept_redirects:
     title: 3.3.2.4 | Ensure net.ipv6.conf.default.accept_redirects is configured

@@ -1,14 +1,30 @@
 # Changes to RHEL10-CIS-Audit
 
+## August 2026 - QA pass: goss correctness fixes
+
+- Fixed 1.8.1 banner regex that made the whole gossfile fail to load on desktop hosts
+- Renamed the 1.8.5 lock key that collided with 1.8.4 and silently dropped one check
+- Fixed 5.1.16 and 5.3.2.3.3 structures so their checks actually run
+- Corrected wrong package names in 2.1.4, 2.1.7, 2.1.8, 2.1.16 and 2.1.19 that always passed
+- Added sort before uniq -d in 7.2.4-7.2.7 so non-adjacent duplicates are detected
+- Fixed neighbour-toggle gates in 3.3.1.6, 3.3.2.4 and 7.1.6
+- Corrected 1.8.4/1.8.5 paths and bodies, 6.2.3.6 gate polarity and several broken regexes
+- Aligned vars/CIS.yml values with the remediation defaults and removed a site-specific profile name
+- Fixed 1.5.1 exec and stdout that never matched a valid `* hard core 0` entry thanks to @rajsshah86 public issue #15
+- Allowed a locked root account (L) as well as a set password (P) in 5.4.2.4 thanks to @rajsshah86 public issue #16
+- Accepted 3-digit and more restrictive root umask values in 5.4.2.6 thanks to @rajsshah86 public issue #17
+- Corrected the 6.3.3.8 live check to expect dir= for the NetworkManager directory thanks to @rajsshah86 public issue #18
+- README updates and updated contributing and contributors
+
 ## July 2026
 - Updated links that the audit comes from goss-org moved to krameff
 
-## June 2026 — QA pass: orphaned toggle cleanup
+## June 2026 - QA pass: orphaned toggle cleanup
 
 - Removed `rhel10cis_rule_5_3_2_2_8` from `vars/CIS.yml`
 - 6.2.2.2 updated for journald
 
-## April 2026 — QA Updates
+## April 2026 - QA Updates
 
 - goss.yml: added missing journald conditional guard for section_6/cis_6.2.2.x
 - 6.2.1.4: fixed duplicate/typo key names (not ryslog_system -> not_rsyslog_system / not_journald_system)
@@ -19,7 +35,7 @@
 - Added missing NIST800-53R5 mappings to 1.1.1.1, 1.5.10, 1.8.6, 2.3.3, 6.1.3, 6.3.3.3
 - Normalized CIS_ID format in section_1/cis_1.1.1.x from inline to list format
 
-## March 2026 — audit alignment
+## March 2026 - audit alignment
 
 - title alignment for CIS documentation
 - yml file start added
