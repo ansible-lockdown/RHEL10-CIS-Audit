@@ -5,7 +5,7 @@
 command:
   logfile_configured_login_files:
     title: 6.2.4.1 | Ensure access to all logfiles has been configured
-    exec: find /var/log/ -type f -perm /g+x,o+wx -exec ls -l "{}" + | grep -E "[b,u,w]tmp.*|lastlog"
+    exec: find /var/log/ -type f -perm /g+x,o+wx {{ if .Vars.rhel10cis_logfile_perms_exclude }}-print | grep -Ev{{ range .Vars.rhel10cis_logfile_perms_exclude }} -e '{{ . }}'{{ end }}{{ else }}-exec ls -l "{}" +{{ end }} | grep -E "[b,u,w]tmp.*|lastlog"
     exit-status:
       or:
       - 0
@@ -20,7 +20,7 @@ command:
       - AU-8
   logfile_configured_syslog_logs:
     title: 6.2.4.1 | Ensure access to all logfiles has been configured
-    exec: find /var/log/ -type f -perm /g+wx,o+wx -exec ls -l "{}" + | grep -E "auth|secure|syslog|messages|journal|auth"
+    exec: find /var/log/ -type f -perm /g+wx,o+wx {{ if .Vars.rhel10cis_logfile_perms_exclude }}-print | grep -Ev{{ range .Vars.rhel10cis_logfile_perms_exclude }} -e '{{ . }}'{{ end }}{{ else }}-exec ls -l "{}" +{{ end }} | grep -E "auth|secure|syslog|messages|journal|auth"
     exit-status:
       or:
       - 0
@@ -35,7 +35,7 @@ command:
       - AU-8
   logfile_configured_sssd:
     title: 6.2.4.1 | Ensure access to all logfiles has been configured
-    exec: find /var/log/ -type f -perm /g+x,o+rwx -exec ls -l "{}" + | grep -Ei "ssd|gdm"
+    exec: find /var/log/ -type f -perm /g+x,o+rwx {{ if .Vars.rhel10cis_logfile_perms_exclude }}-print | grep -Ev{{ range .Vars.rhel10cis_logfile_perms_exclude }} -e '{{ . }}'{{ end }}{{ else }}-exec ls -l "{}" +{{ end }} | grep -Ei "ssd|gdm"
     exit-status:
       or:
       - 0

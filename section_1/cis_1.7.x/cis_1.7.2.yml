@@ -17,8 +17,8 @@ file:
     - '!/[Rr]ocky.*/'
     - '!/[Aa]lma.*/'
     - '!/x86_64/'
-    - '!/[Ll]inux'
-    - '{{ .Vars.rhel10cis_warning_banner }}'
+    - '!/[Ll]inux/'
+    - '{{ trim .Vars.rhel10cis_warning_banner }}'
     meta:
       server: 1
       workstation: 1

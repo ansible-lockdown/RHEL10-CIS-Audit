@@ -569,6 +569,9 @@ rhel10cis_sshd_allowgroups:
 rhel10cis_sshd_denyusers: nobody
 rhel10cis_sshd_denygroups:
 
+## 6.2.4.1 log files whose permissions are left unchanged
+rhel10cis_logfile_perms_exclude: []
+
 ## 5.2.7 set sugroup if differs from wheel
 rhel10cis_sugroup: sugroup
 

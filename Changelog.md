@@ -1,5 +1,19 @@
 # Changes to RHEL10-CIS-Audit
 
+## October 2026 - QA fixes
+
+- 2.2.3, 2.2.4: workstation meta set to level 1
+- 5.3.2.1.3: level 2 gate no longer also requires level 1
+- 6.2.1.4: rsyslog tests no longer render without the service parent
+- 6.2.1.4: rsyslog no longer requires systemd-journald stopped (addresses RHEL10-CIS #114) - Thank you @rajsshah86
+- 6.2.4.1: rhel10cis_logfile_perms_exclude files skipped (addresses RHEL10-CIS #91) - Thank you @skullbringer
+- 7.2.5: level 1 gate added
+- 1.7.2: banner trimmed before comparison
+- 1.7.2: unterminated Linux regex closed
+- 3.1.1: IPv6 disable tests skipped when IPv6 is required
+- run_audit.sh uses syver v0.13.0 by default
+- README describes syver
+
 ## August 2026 - QA pass: goss correctness fixes
 
 - Fixed 1.8.1 banner regex that made the whole gossfile fail to load on desktop hosts
