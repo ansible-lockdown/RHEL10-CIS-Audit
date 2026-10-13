@@ -2,7 +2,7 @@
 
 {{ if .Vars.rhel10cis_level_1 }}
   {{ if .Vars.rhel10cis_rule_6_2_3_6 }}
-    {{ if not .Vars.rhel10cis_remote_log_server }}
+    {{ if .Vars.rhel10cis_remote_log_server }}
 command:
   remote_syslog:
     title: 6.2.3.6 | Ensure rsyslog is configured to send logs to a remote log host

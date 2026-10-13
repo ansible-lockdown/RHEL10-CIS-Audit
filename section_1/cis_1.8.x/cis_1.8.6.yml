@@ -1,7 +1,7 @@
 ---
 
 {{ if .Vars.desktop_required }}
-  {{ if .Vars.rhel10cis_level_1 }}
+  {{ if .Vars.rhel10cis_level_2 }}
     {{ if .Vars.rhel10cis_rule_1_8_6 }}
 file:
   /etc/gdm/custom.conf:
@@ -11,8 +11,8 @@ file:
     contents:
     - '!/^WaylandEnable\s*=\s*true/'
     meta:
-      server: 1
-      workstation: 1
+      server: 2
+      workstation: 2
       CIS_ID:
       - 1.8.6
       NIST800-53R5:

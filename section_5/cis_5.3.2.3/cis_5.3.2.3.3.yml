@@ -15,7 +15,7 @@ file:
       CIS_ID:
       - 5.3.2.3.3
       NIST800-53R5: IA-5
-pwhistory_use_authtok_system-auth:
+  pwhistory_use_authtok_system-auth:
     title: 5.3.2.3.3 | Ensure pam_pwhistory includes use_authtok | system-auth
     path: /etc/pam.d/system-auth
     exists: true

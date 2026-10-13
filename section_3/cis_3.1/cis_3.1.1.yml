@@ -43,7 +43,7 @@ command:
       NIST800-53R5:
       - CM-7
     {{ end }}
-  {{ if eq .Vars.rhel10cis_ipv6_disable_method "sysctl" }}
+  {{ if and (not .Vars.rhel10cis_ipv6_required) (eq .Vars.rhel10cis_ipv6_disable_method "sysctl") }}
   ipv6_disabled_sysctl:
     title: 3.1.1 | Ensure IPv6 status is identified | IPv6 disabled via sysctl
     exec: sysctl -a 2>/dev/null | grep -E 'net.ipv6.conf.(all|default).disable_ipv6 = 1'
@@ -59,7 +59,7 @@ command:
       NIST800-53R5:
       - CM-7
   {{ end }}
-  {{ if eq .Vars.rhel10cis_ipv6_disable_method "kernel" }}
+  {{ if and (not .Vars.rhel10cis_ipv6_required) (eq .Vars.rhel10cis_ipv6_disable_method "kernel") }}
 kernel-param:
   ipv6.disable:
     title: 3.1.1 | Ensure IPv6 status is identified | IPv6 disabled via kernel parameter

@@ -26,7 +26,7 @@ command:
       - 001388
   gdm_banner_msg:
     title: 1.8.1 | Ensure GDM login banner is configured | message
-    exec: grep "[org/gnome/login-screen]" /etc/dconf/db/local.d/* | grep banner-message
+    exec: grep -h banner-message /etc/dconf/db/local.d/*
     exit-status:
       or:
       - 0
@@ -34,7 +34,7 @@ command:
     stdout:
     - '/^banner-message-enable=true/'
     - '!/^banner-message-enable=false/'
-    - '/^banner-message-text=\'{{ .Vars.rhel10cis_warning_banner }}\'/'
+    - "/^banner-message-text='{{ trim .Vars.rhel10cis_warning_banner }}'/"
     meta:
       server: 1
       workstation: 1
