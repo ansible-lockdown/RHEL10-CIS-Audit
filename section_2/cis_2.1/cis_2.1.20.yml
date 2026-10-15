@@ -10,7 +10,7 @@ package:
     installed: false
     meta:
       server: 2
-      workstation: N/A
+      workstation: NA
       CIS_ID:
       - 2.1.20
       NIST800-53R5:

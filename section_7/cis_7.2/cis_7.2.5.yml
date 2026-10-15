@@ -1,10 +1,11 @@
 ---
 
-{{ if .Vars.rhel10cis_rule_7_2_5 }}
+{{ if .Vars.rhel10cis_level_1 }}
+  {{ if .Vars.rhel10cis_rule_7_2_5 }}
 command:
   no_dup_gid:
     title: 7.2.5 | Ensure no duplicate GIDs exist
-    exec: "cat /etc/group | cut -d: -f3 | uniq -d"
+    exec: "cat /etc/group | cut -d: -f3 | sort | uniq -d"
     exit-status: 0
     stdout:
     - '!/./'
@@ -19,4 +20,5 @@ command:
       - CM-6
       - CM-7
       - IA-5
+  {{ end }}
 {{ end }}

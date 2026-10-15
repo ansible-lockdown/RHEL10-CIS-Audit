@@ -21,7 +21,7 @@ command:
       - 000366
   gdm_disable_user:
     title: 1.8.2 | Ensure GDM disable-user-list is configured | config
-    exec: grep "[org/gnome/login-screen]" /etc/dconf/db/local.d/60-login-screen | grep disable-user-list
+    exec: grep -h disable-user-list /etc/dconf/db/local.d/60-login-screen
     exit-status:
       or:
       - 0

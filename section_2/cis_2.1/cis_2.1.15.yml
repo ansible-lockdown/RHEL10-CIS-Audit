@@ -22,7 +22,7 @@ package:
 file:
   telnet_service_masked:
     title: 2.1.15 | Ensure telnet server services are not in use | masked
-    path: /etc/systemd/system/telnetd-hpa.service
+    path: /etc/systemd/system/telnet.socket
     exists: true
     filetype: symlink
     linked-to: /dev/null

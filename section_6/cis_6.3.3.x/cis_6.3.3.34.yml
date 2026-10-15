@@ -3,9 +3,9 @@
 {{ if .Vars.rhel10cis_level_2 }}
   {{ if .Vars.rhel10cis_rule_6_3_3_34 }}
 command:
-  auditd_create_cnf:
+  auditd_query_module_cnf:
     title: 6.3.3.34 | Ensure kernel query_module loading unloading and modification is collected | conf check
-    exec: grep create /etc/audit/rules.d/*.rules
+    exec: grep query_module /etc/audit/rules.d/*.rules
     exit-status: 0
     stdout:
     - '/[^#]-a always,exit -F arch=b64 -S query_module -F auid>=1000 -F auid!=unset -k kernel_modules/'
@@ -16,9 +16,9 @@ command:
       - 6.3.3.34
       NIST800-53R5:
       - AU-12
-  auditd_create_module_live:
+  auditd_query_module_live:
     title: 6.3.3.34 | Ensure kernel query_module loading unloading and modification is collected | running
-    exec: auditctl -l | grep create
+    exec: auditctl -l | grep query_module
     exit-status: 0
     stdout:
     - '/-a always,exit -F arch=b64 -S query_module -F auid>=1000 -F auid!=-1 -F key=kernel_modules/'

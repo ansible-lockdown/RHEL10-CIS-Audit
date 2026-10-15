@@ -2,21 +2,19 @@
 
 {{ if .Vars.rhel10cis_level_2 }}
   {{ if .Vars.rhel10cis_rule_2_1_19 }}
-    {{ if not .Vars.rhel10cis_xinetd_server }}
-      {{ if not .Vars.rhel10cis_xinetd_mask }}
+    {{ if not .Vars.desktop_required }}
 package:
   gdm_pkg:
     title: 2.1.19 | Ensure GNOME Display Manager is removed | pkg removed
-    name: gnome
+    name: gdm
     installed: false
     meta:
       server: 2
-      workstation: N/A
+      workstation: NA
       CIS_ID:
       - 2.1.19
       NIST800-53R5:
       - CM-7
-      {{ end }}
     {{ end }}
   {{ end }}
 {{ end }}
