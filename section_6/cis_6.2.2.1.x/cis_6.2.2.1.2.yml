@@ -2,7 +2,7 @@
 
 {{ if .Vars.rhel10cis_level_1 }}
   {{ if .Vars.rhel10cis_rule_6_2_2_1_2 }}
-    {{ if eq .Vars.rhel10cis_syslog "journald" }}
+    {{ if .Vars.rhel10cis_journald_config }}
 file:
   journald_remote_config:
     title: 6.2.2.1.2 | Ensure systemd-journal-upload authentication is configured
