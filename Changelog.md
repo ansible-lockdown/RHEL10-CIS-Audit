@@ -13,6 +13,7 @@
 - 6.2.3.3: effective ForwardToSyslog value checked
 - 6.2.3.8: logrotate.conf rotate setting checked
 - 3.3.1.1: level 2 gate
+- run_audit.sh: OS name and version fall back when /etc/os-release is missing
 
 ## October 2026 - QA fixes
 
