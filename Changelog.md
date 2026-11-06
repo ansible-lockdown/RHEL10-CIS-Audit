@@ -1,5 +1,19 @@
 # Changes to RHEL10-CIS-Audit
 
+## November 2026 - QA fixes
+
+- run_audit.sh minimum syver 0.16.0
+- README requires syver 0.16.0
+- company name MindPoint Group - A Quantum Sky Company
+- 5.1.2: private host keys checked for owner, group root or ssh_keys and mode
+- 5.1.3: public host key owner checked on its own
+- 5.4.1.1, 5.4.1.2, 5.4.1.3: existing users checked per account
+- 5.4.1.1, 5.4.1.2: existing user checks skipped unless rhel10cis_force_user_maxdays or rhel10cis_force_user_mindays
+- 6.2.x: journald and rsyslog tests follow rhel10cis_journald_config and rhel10cis_rsyslog_config
+- 6.2.3.3: effective ForwardToSyslog value checked
+- 6.2.3.8: logrotate.conf rotate setting checked
+- 3.3.1.1: level 2 gate
+
 ## October 2026 - QA fixes
 
 - 2.2.3, 2.2.4: workstation meta set to level 1

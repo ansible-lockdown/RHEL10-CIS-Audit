@@ -591,6 +591,8 @@ rhel10cis_passwd_complex_option: minclass
 ## 5.4.1.x login.defs password settings
 rhel10cis_pass_max_days: "365"
 rhel10cis_pass_min_days: 7
+rhel10cis_force_user_maxdays: false
+rhel10cis_force_user_mindays: false
 rhel10cis_pass_warn_age: "7"
 rhel10cis_inactive_lock_days: 30
 
@@ -606,6 +608,8 @@ rhel10cis_aide_scan: cron
 ## syslog
 ## change to rsyslog/ journald or other
 rhel10cis_syslog: journald
+rhel10cis_journald_config: true
+rhel10cis_rsyslog_config: false
 
 ## Control 6.2.1.3 - Ensure journald log rotation is configured per site policy
 # Current variable configures the max amount of disk space the logs will use(thus, journal files
