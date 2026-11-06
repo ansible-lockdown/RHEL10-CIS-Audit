@@ -2,7 +2,7 @@
 
 {{ if .Vars.rhel10cis_level_1 }}
   {{ if .Vars.rhel10cis_rule_6_2_2_1_1 }}
-    {{ if eq .Vars.rhel10cis_syslog "journald" }}
+    {{ if .Vars.rhel10cis_journald_config }}
 package:
   systemd-journal-remote:
     title: 6.2.2.1.1 | Ensure systemd-journal-remote is installed

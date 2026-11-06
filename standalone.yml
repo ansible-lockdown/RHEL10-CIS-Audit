@@ -34,10 +34,10 @@ gossfile:
   section_6/cis_6.1/*.yml: {}
   section_6/cis_6.2.1.x/*.yml: {}
   section_6/cis_6.2.2.1.x/*.yml: {}
-    {{ if eq .Vars.rhel10cis_syslog "journald" }}
+    {{ if .Vars.rhel10cis_journald_config }}
   section_6/cis_6.2.2.x/*.yml: {}
     {{ end }}
-    {{ if eq .Vars.rhel10cis_syslog "rsyslog" }}
+    {{ if .Vars.rhel10cis_rsyslog_config }}
   section_6/cis_6.2.3.x/*.yml: {}
     {{ end }}
   section_6/cis_6.2.4.x/*.yml: {}

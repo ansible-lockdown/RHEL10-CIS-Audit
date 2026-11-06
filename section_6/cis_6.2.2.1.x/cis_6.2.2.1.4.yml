@@ -2,7 +2,7 @@
 
 {{ if .Vars.rhel10cis_level_1 }}
   {{ if .Vars.rhel10cis_rule_6_2_2_1_4 }}
-    {{ if eq .Vars.rhel10cis_syslog "journald" }}
+    {{ if .Vars.rhel10cis_journald_config }}
 service:
   systemd-journal-remote.socket:
     title: 6.2.2.1.4 | Ensure systemd-journal-remote service is not in use

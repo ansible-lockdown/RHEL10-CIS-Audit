@@ -26,7 +26,7 @@ Tested on
 
 ## Requirements
 
-You must have [syver](https://github.com/krameff/syver) >= 0.13.0 available to your host you would like to test. The audit
+You must have [syver](https://github.com/krameff/syver) >= 0.16.0 available to your host you would like to test. The audit
 content uses the goss file format, which syver reads unchanged.
 
 Syver replaces goss as it is a signed fork that is regularly updated.
