@@ -18,6 +18,9 @@
 - 7.2.8: home directory tests limited to local interactive users
 - 2.1.18: nginx-plus package checked
 - 1.4.2: every file in /boot/grub2 checked, user.cfg not required
+- 5.1.5: sshd_config.d Banner none check reads the files
+- 2.1.21: runs on non mail servers, postfix inet_interfaces checked with postconf
+- 5.1.x: sshd -T checks case insensitive
 
 ## October 2026 - QA fixes
 
