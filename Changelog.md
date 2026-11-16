@@ -14,6 +14,10 @@
 - 6.2.3.8: logrotate.conf rotate setting checked
 - 3.3.1.1: level 2 gate
 - run_audit.sh: OS name and version fall back when /etc/os-release is missing
+- 1.6.4, 1.7.1, 1.7.3: inverse regexes closed
+- 7.2.8: home directory tests limited to local interactive users
+- 2.1.18: nginx-plus package checked
+- 1.4.2: every file in /boot/grub2 checked, user.cfg not required
 
 ## October 2026 - QA fixes
 

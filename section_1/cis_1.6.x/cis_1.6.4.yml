@@ -8,7 +8,7 @@ file:
     path: /etc/crypto-policies/state/CURRENT.pol
     exists: true
     contents:
-    - '!/^cipher@/(lib|open)ssh(-server|-client)?\s*=\s*([^#\n\r]+)?-CBC\b'
+    - '!/^cipher@(lib|open)ssh(-server|-client)?\s*=\s*([^#\n\r]+)?-CBC\b/'
     meta:
       server: 1
       workstation: 1

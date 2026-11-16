@@ -29,13 +29,13 @@ file:
       CIS_ID:
       - 1.4.2
       NIST800-53R5: CM-6
-  grub_user_perms:
-    title: 1.4.2 | Ensure access to bootloader config is configured | file_perms | user.cfg
-    path: /boot/grub2/user.cfg
-    exists: true
-    owner: root
-    group: root
-    mode: "0600"
+command:
+  grub_all_files_perms:
+    title: 1.4.2 | Ensure access to bootloader config is configured | file_perms | all files in /boot/grub2
+    exec: find -L /boot/grub2/ -mindepth 1 -maxdepth 1 -type f \( -perm /0177 -o ! -user root -o ! -group root \) -exec stat -Lc '%n %#a %U:%G' {} +
+    exit-status: 0
+    stdout:
+    - '!/./'
     meta:
       server: 1
       workstation: 1
