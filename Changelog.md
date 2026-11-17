@@ -21,6 +21,17 @@
 - 5.1.5: sshd_config.d Banner none check reads the files
 - 2.1.21: runs on non mail servers, postfix inet_interfaces checked with postconf
 - 5.1.x: sshd -T checks case insensitive
+- 5.4.2.1, 5.4.2.2, 5.4.2.3: fail on any extra UID or GID 0 entry
+- 5.4.1.5: INACTIVE anchored, existing users checked
+- 5.4.1.6: password change dates compared as epoch seconds
+- 5.4.2.5: root PATH checks for empty, current and unsafe directories
+- 5.4.3.1: commented nologin lines ignored
+- 5.3.2.1.2: unlock_time 0 or 900 and above
+- 5.1.15: hmac-sha1-etm@openssh.com in the weak MAC list
+- 5.1.16: MaxAuthTries value anchored
+- 7.1.11, 7.1.12, 7.1.13: mount points read with findmnt
+- 7.1.13: unowned or modified SUID and SGID files reported
+- 1.1.2.1.2 - 1.1.2.1.4: options read from fstab or tmp.mount
 
 ## October 2026 - QA fixes
 
