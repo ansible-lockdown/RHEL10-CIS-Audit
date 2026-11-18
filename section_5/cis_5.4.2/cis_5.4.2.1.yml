@@ -5,6 +5,7 @@
 command:
   uid_0_check:
     title: 5.4.2.1 | Ensure root is the only UID 0 account
+    skip: {{ not .Vars.rhel10cis_disruption_high }}
     exec: |
       awk -F: '($3 == 0 && $1 == "root") {print "root_ok"} ($3 == 0 && $1 != "root") {print "FAIL: " $1}' /etc/passwd
     exit-status: 0

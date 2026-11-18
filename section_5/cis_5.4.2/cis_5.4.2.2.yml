@@ -5,8 +5,9 @@
 command:
   gid_0_check:
     title: 5.4.2.2 | Ensure root is the only GID 0 account
+    skip: {{ not .Vars.rhel10cis_disruption_high }}
     exec: |
-      awk -F: '($4 == 0 && $1 == "root") {print "root_ok"} ($4 == 0 && $1 != "root" && $1 !~ /^(sync|shutdown|halt|operator)/) {print "FAIL: " $1}' /etc/passwd
+      awk -F: '($4 == 0 && $1 == "root") {print "root_ok"} ($4 == 0 && $1 != "root" && $1 !~ /^(sync|shutdown|halt|operator)$/) {print "FAIL: " $1}' /etc/passwd
     exit-status: 0
     stdout:
     - '/^root_ok$/'

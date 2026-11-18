@@ -35,6 +35,21 @@
 - 5.4.1.5: existing user check limited to interactive users
 - 6.2.2.1.1 - 6.2.2.1.4, 6.2.3.7: skipped on log servers
 - rhel10cis_xinetd_server and rhel10cis_xinetd_mask removed
+- 5.3.1.1 - 5.3.1.4: skipped unless rhel10cis_disruption_high and rhel10cis_allow_authselect_updates
+- 5.3.1.5: pam_unix checked per stack type
+- 5.3.2.3.1 pam files, 5.3.2.4.x, 5.4.2.1, 5.4.2.2, 5.4.2.7, 5.4.2.8: skipped unless rhel10cis_disruption_high
+- 5.4.1.1: existing users skipped unless rhel10cis_disruption_high
+- 7.2.9: dot file mode and owner checked, skipped unless rhel10cis_disruption_high and rhel10cis_dotperm_ansiblemanaged
+- 5.1.18: MaxSessions above 10 fails
+- 5.3.2.2.1, 5.3.2.2.2, 5.3.2.3.1: difok, minlen and remember accept any compliant value
+- 5.4.2.6: root umask checked in effect and in the files
+- 5.4.3.2: shell timeout checks ported from RHEL9-CIS-Audit
+- 5.4.3.3: weak umask in any file fails
+- 5.4.2.2: system account names matched exactly
+- 5.4.2.7: UID_MIN, nobody and rhel10cis_system_users_shell used
+- 5.2.4: rhel10cis_sudoers_exclude_nopasswd_list users excluded
+- 5.2.5: grep pattern without stray escape
+- 1.2.1.3: repo files checked for repo_gpgcheck disabled
 - 5.1.16: MaxAuthTries value anchored
 - 7.1.11, 7.1.12, 7.1.13: mount points read with findmnt
 - 7.1.13: unowned or modified SUID and SGID files reported
