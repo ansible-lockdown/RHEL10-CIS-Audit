@@ -54,6 +54,7 @@
 - 7.1.11, 7.1.12, 7.1.13: mount points read with findmnt
 - 7.1.13: unowned or modified SUID and SGID files reported
 - 1.1.2.1.2 - 1.1.2.1.4: options read from fstab or tmp.mount
+- 1.1.2.3.x - 1.1.2.7.x: mount option tests skipped when the partition is not separate
 
 ## October 2026 - QA fixes
 
