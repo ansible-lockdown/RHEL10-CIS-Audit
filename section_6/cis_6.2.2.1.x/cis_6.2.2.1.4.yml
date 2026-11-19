@@ -6,6 +6,7 @@
 service:
   systemd-journal-remote.socket:
     title: 6.2.2.1.4 | Ensure systemd-journal-remote service is not in use
+    skip: {{ .Vars.rhel10cis_system_is_log_server }}
     running: false
     enabled: false
     meta:
@@ -20,6 +21,7 @@ service:
 command:
   journald_socket_masked:
     title: 6.2.2.1.4 | Ensure systemd-journal-remote service is not in use
+    skip: {{ .Vars.rhel10cis_system_is_log_server }}
     exec: systemctl is-enabled systemd-journal-remote.socket
     exit-status: 1
     stdout:

@@ -5,6 +5,7 @@
 file:
   pam_unix_nullok_password-auth:
     title: 5.3.2.4.1 | Ensure pam_unix does not include nullok | password-auth
+    skip: {{ not .Vars.rhel10cis_disruption_high }}
     path: /etc/pam.d/password-auth
     exists: true
     contents:
@@ -17,6 +18,7 @@ file:
       NIST800-53R5: CM-6
   pam_unix_nullok_system-auth:
     title: 5.3.2.4.1 | Ensure pam_unix does not include nullok | system-auth
+    skip: {{ not .Vars.rhel10cis_disruption_high }}
     path: /etc/pam.d/system-auth
     exists: true
     contents:

@@ -1,5 +1,24 @@
 ---
 
+# Partitions the role only checks when they exist (1.1.2.3 - 1.1.2.7 mount options)
+discovery:
+  mount:
+    /home:
+      register: home_mounted
+      exists: true
+    /var:
+      register: var_mounted
+      exists: true
+    /var/tmp:
+      register: var_tmp_mounted
+      exists: true
+    /var/log:
+      register: var_log_mounted
+      exists: true
+    /var/log/audit:
+      register: var_log_audit_mounted
+      exists: true
+
 gossfile:
   {{ if .Vars.rhel10cis_section1 }}
   section_1/cis_1.1.1.x/*.yml: {}

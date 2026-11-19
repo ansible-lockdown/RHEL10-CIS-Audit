@@ -5,6 +5,7 @@
 file:
   passwd_auth_authselect_modules:
     title: 5.3.1.1 | Ensure active authselect profile includes pam modules
+    skip: {{ or (not .Vars.rhel10cis_disruption_high) (not .Vars.rhel10cis_allow_authselect_updates) }}
     path: /etc/authselect/custom/{{ .Vars.rhel10cis_authselect_custom_profile_name }}/password-auth
     exists: true
     contents:
@@ -25,6 +26,7 @@ file:
       NIST800-53R5: NA
   system_auth_authselect_modules:
     title: 5.3.1.1 | Ensure active authselect profile includes pam modules
+    skip: {{ or (not .Vars.rhel10cis_disruption_high) (not .Vars.rhel10cis_allow_authselect_updates) }}
     path: /etc/authselect/custom/{{ .Vars.rhel10cis_authselect_custom_profile_name }}/system-auth
     exists: true
     contents:
