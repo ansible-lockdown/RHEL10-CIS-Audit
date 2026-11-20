@@ -5,6 +5,7 @@
 file:
   passwd_auth_pwhistory:
     title: 5.3.1.4 | Ensure pam_pwhistory module is enabled
+    skip: {{ or (not .Vars.rhel10cis_disruption_high) (not .Vars.rhel10cis_allow_authselect_updates) }}
     path: /etc/pam.d/password-auth
     exists: true
     contents:
@@ -17,6 +18,7 @@ file:
       NIST800-53R5: IA-5
   system_auth_pwhistory:
     title: 5.3.1.4 | Ensure pam_pwhistory module is enabled
+    skip: {{ or (not .Vars.rhel10cis_disruption_high) (not .Vars.rhel10cis_allow_authselect_updates) }}
     path: /etc/pam.d/system-auth
     exists: true
     contents:

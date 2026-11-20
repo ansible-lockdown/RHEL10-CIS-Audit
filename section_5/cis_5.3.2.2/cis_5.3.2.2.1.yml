@@ -11,7 +11,7 @@ command:
       - 0
       - 1
     stdout:
-    - '/.*\:difok\s*=\s*[2-9]/'
+    - '/.*\:\s*difok\s*=\s*([2-9]|[1-9][0-9]+)\b/'
     meta:
       server: 1
       workstation: 1

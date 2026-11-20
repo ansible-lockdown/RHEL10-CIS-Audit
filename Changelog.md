@@ -14,6 +14,47 @@
 - 6.2.3.8: logrotate.conf rotate setting checked
 - 3.3.1.1: level 2 gate
 - run_audit.sh: OS name and version fall back when /etc/os-release is missing
+- 1.6.4, 1.7.1, 1.7.3: inverse regexes closed
+- 7.2.8: home directory tests limited to local interactive users
+- 2.1.18: nginx-plus package checked
+- 1.4.2: every file in /boot/grub2 checked, user.cfg not required
+- 5.1.5: sshd_config.d Banner none check reads the files
+- 2.1.21: runs on non mail servers, postfix inet_interfaces checked with postconf
+- 5.1.x: sshd -T checks case insensitive
+- 5.4.2.1, 5.4.2.2, 5.4.2.3: fail on any extra UID or GID 0 entry
+- 5.4.1.5: INACTIVE anchored, existing users checked
+- 5.4.1.6: password change dates compared as epoch seconds
+- 5.4.2.5: root PATH checks for empty, current and unsafe directories
+- 5.4.3.1: commented nologin lines ignored
+- 5.3.2.1.2: unlock_time 0 or 900 and above
+- 5.1.15: hmac-sha1-etm@openssh.com in the weak MAC list
+- 1.2.1.3: skipped when the role does not set repo_gpgcheck
+- 5.2.2: !use_pty in sudoers files fails
+- 5.2.6: timestamp_timeout 0 to 15 accepted
+- 5.3.2.3.3: skipped unless rhel10cis_disruption_high
+- 5.4.1.5: existing user check limited to interactive users
+- 6.2.2.1.1 - 6.2.2.1.4, 6.2.3.7: skipped on log servers
+- rhel10cis_xinetd_server and rhel10cis_xinetd_mask removed
+- 5.3.1.1 - 5.3.1.4: skipped unless rhel10cis_disruption_high and rhel10cis_allow_authselect_updates
+- 5.3.1.5: pam_unix checked per stack type
+- 5.3.2.3.1 pam files, 5.3.2.4.x, 5.4.2.1, 5.4.2.2, 5.4.2.7, 5.4.2.8: skipped unless rhel10cis_disruption_high
+- 5.4.1.1: existing users skipped unless rhel10cis_disruption_high
+- 7.2.9: dot file mode and owner checked, skipped unless rhel10cis_disruption_high and rhel10cis_dotperm_ansiblemanaged
+- 5.1.18: MaxSessions above 10 fails
+- 5.3.2.2.1, 5.3.2.2.2, 5.3.2.3.1: difok, minlen and remember accept any compliant value
+- 5.4.2.6: root umask checked in effect and in the files
+- 5.4.3.2: shell timeout checks ported from RHEL9-CIS-Audit
+- 5.4.3.3: weak umask in any file fails
+- 5.4.2.2: system account names matched exactly
+- 5.4.2.7: UID_MIN, nobody and rhel10cis_system_users_shell used
+- 5.2.4: rhel10cis_sudoers_exclude_nopasswd_list users excluded
+- 5.2.5: grep pattern without stray escape
+- 1.2.1.3: repo files checked for repo_gpgcheck disabled
+- 5.1.16: MaxAuthTries value anchored
+- 7.1.11, 7.1.12, 7.1.13: mount points read with findmnt
+- 7.1.13: unowned or modified SUID and SGID files reported
+- 1.1.2.1.2 - 1.1.2.1.4: options read from fstab or tmp.mount
+- 1.1.2.3.x - 1.1.2.7.x: mount option tests skipped when the partition is not separate
 
 ## October 2026 - QA fixes
 

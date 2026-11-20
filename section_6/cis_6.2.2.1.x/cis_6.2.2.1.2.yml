@@ -6,6 +6,7 @@
 file:
   journald_remote_config:
     title: 6.2.2.1.2 | Ensure systemd-journal-upload authentication is configured
+    skip: {{ .Vars.rhel10cis_system_is_log_server }}
     path: /etc/systemd/journal-upload.conf
     exists: true
     contents:
