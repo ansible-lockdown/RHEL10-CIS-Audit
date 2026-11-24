@@ -5,7 +5,7 @@
 file:
   sshd_authtries:
     title: 5.1.16 | Ensure sshd MaxAuthTries is configured
-    path: /etc/ssh/sshd_config
+    path: {{ .Vars.rhel10cis_sshd_config_file }}
     exists: true
     contents:
     - "/^MaxAuthTries [1-4]\\s*$/"

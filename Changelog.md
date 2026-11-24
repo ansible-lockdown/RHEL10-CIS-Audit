@@ -55,6 +55,8 @@
 - 7.1.13: unowned or modified SUID and SGID files reported
 - 1.1.2.1.2 - 1.1.2.1.4: options read from fstab or tmp.mount
 - 1.1.2.3.x - 1.1.2.7.x: mount option tests skipped when the partition is not separate
+- 5.1.4 - 5.1.22: sshd config file read from rhel10cis_sshd_config_file
+- vars: rhel10_cis_sshd_config_file renamed to rhel10cis_sshd_config_file
 
 ## October 2026 - QA fixes
 
