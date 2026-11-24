@@ -559,7 +559,7 @@ rhel10cis_firewalld_target: DROP
 
 # Section 5
 
-rhel10_cis_sshd_config_file: /etc/ssh/sshd_config
+rhel10cis_sshd_config_file: /etc/ssh/sshd_config
 
 ## 5.1.7 Note the following to understand precedence and layout, comma separated
 rhel10cis_sshd_allowusers: vagrant

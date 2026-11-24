@@ -5,7 +5,7 @@
 file:
   sshd_loglevel:
     title: 5.1.14 | Ensure sshd LogLevel is configured | config
-    path: /etc/ssh/sshd_config
+    path: {{ .Vars.rhel10cis_sshd_config_file }}
     exists: true
     contents:
     - '/^LogLevel\s(VERBOSE|INFO)/'

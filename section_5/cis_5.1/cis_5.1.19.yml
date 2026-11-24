@@ -5,7 +5,7 @@
 file:
   sshs_permitempty_passwd:
     title: 5.1.19 | Ensure sshd PermitEmptyPasswords is disabled | config
-    path: /etc/ssh/sshd_config
+    path: {{ .Vars.rhel10cis_sshd_config_file }}
     exists: true
     contents:
     - '/^PermitEmptyPasswords no/'

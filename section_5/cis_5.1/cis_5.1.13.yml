@@ -5,7 +5,7 @@
 file:
   sshd_logingrace:
     title: 5.1.13 | Ensure sshd LoginGraceTime is configured
-    path: /etc/ssh/sshd_config
+    path: {{ .Vars.rhel10cis_sshd_config_file }}
     exists: true
     contents:
     - '/^LoginGraceTime ([1-9]|[1-5][0-9]|60)/'

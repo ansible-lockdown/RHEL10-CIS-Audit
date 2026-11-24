@@ -5,7 +5,7 @@
 command:
   sshd_access_limited:
     title: 5.1.4 | Ensure sshd access is configured | config
-    exec: grep -Ei "^(Allow|Deny)(Users|Groups)" /etc/ssh/sshd_config /etc/ssh/sshd_config.d/*.conf
+    exec: grep -Ei "^(Allow|Deny)(Users|Groups)" /etc/ssh/sshd_config {{ .Vars.rhel10cis_sshd_config_file }} /etc/ssh/sshd_config.d/*.conf
     exit-status:
       or:
       - 0

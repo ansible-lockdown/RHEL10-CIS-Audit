@@ -5,7 +5,7 @@
 file:
   sshd_disable_forward:
     title: 5.1.8 | Ensure sshd DisableForwarding is enabled | config
-    path: /etc/ssh/sshd_config
+    path: {{ .Vars.rhel10cis_sshd_config_file }}
     exists: true
     contents:
     - '/^(?i)disableforwarding yes/'
