@@ -5,6 +5,7 @@
 file:
   passwd_auth_faillock:
     title: 5.3.1.2 | Ensure pam_faillock module is enabled
+    skip: {{ or (not .Vars.rhel10cis_disruption_high) (not .Vars.rhel10cis_allow_authselect_updates) }}
     path: /etc/pam.d/password-auth
     exists: true
     contents:
@@ -20,6 +21,7 @@ file:
       - AC-7
   system_auth_faillock:
     title: 5.3.1.2 | Ensure pam_faillock module is enabled
+    skip: {{ or (not .Vars.rhel10cis_disruption_high) (not .Vars.rhel10cis_allow_authselect_updates) }}
     path: /etc/pam.d/system-auth
     exists: true
     contents:

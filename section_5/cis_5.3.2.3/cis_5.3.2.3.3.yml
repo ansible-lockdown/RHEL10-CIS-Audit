@@ -5,6 +5,7 @@
 file:
   pwhistory_use_authtok_password-auth:
     title: 5.3.2.3.3 | Ensure pam_pwhistory includes use_authtok | password-auth
+    skip: {{ not .Vars.rhel10cis_disruption_high }}
     path: /etc/pam.d/password-auth
     exists: true
     contents:
@@ -17,6 +18,7 @@ file:
       NIST800-53R5: IA-5
   pwhistory_use_authtok_system-auth:
     title: 5.3.2.3.3 | Ensure pam_pwhistory includes use_authtok | system-auth
+    skip: {{ not .Vars.rhel10cis_disruption_high }}
     path: /etc/pam.d/system-auth
     exists: true
     contents:

@@ -31,7 +31,7 @@ command:
     stdout:
     - '/^scan_done$/'
     - '!/^FAIL:/'
-    skip: {{ not .Vars.rhel10cis_force_user_maxdays }}
+    skip: {{ or (not .Vars.rhel10cis_disruption_high) (not .Vars.rhel10cis_force_user_maxdays) }}
     meta:
       server: 1
       workstation: 1
